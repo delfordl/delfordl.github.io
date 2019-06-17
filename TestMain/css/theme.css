@@ -177,4 +177,6 @@
 
 
 .w3-mosaic-theme
-{color:#fff;background-image: linear-gradient(#13a89e,#662d91)}
+{color:#fff; background-image: linear-gradient(#13a89e,#662d91)}
+.w3-hover-mosaic-theme:hover 
+{color:#fff !important; background-image: linear-gradient(#13a89e,#662d91) !important}
