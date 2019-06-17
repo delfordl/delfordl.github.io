@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>Mosaic 2019</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">    
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/theme.css">
+<style>
+.m-blue {color:#90FFCC!important;background-color:#BB80FF!important;} /*5DBCD2 & %D3192*/
+.m-purp {color:#BB80FF!important;background-color:#90FFCC!important;} /*2Fef*/
+    @font-face{
+        font-family:"Caviar Dreams Boldimport";
+        src: url("font/Caviar Dreams Bold.ttf");
+    }
+
+</style>
+    </head>
+<body id="bod" style="background-image: url('images/2019bg.jpg'); background-size: cover; background-clip: inherit; background-clip: border-box;">
+<br><br><br><br><br><br><br><br><div class="w3-display-container w3-text-white" style="height: auto; width: auto">
+  <h1 class="w3-jumbo w3-animate-bottom w3-display-bottom" style="text-align: center;">
+      Mosaic 2019</h1>
+      <h3 class="w3-xlarge w3-animate-top w3-display-bottom" style="text-align: center">coming soon</h3>
+    </div></body>
+</html>
+<script>
+    window.onload=change;
+    window.onresize=change;
+    function change()
+    {
+        if(window.innerHeight>window.innerWidth){
+        document.getElementById("bod").style.backgroundImage="url('images/2019longbg.jpg')";}
+        if(window.innerHeight<window.innerWidth){
+        document.getElementById("bod").style.backgroundImage="url('images/2019bg.jpg')";}
+    }
+</script>

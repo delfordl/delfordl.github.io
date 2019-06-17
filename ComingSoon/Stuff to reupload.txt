@@ -1,0 +1,4 @@
+themes.css
+animate.css
+wow.js
+index.html (Coming Soon: If Social Media Icons are to be added)
