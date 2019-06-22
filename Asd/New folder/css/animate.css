@@ -7,6 +7,10 @@
  *
  * Copyright (c) 2019 Daniel Eden
  */
+@font-face{
+        font-family:"Caviar Dreams Boldimport";
+        src: url(/font/Caviar%20Dreams%20Bold.ttf");
+    }
 
 @-webkit-keyframes bounce {
   from,

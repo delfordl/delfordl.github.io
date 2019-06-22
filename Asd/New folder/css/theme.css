@@ -1,3 +1,7 @@
+@font-face{
+        font-family:"Caviar Dreams Boldimport";
+        src: url(/font/Caviar%20Dreams%20Bold.ttf");
+    }
 /*B&W Theme*/
 .w3-theme-l5 {color:#000 !important; background-color:#f0f0f0 !important}
 .w3-theme-l4 {color:#000 !important; background-color:#cccccc !important}
@@ -177,6 +181,4 @@
 
 
 .w3-mosaic-theme
-{color:#fff; background-image: linear-gradient(#13a89e,#662d91)}
-.w3-hover-mosaic-theme:hover 
-{color:#fff !important; background-image: linear-gradient(#13a89e,#662d91) !important}
+{color:#fff;background-image: linear-gradient(#13a89e,#662d91)}
