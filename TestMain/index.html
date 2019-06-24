@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head><title>Mosaic 2019 | Tell Your Story</title>
 <meta charset="UTF-8">
@@ -11,12 +11,13 @@
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="css/theme.css">
 <link rel="stylesheet" href="css/animate.css">    
-<link rel="icon" href="images/2019blanklogo.png">
+<link rel="icon" href="images/2019logo.png">
 <script src="js/wowmin.js"></script>
 <script>
     new WOW().init();
     onload=reswin;
     onresize=reswin;
+    onload=wowoff;
     function reswin()
     {    
         var s=document.getElementsByClassName("section");
@@ -28,11 +29,19 @@
                 s[i].style.maxHeight=window.innerHeight+"px";
             }
     }
+    function wowoff()
+    {
+        var x=document.getElementsByClassName("wow");
+        for (var i=0;i<x.length;i++)
+            {
+                x[i].dataset.wowOffset=x[i].offsetHeight/40;
+            }
+    }
 </script>
 <style>
     @font-face{
         font-family:"Caviar Dreams Boldimport";
-        src: url(font/Caviar%20Dreams%20Bold.ttf");
+        src: url("font/Caviar%20Dreams%20Bold.ttf");
     }    
 *{font-family: "Caviar Dreams Boldimport !important";}
  html,
@@ -112,7 +121,9 @@
         }
 </style>
 </head>
-<body id="bod" style="background-image:linear-gradient(#405f9c,#0c3052),  linear-gradient(#430939,#0c3052),linear-gradient(#13a89e,#662d91);">
+<body id="bod" style="background-image:linear-gradient(#405f9c,#0c3052)">
+                      
+<!-- linear-gradient(#430939,#0c3052), linear-gradient(#13a89e,#662d91) -->
 <!-- Side Navigation -->
 <nav class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-center w3-mosaic-theme" style="display:none; background-image: url(images/2019longbg.jpg); background-size: cover" id="mySidebar">
   <i onclick="w3_close()" class="fa fa-bars w3-xlarge w3-text-teal-theme"></i>
@@ -124,52 +135,39 @@
     <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Blog</h3></a><br><br>
     <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Scoreboard</h3></a><br><br>
     <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Sponsors</h3></a><br>
-    <img src="images/2019blanklogo.png" style="height: 5%; width: 5%" class="wow animated fadeInLeft" data-wow-duration="2s" data-wow-delay="1s" data-wow-iteration="10"><br><br>
+    <img src="images/2019logo.png" style="height: 10%; width: 10%" class="wow animated fadeInUp" data-wow-duration="2s" data-wow-delay="0.5s"><br><br>
 </nav>
 <!-- Header -->
-<header class="w3-container w3-padding w3-display-container section" id="myHeader" style="background-image: url(images/2019bg.jpg); background-size: 100% 100%">
+<header class="w3-container w3-padding w3-display-container section" id="myHeader" style="background-image: url(images/2019bg.jpg); background-size: 100% 100%; min-height: 100vh; height: 100vh" >
   <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-text-purple-theme"></i> 
   <div class="w3-center w3-text-white">
-      <h5 style="font-weight: 100" class="w3-display-top">St. Andrew's College of Arts, Science and Commerce presents:</h5><br>
-      <div class="w3-display-middle"><img src="images/2019blanklogo.png" style="height:50%; width:50%">
-      </div><br>
-    <h1 class="w3-display-bottommiddle">Mosaic 2019: Tell your Story</h1>
-    <div class="w3-padding-32">
-      <!--<button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">Learn More</button>-->
-    </div>
+      <h5 style="font-weight: 100" class="w3-display-top wow animated fadeInDown" data-wow-duration="2s" data-wow-delay="0.5s">St. Andrew's College of Arts, Science and Commerce presents:</h5>
+      <div class="w3-display-middle"><img src="images/2019logo.png" style="height:50%; width:50%" class="wow animated fadeInRight" data-wow-duration="2s" data-wow-delay="0.5s">
+      </div>
+    <h1 class="w3-display-bottommiddle wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">Mosaic 2019: Tell your Story</h1><br>
   </div>
 </header>
 
-<!-- Modal -->
-<div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-bottom">
-      <!--<header class="w3-container w3-theme-l1"> 
-        <span onclick="document.getElementById('id01').style.display='none'"
-        class="w3-button w3-display-topright">×</span>
-        <h4>Oh snap! We just showed you a modal..</h4>
-        <h5>Because we can <i class="fa fa-smile-o"></i></h5>
-      </header>-->
-      <div class="w3-padding">
-        <a class="w3-btn" style="margin-left: 25%" href="/w3css/default.asp">Events List</a>
-        <a class="w3-btn" style="margin-right: 25%" href="/w3css/default.asp">Events List</a>
-      </div>
-    </div>
-</div>
-<div class="w3-container ">
-<header class="w3-container" style="/background-image: linear-gradient(to right, #f6da21, #35558d, #430939),linear-gradient(90deg,#f6da21,#37113e),linear-gradient(to right, #f6da21,#258e9c,#258e9c,#430939), linear-gradient(180deg, #f6da21,#258e9c),linear-gradient(180deg,#430939,#258e9c)">
-  <h2>About Mosaic</h2>
+<div class="w3-container section" style="min-height: 100vh; height: 100vh">
+<header class="w3-container"> <!--style="/background-image: linear-gradient(to right, #f6da21, #35558d, #430939),linear-gradient(90deg,#f6da21,#37113e),linear-gradient(to right, #f6da21,#258e9c,#258e9c,#430939), linear-gradient(180deg, #f6da21,#258e9c),linear-gradient(180deg,#430939,#258e9c)-->
+  <h2 class="wow animated fadeInRight" data-wow-duration="2s" data-wow-delay="0.5s" data-wow-offset="100">About Mosaic</h2>
 </header>
-<div class="w3-padding w3-display-container">
-  <p>Brining to you the annual cultural fest of St. Andrews' College.</p>
-    <p><b>'Mosaic 2019: Tell your Story'</b> is [Description of Mosaic]
+<div class="w3-padding w3-container">
+<div class="w3-padding w3-twothird w3-container">
+  <h4 class="wow animated fadeInDown" data-wow-duration="2s" data-wow-delay="0.5s" data-wow-offset="100">Brining to you the annual cultural fest of St. Andrews' College.</h4>
+    <h3 class="wow animated fadeInDown wowfull" data-wow-duration="2s" data-wow-delay="0.5s" data-wow-offset="100">'Mosaic 2019: Tell your Story'</h3> <h5 class="wow animated fadeInDown" data-wow-duration="2s" data-wow-delay="0.5s" data-wow-offset="100">is [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla velit justo, rhoncus sed vulputate nec, egestas sit amet est. Donec pharetra nec risus in elementum. Cras iaculis mi vitae erat euismod consequat. Cras id velit at ex mattis fermentum. Nunc suscipit magna at ante viverra, et euismod ipsum aliquet. Duis velit massa, lacinia sed semper vitae, auctor a massa. In hac habitasse platea dictumst. Morbi sit amet purus tristique, consectetur nisl nec, mattis quam. Suspendisse euismod ultrices neque eget cursus. Duis vitae sodales diam. Sed quis risus pretium enim vestibulum varius in sed est. Sed vitae enim a dolor rhoncus fermentum.
+
+Quisque ut metus justo. In volutpat condimentum risus, eget iaculis libero. Vestibulum eleifend tellus a enim vulputate tristique. Aliquam rhoncus justo pellentesque lacus semper, id efficitur nisi volutpat. Cras imperdiet enim sit amet ultricies egestas. Curabitur id risus eu leo bibendum semper id et massa. Sed id urna quis nunc luctus tristique id vel sem. Cras pellentesque ipsum nec nulla facilisis scelerisque. Ut imperdiet, mi nec sagittis dapibus, velit turpis iaculis ipsum, vitae ultricies massa lectus nec erat. Pellentesque fringilla lectus tempor, luctus odio sit amet, sodales risus. Ut purus nunc, maximus accumsan euismod id, dictum eget purus.]</h5>
+</div>
+<div class="w3-paddding w3-third wow animated fadeInLeft  w3-container" data-wow-duration="2s" data-wow-delay="0.5s" data-wow-offset="400"><img src="images/placeholderCrowd.jpg" style="height: 100%; width: 100%"></div>    
 </div>
 </div>
 <div class="w3-container ">    
 <div class="w3-container w3-center">
-    <a href="#"><h2 class="w3-btn w3-card-4 w3-mosaic-theme">Schedule</h2></a>
+    <a href="#"><h2 class="w3-btn w3-card-4 w3-mosaic-theme wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">Schedule</h2></a>
 </div>    
 <div class="w3-row-padding w3-center w3-margin-top">
-<div class="w3-quarter">
+<div class="w3-quarter wow animated fadeInRight" style="margin-top: 15px" data-wow-duration="2s" data-wow-delay="2.75s">
   <div class="w3-card w3-mosaic-theme w3-container" style="min-height:460px">
   <h3>Day 1: 11th June 2019</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
@@ -181,7 +179,7 @@
   <p>22:30 | Event 6</p>
   </div>
 </div>
-<div class="w3-quarter">
+<div class="w3-quarter wow animated fadeInDown" style="margin-top: 15px" data-wow-duration="2s" data-wow-delay="2s">
   <div class="w3-card w3-mosaic-theme w3-container" style="min-height:460px">
   <h3>Day 2: 12th June 2019</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
@@ -193,7 +191,7 @@
   <p>22:30 | Event 6</p>
   </div>
 </div>
-<div class="w3-quarter">
+<div class="w3-quarter wow animated fadeInUp" style="margin-top: 15px" data-wow-duration="2s" data-wow-delay="1.25s">
   <div class="w3-card w3-container w3-mosaic-theme" style="min-height:460px">
   <h3>Day 3: 13th June 2019</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
@@ -205,7 +203,7 @@
   <p>22:30 | Event 6</p>
   </div>
 </div>
-<div class="w3-quarter">
+<div class="w3-quarter wow animated fadeInLeft" style="margin-top: 15px" data-wow-duration="2s" data-wow-delay="0.5s">
   <div class="w3-card w3-container w3-mosaic-theme" style="min-height:460px">
   <h3>Day 4: 13th June 2019</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
@@ -221,16 +219,19 @@
     </div><br>
 <div class="w3-container ">
 <div class="w3-container w3-center">
-    <a href="#"><h2 class="w3-btn w3-mosaic-theme w3-card-4">Our Sponsors</h2></a>
+    <a href="#"><h2 class="w3-btn w3-mosaic-theme w3-card-4 wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s" >Our Sponsors</h2></a>
 </div><br>
 
 <div class="w3-row-padding"> 
     
-<div class="w3-quarter">
+<div class="w3-quarter wow animated fadeInLeft" data-wow-duration="2s" data-wow-delay="0.5s" style="margin-top: 15px">
  <div class="w3-card-4 w3-mosaic-theme">
   <div class="w3-dropdown-hover w3-mosaic-theme w3-center">
-      <img src="images/2019blanklogo.png" style="height:100%; width:100%">
-      <div class="w3-dropdown-content w3-card-4 w3-mosaic-theme" style="width:250px">
+      <img src="images/2019blanklogo.png" style="height:100%;  width:100%">
+      <div class="w3-container">
+        <center><h6>Sponsor 1</h6></center>
+      </div>
+   <div class="w3-dropdown-content w3-card-4 w3-mosaic-theme" style="width:250px">
       <video controls style="width:100%" loop=1>
           <source src="vid.mp4" type="video/mp4" >
       </video>  
@@ -239,14 +240,11 @@
         <p>More Info about Sponsor 1.</p>
       </div>
     </div>
-      <div class="w3-container">
-        <center><h6>Sponsor 1</h6></center>
-      </div>
   </div>
- </div>     
-</div>
+ </div>    
+</div>    
 
-<div class="w3-quarter">
+<div class="w3-quarter wow animated fadeInLeft" data-wow-duration="2s" data-wow-delay="0.5s" style="margin-top: 15px">
  <div class="w3-card-4 w3-mosaic-theme">
   <div class="w3-dropdown-hover w3-mosaic-theme w3-center">
       <img src="images/2019blanklogo.png" style="height:100%; width:100%">
@@ -262,7 +260,7 @@
       </div>
   </div>
  </div>     
-</div><div class="w3-quarter">
+</div><div class="w3-quarter wow animated fadeInLeft" data-wow-duration="2s" data-wow-delay="0.5s" style="margin-top: 15px">
  <div class="w3-card-4 w3-mosaic-theme">
   <div class="w3-dropdown-hover w3-center w3-mosaic-theme">
       <img src="images/2019blanklogo.png" style="height: 100%; width:100%">
@@ -279,7 +277,7 @@
   </div>
  </div>     
 </div>
-<div class="w3-quarter">
+<div class="w3-quarter wow animated fadeInLeft" data-wow-duration="2s" data-wow-delay="0.5s" style="margin-top: 15px">
  <div class="w3-card-4 w3-mosaic-theme">
   <div class="w3-dropdown-hover w3-mosaic-theme w3-center">
       <img src="images/2019blanklogo.png" alt="Car" style="height: 100%; width:100%">
@@ -299,7 +297,7 @@
 </div>
 <br>
 <div class="w3-row-padding">
-<div class="w3-quarter">
+<div class="w3-quarter wow animated fadeInLeft" data-wow-duration="2s" data-wow-delay="0.5s" style="margin-top: 15px">
  <div class="w3-card-4 w3-mosaic-theme">
   <div class="w3-dropdown-hover w3-mosaic-theme w3-center">
       <img src="images/2019blanklogo.png" alt="Car" style="height:100%;width:100%">
@@ -315,7 +313,8 @@
       </div>
   </div>
  </div>     
-</div><div class="w3-quarter">
+</div>
+<div class="w3-quarter wow animated fadeInLeft" data-wow-duration="2s" data-wow-delay="0.5s" style="margin-top: 15px">
  <div class="w3-card-4 w3-mosaic-theme">
   <div class="w3-dropdown-hover w3-mosaic-theme w3-center">
       <img src="images/2019blanklogo.png" alt="Car" style="height: 100%; width:100%">
@@ -334,20 +333,19 @@
 </div>
 </div>
 </div>
-
+<br><br>
 <div class="w3-container ">
-  
-  <div class="w3-center w3-container">
-    <h2>Scoreboard</h2>
-    <p w3-class="w3-large">Who'll take home the trophy?</p>
+  <div class="w3-center w3-container wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">
+    <h2 class="w3-btn w3-mosaic-theme w3-card-4">Scoreboard</h2>
+    <h6>Who'll take home the trophy?</h6>
   </div>
-<div class="w3-responsive w3-card-4 w3-container">
+<div class="w3-responsive w3-card-4 w3-container wow animated fadeInLeft" data-wow-duration="2s" data-wow-delay="0.5s">
 <table class="w3-table w3-striped w3-bordered w3-hoverable w3-responsive w3-card-4 w3-container">
 <thead>
 <tr class="w3-mosaic-theme w3-container">
   <th>Contingent Name</th>
     <th style="min-width: 100px; color: red">Total Points</th>
-    <th style="min-width: 100px">PR Points</th>
+    <th style="min-width: 100px" class="wow animated fadeInRight" data-wow-duration="2s" data-wow-delay="1s">PR Points</th>
   <th style="min-width: 100px">Event 1</th>
   <th style="min-width: 100px">Event 2</th>
   <th style="min-width: 100px">Event 2</th>
@@ -367,7 +365,6 @@
   <th style="min-width: 100px">Event 17</th>
   <th style="min-width: 100px">Event 18</th>
   <th style="min-width: 100px">Event 19</th>
-  <th style="min-width: 100px">Event 20</th>
 
 </tr>
 </thead>
@@ -605,20 +602,20 @@
 </div>-->
 <br>
 <div class="w3-container ">    
-    <div class="w3-center">
+    <div class="w3-center wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">
     <a href="#"><h2 class="w3-center w3-btn w3-mosaic-theme w3-card-4">Crews</h2></a></div>
     <br>
-<div class="w3-content" style="max-width:1000px;position:relative;">
+<div class="w3-content wow animated fadeInLeft" data-wow-duration="2s" data-wow-delay="0.5s" style="max-width:1000px;position:relative;">
 
-<img class="mySlides w3-animate-opacity" src="External.jpg" style="height: 100%; width:100%">
-<img class="mySlides w3-animate-opacity" src="Internal.jpg" style="height: 100%; width:100%">
-<img class="mySlides w3-animate-opacity" src="Events.jpg" style="height: 100%; width:100%">
+<img class="mySlides w3-animate-opacity" src="images/External.jpg" style="height: 100%; width:100%">
+<img class="mySlides w3-animate-opacity" src="images/Internal.jpg" style="height: 100%; width:100%">
+<img class="mySlides w3-animate-opacity" src="images/Events.jpg" style="height: 100%; width:100%">
 
 <a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
 <a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;right:0;" onclick="plusDivs(+1)">❯</a>
 </div>
 
-<div class="w3-container">
+<div class="w3-container wow animated fadeInRight" data-wow-duration="2s" data-wow-delay="0.5s">
 <!--<hr>
 <h2 class="w3-center">Navigation</h2>
 
@@ -660,13 +657,13 @@
 </div>-->
 
 <div class="w3-border">
-<div class="w3-bar w3-theme">
-  <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'External')">External</button>
-  <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Internal')">Internal</button>
-  <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Events')">Events</button>
+<div class="w3-bar w3-mosaic-theme">
+  <button class="w3-bar-item w3-button testbtn w3-teal-theme VCs" id="External">External</button>
+  <button class="w3-bar-item w3-button testbtn w3-teal-theme VCs" id="Internal">Internal</button>
+  <button class="w3-bar-item w3-button testbtn w3-teal-theme VCs" id="Events">Events</button>
 </div>
 
-<div id="External" class="w3-container city w3-animate-opacity">
+<div id="Externaltab" class="w3-container tabs w3-animate-opacity">
     <button onclick="myAccFunc('External','Ext Dep 1')" class="w3-padding-16 w3-teal-theme w3-button w3-block w3-left-align">External Dep 1</button>
         <div class="External w3-hide" id="Ext Dep 1">
         <div class="w3-container">
@@ -686,12 +683,12 @@
         </div>
         </div>   
 </div>
-<div id="Internal" class="w3-container city w3-animate-opacity">
+<div id="Internaltab" class="w3-container tabs w3-animate-opacity" style="display: none">
     <button onclick="myAccFunc('Internal','Int Dep 1')" class="w3-padding-16 w3-teal-theme w3-button w3-block w3-left-align">Internal Dep 1</button>
         <div class="Internal w3-hide" id="Int Dep 1">
-        <div class="w3-container">
+        
             <p>Hey, this is Internal Dep 1. Here's a short description</p>
-        </div>
+        
         </div>
     <button onclick="myAccFunc('Internal','Int Dep 2')" class="w3-padding-16 w3-teal-theme w3-button w3-block w3-left-align">Internal Dep 2</button>
         <div class="Internal w3-hide" id="Int Dep 2">
@@ -706,7 +703,7 @@
         </div>
         </div>   
 </div>
-<div id="Events" class="w3-container city w3-animate-opacity">
+<div id="Eventstab" class="w3-container tabs w3-animate-opacity" style="display: none">
     <button onclick="myAccFunc('Events','Evt Dep 1')" class="w3-padding-16 w3-teal-theme w3-button w3-block w3-left-align">Events Dep 1</button>
         <div class="Events w3-hide" id="Evt Dep 1">
         <div class="w3-container">
@@ -749,21 +746,39 @@
     </div>
     </div>
 <br><br>
-<div class="w3-container ">
-<div class="w3-container w3-row">
-    <div class="w3-container w3-half w3-card-4">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.1608136147916!2d72.8267607143765!3d19.056665857533233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c93fef9c6395%3A0xb5b3366a8730fe4a!2sSt+Andrew&#39;s+College+of+Arts%2C+Science+and+Commerce!5e0!3m2!1sen!2sin!4v1560803250566!5m2!1sen!2sin" style="height: 700px;width: 100%" frameborder="0" style="border:0" allowfullscreen></iframe></div>
-    <div class="w3-container w3-half w3-card-4"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/ByzeFaHgoF9/" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/ByzeFaHgoF9/" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div></a> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/ByzeFaHgoF9/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Buckle up Andreans, only 2 more days to go! Come and witness the internal logo launch of Mosaic 2019 on our very own college campus. Mosaic 2019 is taking college fests to a whole new level!😉 #UdnaBantaHai #Mosaic2019 #CollegeFest #MosaicLaunch #festmosaic</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by <a href="https://www.instagram.com/festmosaic/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Mosaic</a> (@festmosaic) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2019-06-17T08:30:06+00:00">Jun 17, 2019 at 1:30am PDT</time></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script></div></div>
-<h2 class="w3-center">Social Media</h2>
+<div class="w3-container">
+    <div class="w3-center wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">
+    <a href="#"><h2 class="w3-center w3-btn w3-mosaic-theme w3-card-4">Social Media</h2></a></div><br>
+    
+    <div class="w3-container w3-center wow animated fadeInLeft w3-row" style="margin: 25px" data-wow-duration="2s" data-wow-delay="0.5s">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.1608136147916!2d72.8267607143765!3d19.056665857533233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c93fef9c6395%3A0xb5b3366a8730fe4a!2sSt+Andrew&#39;s+College+of+Arts%2C+Science+and+Commerce!5e0!3m2!1sen!2sin!4v1560803250566!5m2!1sen!2sin" style="height: 400px;width: 100%;" frameborder="1" style="border:0" allowfullscreen></iframe></div>
+    <div class="w3-container w3-row" style="margin-top: 25px; padding-top: 25px; border-top: 25px">
+    <div class="w3-container w3-center w3-third">
+        <div class="wow animated fadeInRight" style="top: 0%; left: 0%; width:100%" data-wow-duration="2s" data-wow-delay="0.5s"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/By5MF-Pgtzz/" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; min-width:326px; padding:0; width:100%; width:-webkit-calc(100%); width:calc(100%);"> <a href="https://www.instagram.com/p/By5MF-Pgtzz/" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/By5MF-Pgtzz/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Mosaic (@festmosaic)</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2019-06-19T13:48:39+00:00">Jun 19, 2019 at 6:48am PDT</time></p></blockquote> <script async src="https://www.instagram.com/embed.js"></script></div></div>
+        
+        <div class="w3-container w3-center w3-third">    
+            <div class="wow animated fadeInDown w3-rest" style="top: 0%;" data-wow-duration="2s" data-wow-delay="1.25s"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/By5C6nsg_hw/" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; min-width:326px; padding:0; width100%; width:-webkit-calc(100%); width:calc(100%);"><a href="https://www.instagram.com/p/By5C6nsg_hw/" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/By5C6nsg_hw/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Mosaic (@festmosaic)</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2019-06-19T12:28:09+00:00">Jun 19, 2019 at 5:28am PDT</time></p></blockquote> <script async src="https://www.instagram.com/embed.js"></script></div>
+    </div>
+            <div class="w3-container w3-center w3-third">    
+            <div class="wow animated fadeInLeft w3-rest" style="top: 0%;" data-wow-duration="2s" data-wow-delay="0.5s">
+    
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/By7M2jeg6K_/" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; min-width:326px; padding:0; width:100%; width:-webkit-calc(100%); width:calc(100%);"> <a href="https://www.instagram.com/p/By7M2jeg6K_/" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/By7M2jeg6K_/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Mosaic (@festmosaic)</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2019-06-20T08:36:28+00:00">Jun 20, 2019 at 1:36am PDT</time></p></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                
+            </div>
+    </div>
+    </div>
+    
+<h2 class="w3-center wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">Social Media</h2>
 <div class="w3-center">
 <!--<a class="w3-button w3-theme">Button</a>
   <a class="w3-button w3-theme">Button</a>
   <a class="w3-button w3-theme-d3 w3-disabled">Button</a>-->
   <br>
-  <a href="https://www.snapchat.com/add/festmosaic" class="w3-button w3-circle w3-large w3-card-4 w3-mosaic-theme"><i class="fa fa-snapchat"></i></a> &nbsp;&nbsp;&nbsp;
-  <a href="https://www.facebook.com/Mosaic-1801853020123422/"class="w3-button w3-circle w3-large w3-card-4 w3-mosaic-theme"><i class="fa fa-facebook"></i></a>  &nbsp;&nbsp;&nbsp;
-  <a href="https://www.instagram.com/festmosaic" class="w3-button w3-circle w3-large w3-card-4 w3-card-4 w3-mosaic-theme"><i class="fa fa-instagram"></i></a>
+  <a href="https://www.snapchat.com/add/festmosaic" class="w3-button w3-circle w3-large w3-card-4 w3-mosaic-theme wow animated fadeInRight" data-wow-duration="2s" data-wow-delay="0.5s"><i class="fa fa-snapchat"></i></a> &nbsp;&nbsp;&nbsp;
+  <a href="https://www.instagram.com/festmosaic" class="w3-button w3-circle w3-large w3-card-4 w3-card-4 w3-mosaic-theme wow animated fadeInUp" data-wow-duration="2s" data-wow-delay="1.25s"><i class="fa fa-instagram"></i></a> &nbsp;&nbsp;&nbsp;
+  <a href="https://www.facebook.com/Mosaic-1801853020123422/"class="w3-button w3-circle w3-large w3-card-4 w3-mosaic-theme wow animated fadeInLeft" data-wow-duration="2s" data-wow-delay="0.5s"><i class="fa fa-facebook"></i></a>  &nbsp;&nbsp;&nbsp;
 </div>
+    </div>
 <br>
 <!--<div class="w3-center">
   <div class="w3-dropdown-hover">
@@ -792,7 +807,6 @@
   </div>
 </div>
 <br>-->
-    </div>
 <!-- Footer -->
 <footer class="w3-container w3-theme-dark w3-padding-16">
   <h3>Contact Us</h3>
@@ -825,6 +839,36 @@ function w3_close() {
 }
 
 // Tabs
+onload=elisteners;
+function elisteners()   {
+var VCs=document.getElementsByClassName("VCs")
+for (var i=0;i<VCs.length;i++)
+    {
+        VCs[i].addEventListener("click",function(){base(this.id);});
+    }
+    }
+    //{basic(this.id);});
+    function base(str)
+    {
+        document.getElementById(str).className+="w3-mosaic-theme";
+        var i;
+        var tabs=document.getElementsByClassName("tabs");
+        var imgs=document.getElementsByClassName("mySlides");
+        var VCs=document.getElementsByClassName("VCs");
+        for (i=0;i<tabs.length;i++)
+            {
+                if(tabs[i].className.includes("w3-mosaic-theme"))
+                {tabs[i].className=tabs[i].className.replace("w3-mosaic-theme","w3-teal-theme");}
+                tabs[i].style.display="none";
+                imgs[i].style.display="none";
+                if (tabs[i].id==(str+"tab"))
+                    {
+                        tabs[i].className=tabs[i].className.replace("w3-teal-theme","w3-mosaic-theme");
+                        tabs[i].style.display="";
+                        imgs[i].style.display="";
+                    }
+            }
+    }
 function openCity(evt, cityName) {
   var i,rep;
   var x = document.getElementsByClassName("city");
@@ -840,7 +884,7 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " w3-purple-theme";
   for (i = 0; i < im.length; i++) {
     im[i].style.display = "none";
-    rep=im[i].src.replace("file:///C:/Users/delfo/Documents/GitHub/delfordl.github.io/Monochrome/","")
+    rep=im[i].src; /*replace("file:///C:/Users/delfo/Documents/GitHub/delfordl.github.io/Monochrome/","")*/
     rep=rep.replace(".jpg","")
     if(rep==cityName){
     im[i].style.display = "block"; 
@@ -859,7 +903,13 @@ function myAccFunc(UpperDept, Dept) {
   {
     n[i].className=n[i].className.replace("w3-show",""); 
   }
-  x.className += "w3-show"}
+  if (document.getElementById(Dept).className.includes("w3-show")){
+      document.getElementById(Dept).className=document.getElementById(Dept).className.replace("w3-show","");
+  }
+  else{
+  x.className += "w3-show"
+  }
+}  
   /*var x=document.getElementById(id)
   if (x.className.indexOf("w3-show") == -1) {
     x.className += " w3-show";
