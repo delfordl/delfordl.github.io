@@ -18,7 +18,14 @@
     new WOW().init();
     onload=reswin;
     onresize=reswin;
-    onload=wowoff;
+    window.onload=function wowoff()
+    {
+        var x=document.getElementsByClassName("wow");
+        for (var i=0;i<x.length;i++)
+            {
+                x[i].dataset.wowOffset=x[i].offsetHeight;
+            }
+    }
     
 
 // When the user clicks anywhere outside of the modal, close it
@@ -30,14 +37,6 @@ window.onclick = function(event) {
     modal[i].style.display = "none";
   }}
 }
-    function wowoff()
-    {
-        var x=document.getElementsByClassName("wow");
-        for (var i=0;i<x.length;i++)
-            {
-                x[i].dataset.wowOffset=x[i].offsetHeight/40;
-            }
-    }
     function setTransitions()
     {
         var heads=document.getElementsByClassName("MDept");
@@ -82,7 +81,7 @@ window.onclick = function(event) {
     <h2 class="w3-text-white wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s" style="text-decoration: none">Volunteer Applications</h2>
 </div>    
 <div class="w3-row-padding w3-center w3-margin-top">
-<div class="w3-col l4 w3-mobile wow animated fadeInRight" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="2.75s">
+<div class="w3-col l4 w3-mobile wow animated fadeInLeft" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="2.5s">
   <div class="w3-card w3-mosaic-theme w3-container w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Events">
   <h4 class="w3-container" style="width: 100%; max-width: 100%">Events</h4><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
@@ -103,7 +102,7 @@ window.onclick = function(event) {
   <p>Scoring</p>
   </div>
 </div>
-<div class="w3-col l4 w3-mobile wow animated fadeInUp" style="margin-top: 15px ; width: 20%" data-wow-duration="2s" data-wow-delay="1.25s">
+<div class="w3-col l4 w3-mobile wow animated fadeIn" style="margin-top: 15px ; width: 20%" data-wow-duration="2s" data-wow-delay="2s">
   <div class="w3-card w3-container w3-mosaic-theme w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Org">
   <h4 class="w3-container" style="width: 100%; max-width: 100%">Organisation</h4><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
@@ -114,7 +113,7 @@ window.onclick = function(event) {
   <p>Finance</p>
   </div>
 </div>
-<div class="w3-col l4 w3-mobile wow animated fadeInLeft" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="0.5s">
+<div class="w3-col l4 w3-mobile wow animated fadeInUp" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="1s">
   <div class="w3-card w3-container w3-mosaic-theme w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="PR">
   <h4 class="w3-container" style="width: 100%; max-width: 100%">Public Relations</h4><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
@@ -145,7 +144,7 @@ window.onclick = function(event) {
   <p>Marketing</p>
   </div>
 </div>
-    <div class="w3-col l4 w3-mobile wow animated fadeInLeft" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="0.5s">
+    <div class="w3-col l4 w3-mobile wow animated fadeInRight" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="0.5s">
   <div class="w3-card w3-container w3-mosaic-theme w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Media">
   <h4 class="w3-container" style="width: 100%; max-width: 100%">Media</h4><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
@@ -160,6 +159,6 @@ window.onclick = function(event) {
 <div class="w3-container w3-center MDept">
     <a href="#"><h2 class="w3-btn w3-card-4 w3-mosaic-theme wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">Volunteer Now</h2></a>
 </div>    
-
+        </div>
     
     </body>
