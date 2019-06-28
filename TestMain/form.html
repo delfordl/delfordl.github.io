@@ -22,7 +22,7 @@
         var x=document.getElementsByClassName("wow");
         for (var i=0;i<x.length;i++)
             {
-                x[i].dataset.wowOffset=x[i].offsetHeight;
+                x[i].dataset.wowOffset=x[i].offsetHeight/4;
             }
     }
     
@@ -44,7 +44,7 @@
                 sb[i].addEventListener("click",function(){beforesub(this.id);});
             }
     }
-    function beforesub(bid)
+    /*function beforesub(bid)
     {
         var hid,i,rank;
         var sb=document.getElementsByClassName("subbtn");
@@ -70,7 +70,44 @@
                 hiddenf[i].querySelector("input").name="";
                 if(hiddenf[i].id==hid)
                     {
-                        hiddenf[i].querySelector("input").name="entry.260531291";
+                        hiddenf[i].querySelectorAll("input")[0].name="entry.260531291";
+                        hiddenf[i].querySelectorAll("input")[1].name="NA";
+                    }
+            }
+        document.querySelector("form").action=document.getElementById(bid).formaction;
+        document.getElementById(bid).innerHTML+=" Submitted";
+        document.getElementById(bid).disabled=true;
+        document.getElementById("prio").value=rank;
+        document.querySelector("form").submit();
+    }*/
+    function beforesub(bid) //textarea
+    {
+        var hid,i,rank;
+        var sb=document.getElementsByClassName("subbtn");
+        switch(bid)
+            {
+                    case"b1":rank=1;break;
+                    case"b2":rank=2;break;
+                    case"b3":rank=3;break;
+                default:break;
+            }
+        
+        document.getElementById("prio").value=prio;
+        switch(bid)
+            {
+                case "b1":hid="hide1";break;
+                case "b2":hid="hide2";break;    
+                case "b3":hid="hide3";break;
+                default:break;
+            }
+        var hiddenf=document.getElementsByClassName("hide")
+        for(i=0;i<hiddenf.length;i++)
+            {
+                hiddenf[i].querySelectorAll("textarea").name="";
+                if(hiddenf[i].id==hid)
+                    {
+                        hiddenf[i].querySelectorAll("textarea")[0].name="entry.260531291";
+                        hiddenf[i].querySelectorAll("textarea")[1].name="entry.722795158";
                     }
             }
         document.querySelector("form").action=document.getElementById(bid).formaction;
@@ -127,12 +164,12 @@
     }
     function setQ(pardivid,dept)
     {
-        var question;
+        var q1,q2;
         switch(dept)
         {
-            case "d1": question="Dep 1 Q";break;
-            case "d2": question="Dep 2 Q";break;
-            case "d3": question="Dep 3 Q";break;
+            case "d1": q1="Dep 1 Q";q2="Dep 1 Q2";break;
+            case "d2": q1="Dep 2 Q";q2="Dep 2 Q2";break;
+            case "d3": q1="Dep 3 Q";q2="Dep 3 Q2";break;
             default:break;
         }
         var hiddendiv=document.getElementById(pardivid);
@@ -140,13 +177,15 @@
         if(dept=="N")
             {
                 hiddenf[0].style.display="none";
-                hiddendiv.querySelector("input").required=false;
+                hiddendiv.querySelector("textarea").required=false;
             }
         else
             {
-                hiddenf[0].querySelector("label").innerHTML=question;
+                hiddenf[0].querySelectorAll("label")[0].innerHTML=q1;
+                hiddenf[0].querySelectorAll("label")[1].innerHTML=q2;
                 hiddenf[0].style.display="";
-                hiddendiv.querySelector("input").required=true;
+                hiddendiv.querySelectorAll("textarea")[0].required=true;
+                hiddendiv.querySelectorAll("textarea")[1].required=true;
             }
     }
     function setB(pid,dept)
@@ -154,9 +193,9 @@
         var link,dname,btn;
         switch(dept)
         {
-            case "d1": dname="Dep 1";link="https://docs.google.com/forms/d/e/1FAIpQLSfTwauTmxnCpZMBcJ_jp2WVA04QnA5G0y6ph1KzRnFxGU3-Ng/formResponse";break;
-            case "d2": dname="Dep 2";link="https://docs.google.com/forms/d/e/1FAIpQLScuur8yVcCdHqYckX6pTYU7RY7SrKQ4vKwUxlGGEW_zr8QV3Q/formResponse";break;
-            case "d3": dname="Dep 3";link="https://docs.google.com/forms/d/e/1FAIpQLSe6EDmdhHCjSylAH7T4BTaQr0uH8bOOuOeKtWbu0Cg-nfzWnw/formResponse";break;
+            case "d1": dname="Apply to Dep 1";link="https://docs.google.com/forms/d/e/1FAIpQLSfTwauTmxnCpZMBcJ_jp2WVA04QnA5G0y6ph1KzRnFxGU3-Ng/formResponse";break;
+            case "d2": dname="Apply to Dep 2";link="https://docs.google.com/forms/d/e/1FAIpQLScLXNzHmwLR66gTFe3ZMFSe-fTDlc8iDYILvJZZxnLQ3fRZ6w/formResponse";break;
+            case "d3": dname="Apply to Dep 3";link="https://docs.google.com/forms/d/e/1FAIpQLSebMRyPuFm7iYCMnRKXazFYk1Bmjjwl-Z67DliJJDmFQqjPlQ/formResponse";break;
             default:break;
         }
         switch(pid)
@@ -178,21 +217,14 @@
                 btn.style.display=""
             }
     }
-    function highlight(card)
-    {
-        var head=document.getElementById(card).querySelector("h4");
-        head.className+=" w3-text-purple";
-    }
-    function unhighlight(card)
-    {
-        var head=document.getElementById(card).querySelector("h4");
-        head.className=head.className.replace("w3-text-purple","");
-    }
 </script>
 <style>
     @font-face{
         font-family:"Caviar Dreams Boldimport";
         src: url("font/Caviar%20Dreams%20Bold.ttf");
+    }
+    label{
+        font-size: 20px;
     }
     </style>
     </head>
@@ -205,76 +237,105 @@
         </header>
     <br><br>
    <div class="w3-container ">
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted)  {window.location='end.html';}"></iframe>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted)  {return false}"></iframe>
 <div class="w3-row-padding w3-margin-top">
 <form target="hidden_iframe" onsubmit="submitted=true;" target="_blank" class="w3-container w3-mosaic-theme wow animated fadeInUp w3-card-4" data-wow-duration="2s" data-wow-delay="0.5s">
-  <h2 class="w3-text-white w3-center">Volunteer Applications</h2>
+  <h2 class="w3-text-white w3-center">क्रू Applications</h2>
   <div class="w3-section">      
-    <input class="w3-input" type="text" id="" name="entry.782163840" required>
-    <label>Name</label>
+    <label>Name</label>  
+    <input class="w3-mosaic-input" type="text" id="" name="entry.782163840" required size="100" maxlength="50">
   </div>
   <div class="w3-section">      
-    <input class="w3-input" type="text" id="" name="entry.808132352" required>
-    <label>Stream</label>
+      <label>Stream</label>
+    <input class="w3-mosaic-input" type="text" id="" name="entry.808132352" required size="100" maxlength="50">
   </div>
   <div class="w3-section">      
-    <input class="w3-input" type="text" id="" name="entry.1574388685" required>
-    <label>Year</label>  
+      <label>Year</label>
+    <input class="w3-mosaic-input" type="text" id="" name="entry.1574388685" required size="100" maxlength="50">  
   </div>
   <div class="w3-section">      
-    <input class="w3-input" type="number" id="" name="entry.1392524049" required>
-    <label>Mobile No.</label>  
+      <label>Mobile No.</label>
+    <input class="w3-mosaic-input" type="text" id="" name="entry.1392524049" required size="100" maxlength="50">  
   </div>
   <div class="w3-section">      
-    <input class="w3-input" type="email" id="" name="entry.827504132" required>
-    <label>E-mail</label>  
+      <label>E-mail</label>
+    <input class="w3-mosaic-input" type="email" id="" name="entry.827504132" required size="100" maxlength="50">  
   </div>    
+    
+      <div class="w3-section">      
+      <label>Why do you want to be a part of the Mosaic <label style="font-size:25px; font-weight:500">क्रू</label>?</label>
+    <textarea class="w3-mosaic-input" rows=4 cols=100 required maxlength="1000" name="entry.1234203705"></textarea><br>  
+  </div>
+          <div class="w3-section">      
+      <label>What are your strengths and weaknesses?</label>
+    <textarea class="w3-mosaic-input" rows=4 cols=100 required maxlength="1000" name="entry.939545751"></textarea><br>  
+  </div>
+    
   <div class="w3-section prefs" id="pdiv1">      
-      <select class="preflist" id="p1" name="entry.694952188" required>
+      <label>First Preference</label>
+      <select class="preflist w3-mosaic-input" id="p1" name="entry.694952188" required>
           <option value="N" autofocus>N/A</option>
         <option value="d1">Department 1</option>
         <option value="d2">Department 2</option>
         <option value="d3">Department 3</option>
     </select>
-      <label>First Preference</label>
+      
   
   <div class="w3-section hide" id="hide1" style="display: none">
-  <input class="w3-input" type="text" id="">
-      <label>Hidden Q1</label>
+  <label>Hidden Q11</label><br>
+      <textarea class="w3-mosaic-input" rows=4 cols=100 maxlength="1000" name="entry.1234203705"></textarea><br>
+      <!--<input class="w3-mosaic-input" type="textarea" id=""><br>-->
+      <label>Hidden Q12</label><br>
+      <textarea class="w3-mosaic-input" rows=4 cols=100 maxlength="1000" name="entry.939545751"></textarea><br>
+<!--<input class="w3-mosaic-input" type="textarea" id="">-->
+      
   </div>
   </div>
       <div class="w3-section prefs" id="pdiv2">      
-      <select class="preflist" id="p2" name="entry.855466028" required disabled>
+      <label>Second Preference</label>
+          <select class="preflist w3-mosaic-input" id="p2" name="entry.855466028" required disabled>
           <option value="N"  autofocus>N/A</option>
         <option value="d1">Department 1</option>
         <option value="d2">Department 2</option>
         <option value="d3">Department 3</option>
     </select>
-      <label>Second Preference</label>
   
   <div class="w3-section hide" id="hide2" style="display: none">
-  <input class="w3-input" type="text" id="">
-      <label>Hidden Q2</label>
+  <label>Hidden Q21</label><br>
+      <textarea class="w3-mosaic-input" rows=4 cols=100 maxlength="1000"></textarea><br>
+<!--      <input class="w3-mosaic-input" type="textarea" id=""><br>-->
+      
+      <label>Hidden Q22</label><br>
+      <textarea class="w3-mosaic-input" rows=4 cols=100 maxlength="1000"></textarea><br>
+<!--      <input class="w3-mosaic-input" type="textarea" id="">-->
+      
   </div>
   </div>
       <div class="w3-section prefs" id="pdiv3">      
-      <select class="preflist" id="p3" name="entry.1284381445" required disabled>
+      <label>Third Preference</label>
+          <select class="preflist w3-mosaic-input" id="p3" name="entry.1284381445" required disabled>
           <option value="N" autofocus>N/A</option>
         <option value="d1">Department 1</option>
         <option value="d2">Department 2</option>
         <option value="d3">Department 3</option>
     </select>
-      <label>Third Preference</label>
+      
   <div class="w3-section hide" id="hide3" style="display: none">
-  <input class="w3-input" type="text" id="">
-      <label>Hidden Q3</label>
+  <label>Hidden Q31</label><br>
+      <textarea class="w3-mosaic-input" rows=4 cols=100 maxlength="1000"></textarea><br>
+<!--      <input class="w3-mosaic-input" type="textarea" id=""><br>-->
+      
+      <label>Hidden Q32</label><br>
+      <textarea class="w3-mosaic-input" rows=4 cols=100 maxlength="1000"></textarea><br>
+<!--      <input class="w3-mosaic-input" type="textarea" id="">-->
+      
   </div>
   </div> 
-<input class="w3-input" type="text" id="prio" name="entry.2071586616" style="display: none">
+<input class="w3-mosaic-input" type="text" id="prio" name="entry.2071586616" style="display: none">
 <div class="w3-section">
-    <button class="subbtn" id="b1" formaction="" value="" style="display:none"></button>
-    <button class="subbtn" id="b2" formaction="" value="" style="display:none"></button>
-    <button class="subbtn" id="b3" formaction="" value="" style="display:none"></button>
+    <button class="subbtn w3-mosaic-input" id="b1" formaction="" value="" style="display:none"></button><br>
+    <button class="subbtn w3-mosaic-input" id="b2" formaction="" value="" style="display:none"></button><br>
+    <button class="subbtn w3-mosaic-input" id="b3" formaction="" value="" style="display:none"></button><br>
     </div>
 <br></form>
 <br><br>    
