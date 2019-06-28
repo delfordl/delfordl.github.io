@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head><title>Mosaic 2019 | Tell Your Story</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">-->
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/animate.css">    
+<link rel="icon" href="images/2019logo.png">
+<script src="js/wowmin.js"></script>
+<script>
+    var submitted = false;
+    window.addEventListener("load",needAName);
+    new WOW().init();
+    window.onload=function wowoff()
+    {
+        var x=document.getElementsByClassName("wow");
+        for (var i=0;i<x.length;i++)
+            {
+                x[i].dataset.wowOffset=x[i].offsetHeight;
+            }
+    }
+    
+
+    function needAName()
+    {
+        var preflist=document.getElementsByClassName("preflist");
+        var sb=document.getElementsByClassName("subbtn");
+        var i;
+        for (i=0;i<preflist.length;i++)
+            {
+                preflist[i].addEventListener("change", function(){setB(this.id,this.value);});
+                preflist[i].addEventListener("change", function(){setQ(this.parentElement.id,this.value);});
+                preflist[i].addEventListener("change", function(){secondaryPrefs(this.id);});
+                
+            }
+        for(i=0;i<sb.length;i++)
+            {
+                sb[i].addEventListener("click",function(){beforesub(this.id);});
+            }
+    }
+    function beforesub(bid)
+    {
+        var hid,i,rank;
+        var sb=document.getElementsByClassName("subbtn");
+        switch(bid)
+            {
+                    case"b1":rank=1;break;
+                    case"b2":rank=2;break;
+                    case"b3":rank=3;break;
+                default:break;
+            }
+        
+        document.getElementById("prio").value=prio;
+        switch(bid)
+            {
+                case "b1":hid="hide1";break;
+                case "b2":hid="hide2";break;    
+                case "b3":hid="hide3";break;
+                default:break;
+            }
+        var hiddenf=document.getElementsByClassName("hide")
+        for(i=0;i<hiddenf.length;i++)
+            {
+                hiddenf[i].querySelector("input").name="";
+                if(hiddenf[i].id==hid)
+                    {
+                        hiddenf[i].querySelector("input").name="entry.260531291";
+                    }
+            }
+        document.querySelector("form").action=document.getElementById(bid).formaction;
+        document.getElementById(bid).innerHTML+=" Submitted";
+        document.getElementById(bid).disabled=true;
+        document.getElementById("prio").value=rank;
+        document.querySelector("form").submit();
+    }
+    function secondaryPrefs()
+    {
+        var l1=document.getElementById("p1");
+        var l2=document.getElementById("p2");
+        var l3=document.getElementById("p3");
+        var i;
+        for(i=0;i<l1.options.length;i++)
+            {
+                if((l1.options[i].value==l2.value)||(l1.options[i].value==l3.value)&&(l1.options[i].value!="N"))
+                    {
+                        l1.options[i].disabled=true;
+                    }
+            }
+        if(l1.value!="N")
+            {
+                l2.disabled=false
+                for(i=0;i<l2.options.length;i++)
+                    {
+                        l2.options[i].disabled=false;
+                        if((l1.value==l2.options[i].value)||(l3.value==l2.options[i].value)&&(l2.options[i].value!="N"))
+                            {
+                                l2.options[i].disabled=true;
+                            }
+                    }
+            }
+        else
+            {
+                l2.disabled=true;
+            }
+        if((l1.value!="N")&&(l2.value!="N"))
+        {
+            l3.disabled=false;
+            for(i=0;i<l3.options.length;i++)
+                {
+                    l3.options[i].disabled=false;
+                    if((l3.options[i].value==l1.value)||(l3.options[i].value==l2.value)&&(l3.options[i].value!="N"))
+                        {
+                            l3.options[i].disabled=true;
+                        }
+                }
+        }
+        else
+        {
+            l3.disabled=true;
+        }
+    }
+    function setQ(pardivid,dept)
+    {
+        var question;
+        switch(dept)
+        {
+            case "d1": question="Dep 1 Q";break;
+            case "d2": question="Dep 2 Q";break;
+            case "d3": question="Dep 3 Q";break;
+            default:break;
+        }
+        var hiddendiv=document.getElementById(pardivid);
+        hiddenf=hiddendiv.getElementsByClassName("hide");
+        if(dept=="N")
+            {
+                hiddenf[0].style.display="none";
+                hiddendiv.querySelector("input").required=false;
+            }
+        else
+            {
+                hiddenf[0].querySelector("label").innerHTML=question;
+                hiddenf[0].style.display="";
+                hiddendiv.querySelector("input").required=true;
+            }
+    }
+    function setB(pid,dept)
+    {
+        var link,dname,btn;
+        switch(dept)
+        {
+            case "d1": dname="Dep 1";link="https://docs.google.com/forms/d/e/1FAIpQLSfTwauTmxnCpZMBcJ_jp2WVA04QnA5G0y6ph1KzRnFxGU3-Ng/formResponse";break;
+            case "d2": dname="Dep 2";link="https://docs.google.com/forms/d/e/1FAIpQLScuur8yVcCdHqYckX6pTYU7RY7SrKQ4vKwUxlGGEW_zr8QV3Q/formResponse";break;
+            case "d3": dname="Dep 3";link="https://docs.google.com/forms/d/e/1FAIpQLSe6EDmdhHCjSylAH7T4BTaQr0uH8bOOuOeKtWbu0Cg-nfzWnw/formResponse";break;
+            default:break;
+        }
+        switch(pid)
+            {
+                case "p1":btn="b1";break;
+                case "p2":btn="b2";break;
+                case "p3":btn="b3";break;
+                default:break;
+            }
+        btn=document.getElementById(btn);
+        if(dept=="N")
+            {
+                btn.style.display="none";
+            }
+        else
+            {
+                btn.formaction=link;
+                btn.innerHTML=dname;
+                btn.style.display=""
+            }
+    }
+    function highlight(card)
+    {
+        var head=document.getElementById(card).querySelector("h4");
+        head.className+=" w3-text-purple";
+    }
+    function unhighlight(card)
+    {
+        var head=document.getElementById(card).querySelector("h4");
+        head.className=head.className.replace("w3-text-purple","");
+    }
+</script>
+<style>
+    @font-face{
+        font-family:"Caviar Dreams Boldimport";
+        src: url("font/Caviar%20Dreams%20Bold.ttf");
+    }
+    </style>
+    </head>
+    <body style="background-image: url(images/2019bg.jpg); background-size: 100% 100%;" id="bod">
+    <header style="min-height: 200px"><br><div class="w3-center w3-text-white">
+      <div class="w3-display-top"><img src="images/2019logo.png" style="height:20%; width:20%" class="wow animated fadeInRight" data-wow-duration="2s" data-wow-delay="0.5s">
+      <h1 class="w3-display-bottom wow animated fadeIn" data-wow-duration="3s" data-wow-delay="0.5s">Mosaic 2019: Tell your Story</h1>
+      </div>
+  </div>
+        </header>
+    <br><br>
+   <div class="w3-container ">
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted)  {window.location='end.html';}"></iframe>
+<div class="w3-row-padding w3-margin-top">
+<form target="hidden_iframe" onsubmit="submitted=true;" target="_blank" class="w3-container w3-mosaic-theme wow animated fadeInUp w3-card-4" data-wow-duration="2s" data-wow-delay="0.5s">
+  <h2 class="w3-text-white w3-center">Volunteer Applications</h2>
+  <div class="w3-section">      
+    <input class="w3-input" type="text" id="" name="entry.782163840" required>
+    <label>Name</label>
+  </div>
+  <div class="w3-section">      
+    <input class="w3-input" type="text" id="" name="entry.808132352" required>
+    <label>Stream</label>
+  </div>
+  <div class="w3-section">      
+    <input class="w3-input" type="text" id="" name="entry.1574388685" required>
+    <label>Year</label>  
+  </div>
+  <div class="w3-section">      
+    <input class="w3-input" type="number" id="" name="entry.1392524049" required>
+    <label>Mobile No.</label>  
+  </div>
+  <div class="w3-section">      
+    <input class="w3-input" type="email" id="" name="entry.827504132" required>
+    <label>E-mail</label>  
+  </div>    
+  <div class="w3-section prefs" id="pdiv1">      
+      <select class="preflist" id="p1" name="entry.694952188" required>
+          <option value="N" autofocus>N/A</option>
+        <option value="d1">Department 1</option>
+        <option value="d2">Department 2</option>
+        <option value="d3">Department 3</option>
+    </select>
+      <label>First Preference</label>
+  
+  <div class="w3-section hide" id="hide1" style="display: none">
+  <input class="w3-input" type="text" id="">
+      <label>Hidden Q1</label>
+  </div>
+  </div>
+      <div class="w3-section prefs" id="pdiv2">      
+      <select class="preflist" id="p2" name="entry.855466028" required disabled>
+          <option value="N"  autofocus>N/A</option>
+        <option value="d1">Department 1</option>
+        <option value="d2">Department 2</option>
+        <option value="d3">Department 3</option>
+    </select>
+      <label>Second Preference</label>
+  
+  <div class="w3-section hide" id="hide2" style="display: none">
+  <input class="w3-input" type="text" id="">
+      <label>Hidden Q2</label>
+  </div>
+  </div>
+      <div class="w3-section prefs" id="pdiv3">      
+      <select class="preflist" id="p3" name="entry.1284381445" required disabled>
+          <option value="N" autofocus>N/A</option>
+        <option value="d1">Department 1</option>
+        <option value="d2">Department 2</option>
+        <option value="d3">Department 3</option>
+    </select>
+      <label>Third Preference</label>
+  <div class="w3-section hide" id="hide3" style="display: none">
+  <input class="w3-input" type="text" id="">
+      <label>Hidden Q3</label>
+  </div>
+  </div> 
+<input class="w3-input" type="text" id="prio" name="entry.2071586616" style="display: none">
+<div class="w3-section">
+    <button class="subbtn" id="b1" formaction="" value="" style="display:none"></button>
+    <button class="subbtn" id="b2" formaction="" value="" style="display:none"></button>
+    <button class="subbtn" id="b3" formaction="" value="" style="display:none"></button>
+    </div>
+<br></form>
+<br><br>    
+    
+    
+       </div></div>
+    
+    
+    
+</body></html>

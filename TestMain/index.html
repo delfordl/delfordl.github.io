@@ -16,8 +16,6 @@
 <script>
     window.addEventListener("load",setTransitions);
     new WOW().init();
-    onload=reswin;
-    onresize=reswin;
     window.onload=function wowoff()
     {
         var x=document.getElementsByClassName("wow");
@@ -85,35 +83,175 @@ window.onclick = function(event) {
   <div class="w3-card w3-mosaic-theme w3-container w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Events">
   <h4 class="w3-container" style="width: 100%; max-width: 100%">Events</h4><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Performing Arts</p><hr>
-  <p>Creative and Live Arts</p><hr>
-  <p>Fine Arts and Digital Arts</p><hr>
-  <p>Speaking Arts and Literary Arts</p><hr>
-  <p>Gaming and Sports</p><hr>
-  <p>Chaos</p><hr>
-  <p>Nukkad</p>
+  <p onclick="document.getElementById('Performing Arts').style.display='block'">Performing Arts</p><hr>
+      <div id="Performing Arts" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Performing Arts').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Performing Arts</h3><hr>
+          <p>Performing Arts Desc</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('Creative and Live Arts').style.display='block'">Creative and Live Arts</p><hr>
+      <div id="Creative and Live Arts" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Creative and Live Arts').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Creative and Live Arts</h3><hr>
+          <p>Creative and Live Arts Desc</p>
+      </div>
+    </div>
+  </div>
+    <p onclick="document.getElementById('Fine Arts and Digital Arts').style.display='block'">Fine Arts and Digital Arts</p><hr>
+      <div id="Fine Arts and Digital Arts" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Fine Arts and Digital Arts').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Fine Arts and Digital Arts</h3><hr>
+          <p>Fine Arts and Digital Arts Desc</p>
+      </div>
+    </div>
+  </div>
+      <p onclick="document.getElementById('Speaking and Literary Arts').style.display='block'">Speaking and Literary Arts</p><hr>
+      <div id="Speaking and Literary Arts" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Speaking and Literary Arts').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Speaking and Literary Arts</h3><hr>
+          <p>Speaking and Literary Arts Desc</p>
+      </div>
+    </div>
+  </div>
+        <p onclick="document.getElementById('Gaming and Sports').style.display='block'">Gaming and Sports</p><hr>
+      <div id="Gaming and Sports" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Gaming and Sports').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Gaming and Sports</h3><hr>
+          <p>Gaming and Sports Desc</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('Chaos').style.display='block'">Chaos</p><hr>
+      <div id="Chaos" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Chaos').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Chaos</h3><hr>
+          <p>Chaos Desc</p>
+      </div>
+    </div>
+  </div>
+<p onclick="document.getElementById('Nukkad').style.display='block'">Nukkad</p>
+      <div id="Nukkad" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Nukkad').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Nukkad</h3><hr>
+          <p>Nukkad Desc</p>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
-<div class="w3-col l4 w3-mobile wow animated fadeInDown" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="2s">
+<div class="w3-col l4 w3-mobile wow animated fadeInUp" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="2s">
   <div class="w3-card w3-mosaic-theme w3-container w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Admin">
   <h4 class="w3-container" style="width: 100%; max-width: 100%">Administration</h4><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Registration</p><hr>
-  <p>Scoring</p>
+      <p onclick="document.getElementById('Registration').style.display='block'">Registration</p><hr>
+      <div id="Registration" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Registration').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Registration</h3><hr>
+          <p>Registration Desc</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('Scoring').style.display='block'">Scoring</p>
+      <div id="Scoring" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Scoring').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Scoring</h3><hr>
+          <p>Scoring Desc</p>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
-<div class="w3-col l4 w3-mobile wow animated fadeIn" style="margin-top: 15px ; width: 20%" data-wow-duration="2s" data-wow-delay="2s">
+<div class="w3-col l4 w3-mobile wow animated fadeInDown" style="margin-top: 15px ; width: 20%" data-wow-duration="2s" data-wow-delay="2s">
   <div class="w3-card w3-container w3-mosaic-theme w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Org">
   <h4 class="w3-container" style="width: 100%; max-width: 100%">Organisation</h4><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Security</p><hr>
-  <p>Logistics</p><hr>
-  <p>Tech</p><hr>
-  <p>Entertainment</p><hr>
-  <p>Finance</p>
+  <p onclick="document.getElementById('Security').style.display='block'">Security</p><hr>
+      <div id="Security" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Security').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Security</h3><hr>
+          <p>Security Desc</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('Logistics').style.display='block'">Logistics</p><hr>
+      <div id="Logistics" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Logistics').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Logistics</h3><hr>
+          <p>Logistics Desc</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('Tech').style.display='block'">Tech</p><hr>
+      <div id="Tech" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Tech').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Tech</h3><hr>
+          <p>Tech Desc</p>
+      </div>
+    </div>
+  </div>
+    <p onclick="document.getElementById('Entertainment').style.display='block'">Entertainment</p><hr>
+      <div id="Entertainment" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Entertainment').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Entertainment</h3><hr>
+          <p>Entertainment Desc</p>
+      </div>
+    </div>
+  </div>
+    <p onclick="document.getElementById('Finance').style.display='block'">Finance</p>
+      <div id="Finance" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Finance').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Finance</h3>
+          <p>Finance Desc</p>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
-<div class="w3-col l4 w3-mobile wow animated fadeInUp" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="1s">
+<div class="w3-col l4 w3-mobile wow animated fadeInDown" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="1s">
   <div class="w3-card w3-container w3-mosaic-theme w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="PR">
   <h4 class="w3-container" style="width: 100%; max-width: 100%">Public Relations</h4><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
@@ -139,25 +277,95 @@ window.onclick = function(event) {
       </div>
     </div>
   </div>
-  <p>Hospitality</p><hr>
-  <p>Celebrity Management</p><hr>
-  <p>Marketing</p>
+  <p onclick="document.getElementById('Hosp').style.display='block'">Hospitality</p><hr>
+      <div id="Hosp" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Hosp').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Hospitality</h3><hr>
+          <p>Hospitality Desc</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('CM').style.display='block'">Celebrity Management</p><hr>
+      <div id="CM" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('CM').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Celebrity Management</h3><hr>
+          <p>Celebrity Management Desc</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('Marketing').style.display='block'">Marketing</p>
+      <div id="Marketing" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Marketing').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Marketing</h3><hr>
+          <p>Marketing Desc</p>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
     <div class="w3-col l4 w3-mobile wow animated fadeInRight" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="0.5s">
   <div class="w3-card w3-container w3-mosaic-theme w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Media">
   <h4 class="w3-container" style="width: 100%; max-width: 100%">Media</h4><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p>Digital Content</p><hr>
-  <p>Creatives</p><hr>
-  <p>Souvenirs</p><hr>
-  <p>Coverage</p>  
+  <p onclick="document.getElementById('DC').style.display='block'">Digital Content</p><hr>
+      <div id="DC" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('DC').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Digital Content</h3><hr>
+          <p>Digital Content Desc</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('Creatives').style.display='block'">Creatives</p><hr>
+      <div id="Creatives" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Creatives').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Creatives</h3><hr>
+          <p>Creatives Desc</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('Souvenirs').style.display='block'">Souvenirs</p><hr>
+      <div id="Souvenirs" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Souvenirs').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Souvenirs</h3><hr>
+          <p>Souvenirs Desc</p>
+      </div>
+    </div>
+  </div>
+    <p onclick="document.getElementById('Coverage').style.display='block'">Coverage</p>
+      <div id="Coverage" class="w3-modal">
+    <div class="w3-modal-content" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('Coverage').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Coverage</h3><hr>
+          <p>Coverage Desc</p>
+      </div>
+    </div>
+  </div>  
   </div>
 </div>
 </div>
        <br><br>
 <div class="w3-container w3-center MDept">
-    <a href="#"><h2 class="w3-btn w3-card-4 w3-mosaic-theme wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">Volunteer Now</h2></a>
+    <a href="form.html"><h2 class="w3-btn w3-card-4 w3-mosaic-theme wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">Volunteer Now</h2></a>
 </div>    
         </div>
     
