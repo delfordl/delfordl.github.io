@@ -41,7 +41,7 @@ window.onclick = function(event) {
         var i;
         for (i=0;i<heads.length;i++)
             {
-                tex=heads[i].querySelector("h4");
+                tex=heads[i].querySelector("h3");
                 tex.style.transitionDuration="1s";
                 tex.style.wekkitTransitionDuration="1s";
                 heads[i].addEventListener("mouseenter", function(){highlight(this.id);});
@@ -50,14 +50,28 @@ window.onclick = function(event) {
     }
     function highlight(card)
     {
-        var head=document.getElementById(card).querySelector("h4");
+        var head=document.getElementById(card).querySelector("h3");
         head.className+=" w3-text-purple";
     }
     function unhighlight(card)
     {
-        var head=document.getElementById(card).querySelector("h4");
+        var head=document.getElementById(card).querySelector("h3");
         head.className=head.className.replace("w3-text-purple","");
     }
+    function w3_open() {
+  var x = document.getElementById("mySidebar");
+  var y = document.getElementById("bod");
+  x.style.width = "40%";
+  x.style.fontSize = "20px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+function w3_close() {
+  var y = document.getElementById("bod");
+  y.style.opacity="initial";
+  document.getElementById("mySidebar").style.display = "none";
+}
+
 </script>
 <style>
     @font-face{
@@ -67,36 +81,49 @@ window.onclick = function(event) {
     </style>
     </head>
     <body style="background-image: url(images/2019bg.jpg); background-size: 100% 100%;" id="bod">
-    <header style="min-height: 200px"><br><div class="w3-center w3-text-white">
-      <div class="w3-display-top"><img src="images/2019logo.png" style="height:20%; width:20%" class="wow animated fadeInRight" data-wow-duration="2s" data-wow-delay="0.5s">
-      <h1 class="w3-display-bottom wow animated fadeIn" data-wow-duration="3s" data-wow-delay="0.5s">Mosaic 2019: Tell your Story</h1>
-      </div>
+    <nav class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-center w3-mosaic-theme" style="display:none; background-image: url(images/2019longbg.jpg); background-size: cover" id="mySidebar">
+  <i onclick="w3_close()" class="fa fa-bars w3-xlarge w3-text-teal-theme"></i>
+  <h1 class="w3-xxxlarge w3-text-teal-theme">Menu</h1>
+    <br><br>
+  <!--<button class="w3-bar-item w3-button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>-->
+    <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Home</h3></a><br><br>
+        <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>क्रू Applications</h3></a><br><br>
+    <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Social Media</h3></a><br><br>
+    <img src="images/2019logo.png" style="height: 10%; width: 10%" class="wow animated fadeInUp" data-wow-duration="2s" data-wow-delay="0.5s"><br><br>
+</nav>    
+    <header style="min-height: 200px">
+        <i onclick="w3_open()" class="fa fa-bars wow animated fadeIn w3-xlarge w3-button w3-display-topleft w3-text-purple-theme" style="display: block"></i>
+        <div class="w3-center w3-text-white"> <br><br>
+          <!--<img src="images/2019logo.png" style="height:20%; width:20%" class="wow animated fadeInRight" data-wow-duration="2s" data-wow-delay="0.5s">-->
+          <div class="w3-display-top wow animated fadeIn" data-wow-duration="3s" data-wow-delay="0.5s" style="font-size: 200px; font-weight: 900">क्रू</div>
+      <h2 class="w3-display-bottom wow animated fadeIn" data-wow-duration="3s" data-wow-delay="0.5s">Applications</h2>
   </div>
         </header>
-    <br><br>
    <div class="w3-container ">    
-<div class="w3-container w3-center">
+<!--<div class="w3-container w3-center">
     <h2 class="w3-text-white wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s" style="text-decoration: none">क्रू Applications</h2>
-</div>    
+</div>-->   
 <div class="w3-row-padding w3-center w3-margin-top">
 <div class="w3-col l4 w3-mobile wow animated fadeInLeft" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="2.5s">
   <div class="w3-card w3-mosaic-theme w3-container w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Events">
-  <h4 class="w3-container" style="width: 100%; max-width: 100%">Events</h4><br>
+  <h3 class="w3-container" style="width: 100%; max-width: 100%">Events</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
   <p onclick="document.getElementById('Performing Arts').style.display='block'">Performing Arts</p><hr>
       <div id="Performing Arts" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Performing Arts').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Performing Arts</h3><hr>
-          <p>Performing Arts Desc</p>
+          <p>Performaning Arts(PA) is your classic three fold department: Dance, Drama, Music. It's got it all and of course with a great twist!<br><br>
+Volunteers need to help co-ordinate events such as street dance, band events, etc and will be placed at various venues.
+</p>
       </div>
     </div>
   </div>
-  <p onclick="document.getElementById('Contempory Arts and Live Arts').style.display='block'">Contempory Arts and Live Arts</p><hr>
+  <p onclick="document.getElementById('Contempory Arts and Live Arts').style.display='block'"  style="color: red">Contempory Arts and Live Arts</p><hr>
       <div id="Contempory Arts and Live Arts" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Contempory Arts and Live Arts').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
@@ -107,56 +134,58 @@ window.onclick = function(event) {
   </div>
     <p onclick="document.getElementById('Fine Arts and Digital Arts').style.display='block'">Fine Arts and Digital Arts</p><hr>
       <div id="Fine Arts and Digital Arts" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Fine Arts and Digital Arts').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Fine Arts and Digital Arts</h3><hr>
-          <p>Fine Arts and Digital Arts Desc</p>
+          <p>Fine Arts and Digital Arts(F.A.D.A.) is an art/design based event department that includes aesthetic art along with digital art events.<br><br> Volunteers are required at the venue to handle the event along with assistance to participants.</p>
       </div>
     </div>
   </div>
       <p onclick="document.getElementById('Speaking Arts and Literary Arts').style.display='block'">Speaking Arts and Literary Arts</p><hr>
       <div id="Speaking Arts and Literary Arts" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Speaking Arts and Literary Arts').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Speaking Arts and Literary Arts</h3><hr>
-          <p>Speaking Arts and Literary Arts Desc</p>
+          <p>Speaking Arts and Literary Arts(SALA) is an events department  which will be dealing with literary events i.e. story-writing etc, and spoken form of events in the form of pun battles etc.<br><br>
+Volunteers would help in managing the smooth running off the event at the venue.</p>
       </div>
     </div>
   </div>
         <p onclick="document.getElementById('Gaming and Sports').style.display='block'">Gaming and Sports</p><hr>
       <div id="Gaming and Sports" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Gaming and Sports').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Gaming and Sports</h3><hr>
-          <p>Gaming and Sports Desc</p>
+          <p>Gaming & Sports(GASP) deals with video gaming and Indoor and outdoor sports activities. <br><br>The volunteers will need to help manage the teams, players, matches and practically try to avoid mishaps.</p>
       </div>
     </div>
   </div>
   <p onclick="document.getElementById('Chaos').style.display='block'">Chaos</p><hr>
       <div id="Chaos" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Chaos').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Chaos</h3><hr>
-          <p>Chaos Desc</p>
+          <p>Chaos  is a systematic  combination of various  unusual events including talent Hunt, fashion show and a few tricky and fun events.</p>
       </div>
     </div>
   </div>
 <p onclick="document.getElementById('Nukkad').style.display='block'">Nukkad</p>
       <div id="Nukkad" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Nukkad').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Nukkad</h3><hr>
-          <p>Nukkad Desc</p>
+          <p>Nukkad brings to you a crossover will all the 6 Event Departments.<br><br> It includes two art forms that come together to form an amazing event. There are musical talents at its best along with dance, drama, improv theater that go alongside with it.
+</p>
       </div>
     </div>
   </div>
@@ -164,122 +193,138 @@ window.onclick = function(event) {
 </div>
 <div class="w3-col l4 w3-mobile wow animated fadeInUp" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="2s">
   <div class="w3-card w3-mosaic-theme w3-container w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Admin">
-  <h4 class="w3-container" style="width: 100%; max-width: 100%">Administration</h4><br>
+  <h3 class="w3-container" style="width: 100%; max-width: 100%">Administration</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
       <p onclick="document.getElementById('Registration').style.display='block'">Registration</p><hr>
       <div id="Registration" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Registration').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Registration</h3><hr>
-          <p>Registration Desc</p>
+          <p>Responsible for the registration of the participants through Proof of Participation(P.O.Ps) in conjunction with providing them with slots for every event on a first come first serve basis only. </p>
       </div>
     </div>
   </div>
   <p onclick="document.getElementById('Scoring').style.display='block'">Scoring</p>
       <div id="Scoring" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Scoring').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Scoring</h3><hr>
-          <p>Scoring Desc</p>
+          <p>Scoring department is all about handling the scoresheets of the events happening on day & requires quick calculations. A basic knowledge of excel would be great for the department.
+</p>
       </div>
     </div>
   </div>
   </div>
 </div>
-<div class="w3-col l4 w3-mobile wow animated fadeInDown" style="margin-top: 15px ; width: 20%" data-wow-duration="2s" data-wow-delay="2s">
+<div class="w3-col l4 w3-mobile wow animated fadeInDown" style="margin-top: 15px ; width: 20%" data-wow-duration="2s" data-wow-delay="1.5s">
   <div class="w3-card w3-container w3-mosaic-theme w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Org">
-  <h4 class="w3-container" style="width: 100%; max-width: 100%">Organisation</h4><br>
+  <h3 class="w3-container" style="width: 100%; max-width: 100%">Organisation</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
   <p onclick="document.getElementById('Security').style.display='block'">Security</p><hr>
       <div id="Security" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Security').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Security</h3><hr>
-          <p>Security Desc</p>
+          <p>Do you have what it takes to be part of team that operates like the armed forces?<br><br> Then security is the department for you. 
+Security is the department that requires the most amount of manpower. The department ensures a smooth functioning of the fest whilst trying to avoid any mishaps.</p>
       </div>
     </div>
   </div>
   <p onclick="document.getElementById('Logistics').style.display='block'">Logistics</p><hr>
       <div id="Logistics" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Logistics').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Logistics</h3><hr>
-          <p>Logistics Desc</p>
+          <p>We are divided into 3 sub-departments Auditorium, Court and the Classrooms. We ensure the logistical setup of events in the Auditorium and Court. Classrooms is responsible for the layout of the classroom based on the event taking place.<br><br> In spite of having over 40 volunteers, we will never fail to make you feel like a part of this family, with a bond like no other!</p>
       </div>
     </div>
   </div>
   <p onclick="document.getElementById('Tech').style.display='block'">Tech</p><hr>
       <div id="Tech" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Tech').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Tech</h3><hr>
-          <p>Tech Desc</p>
+          <p>Tech is a department that will over look all the requirements pertaining to audio, video and everything associated with setting up the equipments for various events and ensure the smooth functioning of the event.</p>
       </div>
     </div>
   </div>
     <p onclick="document.getElementById('Entertainment').style.display='block'">Entertainment</p><hr>
       <div id="Entertainment" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Entertainment').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Entertainment</h3><hr>
-          <p>Entertainment Desc</p>
-      </div>
+          <p>Artists,  performances,  whistles....  This is what we are made of. We are a housefull of ENTERTAINMENT, ENTERTAINMENT and ENTERTAINMENT.<br><br>We are your showstoppers!</p>
+        </div>
     </div>
   </div>
     <p onclick="document.getElementById('Finance').style.display='block'">Finance</p>
       <div id="Finance" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Finance').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Finance</h3>
-          <p>Finance Desc</p>
+          <p>Why is money called dough?
+Because we all knead it! 😎
+<br><br>Therefore keeping a track of whether it comes in or goes out is why the finance department is here. 💸💸</p>
       </div>
     </div>
   </div>
   </div>
 </div>
-<div class="w3-col l4 w3-mobile wow animated fadeInDown" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="1s">
+<div class="w3-col l4 w3-mobile wow animated fadeInUp" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="1s">
   <div class="w3-card w3-container w3-mosaic-theme w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="PR">
-  <h4 class="w3-container" style="width: 100%; max-width: 100%">Public Relations</h4><br>
+  <h3 class="w3-container" style="width: 100%; max-width: 100%">Public Relations</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p onclick="document.getElementById('IPR').style.display='block'">Internal PR</p><hr>
-      <div id="IPR" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
-      <div class="w3-container w3-mosaic-theme">
-        <span onclick="document.getElementById('IPR').style.display='none'" 
-        class="w3-button w3-display-topright">&times;</span>
-          <h3>Internal PR</h3><hr>
-          <p>IPR Desc</p>
-      </div>
-    </div>
-  </div>
   <p onclick="document.getElementById('EPR').style.display='block'">External PR</p><hr>
       <div id="EPR" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('EPR').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
-          <h3>External PR</h3><hr>
-          <p>EPR Desc</p>
+          <h3>External Public Relations</h3><hr>
+          <p>Being a point of contact between invited colleges and Mosaic Team.<br><br>Being responsible for colleges and passing all vital information to the Participants.
+</p>
       </div>
     </div>
   </div>
-  <p onclick="document.getElementById('Hosp').style.display='block'">Hospitality</p><hr>
+<p onclick="document.getElementById('IPR').style.display='block'">Internal PR</p><hr>
+      <div id="IPR" class="w3-modal">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('IPR').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Internal Public Relations</h3><hr>
+          <p>Planning, executing and organization of various promotionals activities, pre-events, PR activities, game days, CSR events and scoring PR for Mosaic.</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('CM').style.display='block'">Celebrity Management</p><hr>
+      <div id="CM" class="w3-modal">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
+      <div class="w3-container w3-mosaic-theme">
+        <span onclick="document.getElementById('CM').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+          <h3>Celebrity Management</h3><hr>
+          <p>The Celebrity Management department handles the judges and celebrities for all of the various events being held.<br><br> It deals with calling the judges for the events, making sure all their requirements are fulfilled on the event days. This also includes their pick up and drop to and fro from the venue.</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="document.getElementById('Hosp').style.display='block'" style="color: red">Hospitality</p><hr>
       <div id="Hosp" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Hosp').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
@@ -288,20 +333,9 @@ window.onclick = function(event) {
       </div>
     </div>
   </div>
-  <p onclick="document.getElementById('CM').style.display='block'">Celebrity Management</p><hr>
-      <div id="CM" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
-      <div class="w3-container w3-mosaic-theme">
-        <span onclick="document.getElementById('CM').style.display='none'" 
-        class="w3-button w3-display-topright">&times;</span>
-          <h3>Celebrity Management</h3><hr>
-          <p>Celebrity Management Desc</p>
-      </div>
-    </div>
-  </div>
-  <p onclick="document.getElementById('Marketing').style.display='block'">Marketing</p>
+  <p onclick="document.getElementById('Marketing').style.display='block'"  style="color: red">Marketing</p>
       <div id="Marketing" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Marketing').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
@@ -314,44 +348,51 @@ window.onclick = function(event) {
 </div>
     <div class="w3-col l4 w3-mobile wow animated fadeInRight" style="margin-top: 15px; width: 20%" data-wow-duration="2s" data-wow-delay="0.5s">
   <div class="w3-card w3-container w3-mosaic-theme w3-hover-shadow MDept" style="min-height:600px; word-wrap:break-word" id="Media">
-  <h4 class="w3-container" style="width: 100%; max-width: 100%">Media</h4><br>
+  <h3 class="w3-container" style="width: 100%; max-width: 100%">Media</h3><br>
   <i class="w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
   <p onclick="document.getElementById('DC').style.display='block'">Digital Content</p><hr>
       <div id="DC" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('DC').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Digital Content</h3><hr>
-          <p>Digital Content Desc</p>
+          <p>1. Social media 
+• Uploading posts on Instagram, Facebook, Snapchat & YouTube regularly as well as deciding what captions should be used and how the posts should look.
+•  Covering all the events leading up to the days of the fests as we as on the day of the fests.
+• Sub Departments - Networking & Graphics
+2.  Content
+• Anything and Everything regarding content .i.e writing articles for newspapers such as the Times Of India, Bandra Buzz, Bombay Times and the Mosaic 2019 Blog.
+• Proofreading </p>
       </div>
     </div>
   </div>
   <p onclick="document.getElementById('Creatives').style.display='block'">Creatives</p><hr>
       <div id="Creatives" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Creatives').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Creatives</h3><hr>
-          <p>Creatives Desc</p>
+          <p>Creatives- The Creatives department is responsible for basically all things 'Creative'. From Posters to banners to décor to art installations- this department has the herculean task of breathing life into art within the boundaries of the college.</p>
       </div>
     </div>
   </div>
   <p onclick="document.getElementById('Souvenirs').style.display='block'">Souvenirs</p><hr>
       <div id="Souvenirs" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Souvenirs').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
           <h3>Souvenirs</h3><hr>
-          <p>Souvenirs Desc</p>
+          <p>Our department makes sure that you have something more than just beautiful memories to take back home from Mosaic.
+So come and put your artistic talents to use, to spread Joy and bring a smile on every face.</p>
       </div>
     </div>
   </div>
-    <p onclick="document.getElementById('Coverage').style.display='block'">Coverage</p>
+    <p onclick="document.getElementById('Coverage').style.display='block'"  style="color: red">Coverage</p>
       <div id="Coverage" class="w3-modal">
-    <div class="w3-modal-content" style="max-width: 100%">
+    <div class="w3-modal-content w3-animate-opacity" style="max-width: 100%">
       <div class="w3-container w3-mosaic-theme">
         <span onclick="document.getElementById('Coverage').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
