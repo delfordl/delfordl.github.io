@@ -48,6 +48,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-mosaic-input{padding:8px;display:block;border:5px double #ccc; max-width:100%;border-radius:30px;background-color:rgba(255,0,0,0);color:#fff}
 .w3-mosaic-input:focus{color:#000!important;background-image: linear-gradient(#13a89e,#662d91)!important}
 .w3-mosaic-input:hover{color:#000!important;background-image: linear-gradient(#13a89e,#662d91)!important}
+.w3-mosaic-input:disabled{cursor:not-allowed;opacity:0.3;pointer-events:none}
 .w3-select{padding:9px 0;width:100%;border:none;border-bottom:1px solid #ccc}
 .w3-dropdown-click,.w3-dropdown-hover{position:relative;display:inline-block;cursor:pointer}
 .w3-dropdown-hover:hover .w3-dropdown-content{display:block}
@@ -146,7 +147,9 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-padding-64{padding-top:64px!important;padding-bottom:64px!important}
 .w3-left{float:left!important}.w3-right{float:right!important}
 .w3-button:hover{color:#000!important;background-color:#ccc!important}
-.w3-mosaic-button:focus,hover{color:#000!important;background-image: linear-gradient(#13a89e,#662d91)!important}
+.w3-mosaic-button:focus{color:#000!important;background-image: linear-gradient(#13a89e,#662d91)!important}
+.w3-mosaic-button:hover{color:#000!important;background-image: linear-gradient(#13a89e,#662d91)!important}
+.w3-mosaic-button:disabled{cursor:not-allowed;opacity:0.3;pointer-events:none}
 .w3-transparent,.w3-hover-none:hover{background-color:transparent!important}
 .w3-hover-none:hover{box-shadow:none!important}
 /* Colors */

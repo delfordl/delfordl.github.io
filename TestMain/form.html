@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><title>Mosaic 2019 | Tell Your Story</title>
+<head><title>Mosaic 2019 | क्रू Application Form</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -13,227 +13,8 @@
 <link rel="stylesheet" href="css/animate.css">    
 <link rel="icon" href="images/2019logo.png">
 <script src="js/wowmin.js"></script>
-<script>
-    var submitted = false;
-    window.addEventListener("load",needAName);
-    new WOW().init();
-    window.onload=function wowoff()
-    {
-        var x=document.getElementsByClassName("wow");
-        for (var i=0;i<x.length;i++)
-            {
-                x[i].dataset.wowOffset=x[i].offsetHeight/10;
-            }
-    }
-    
-
-    function needAName()
-    {
-        var preflist=document.getElementsByClassName("preflist");
-        var sb=document.getElementsByClassName("subbtn");
-        var i;
-        for (i=0;i<preflist.length;i++)
-            {
-                preflist[i].addEventListener("change", function(){setB(this.id,this.value);});
-                preflist[i].addEventListener("change", function(){setQ(this.parentElement.id,this.value);});
-                preflist[i].addEventListener("change", function(){secondaryPrefs(this.id);});
-                
-            }
-        for(i=0;i<sb.length;i++)
-            {
-                sb[i].addEventListener("click",function(){beforesub(this.id);});
-            }
-    }
-    /*function beforesub(bid)
-    {
-        var hid,i,rank;
-        var sb=document.getElementsByClassName("subbtn");
-        switch(bid)
-            {
-                    case"b1":rank=1;break;
-                    case"b2":rank=2;break;
-                    case"b3":rank=3;break;
-                default:break;
-            }
-        
-        document.getElementById("prio").value=prio;
-        switch(bid)
-            {
-                case "b1":hid="hide1";break;
-                case "b2":hid="hide2";break;    
-                case "b3":hid="hide3";break;
-                default:break;
-            }
-        var hiddenf=document.getElementsByClassName("hide")
-        for(i=0;i<hiddenf.length;i++)
-            {
-                hiddenf[i].querySelector("input").name="";
-                if(hiddenf[i].id==hid)
-                    {
-                        hiddenf[i].querySelectorAll("input")[0].name="entry.260531291";
-                        hiddenf[i].querySelectorAll("input")[1].name="NA";
-                    }
-            }
-        document.querySelector("form").action=document.getElementById(bid).formaction;
-        document.getElementById(bid).innerHTML+=" Submitted";
-        document.getElementById(bid).disabled=true;
-        document.getElementById("prio").value=rank;
-        document.querySelector("form").submit();
-    }*/
-    function beforesub(bid) //textarea
-    {
-        var hid,i,rank;
-        var sb=document.getElementsByClassName("subbtn");
-        switch(bid)
-            {
-                    case"b1":rank=1;break;
-                    case"b2":rank=2;break;
-                    case"b3":rank=3;break;
-                default:break;
-            }
-        
-        document.getElementById("prio").value=prio;
-        switch(bid)
-            {
-                case "b1":hid="hide1";break;
-                case "b2":hid="hide2";break;    
-                case "b3":hid="hide3";break;
-                default:break;
-            }
-        var hiddenf=document.getElementsByClassName("hide")
-        for(i=0;i<hiddenf.length;i++)
-            {
-                hiddenf[i].querySelectorAll("textarea").name="";
-                if(hiddenf[i].id==hid)
-                    {
-                        hiddenf[i].querySelectorAll("textarea")[0].name="entry.260531291";
-                        hiddenf[i].querySelectorAll("textarea")[1].name="entry.722795158";
-                    }
-            }
-        document.querySelector("form").action=document.getElementById(bid).formaction;
-        document.getElementById(bid).innerHTML=document.getElementById(bid).innerHTML.replace("Apply","Applied")
-        document.getElementById(bid).disabled=true;
-        document.getElementById("prio").value=rank;
-        document.querySelector("form").submit();
-    }
-    function secondaryPrefs()
-    {
-        var l1=document.getElementById("p1");
-        var l2=document.getElementById("p2");
-        var l3=document.getElementById("p3");
-        var i;
-        for(i=0;i<l1.options.length;i++)
-            {
-                if((l1.options[i].value==l2.value)||(l1.options[i].value==l3.value)&&(l1.options[i].value!="N"))
-                    {
-                        l1.options[i].disabled=true;
-                    }
-            }
-        if(l1.value!="N")
-            {
-                l2.disabled=false
-                for(i=0;i<l2.options.length;i++)
-                    {
-                        l2.options[i].disabled=false;
-                        if((l1.value==l2.options[i].value)||(l3.value==l2.options[i].value)&&(l2.options[i].value!="N"))
-                            {
-                                l2.options[i].disabled=true;
-                            }
-                    }
-            }
-        else
-            {
-                l2.disabled=true;
-            }
-        if((l1.value!="N")&&(l2.value!="N"))
-        {
-            l3.disabled=false;
-            for(i=0;i<l3.options.length;i++)
-                {
-                    l3.options[i].disabled=false;
-                    if((l3.options[i].value==l1.value)||(l3.options[i].value==l2.value)&&(l3.options[i].value!="N"))
-                        {
-                            l3.options[i].disabled=true;
-                        }
-                }
-        }
-        else
-        {
-            l3.disabled=true;
-        }
-    }
-    function setQ(pardivid,dept)
-    {
-        var q1,q2;
-        switch(dept)
-        {
-            case "d1": q1="Dep 1 Q";q2="Dep 1 Q2";break;
-            case "d2": q1="Dep 2 Q";q2="Dep 2 Q2";break;
-            case "d3": q1="Dep 3 Q";q2="Dep 3 Q2";break;
-            default:break;
-        }
-        var hiddendiv=document.getElementById(pardivid);
-        hiddenf=hiddendiv.getElementsByClassName("hide");
-        if(dept=="N")
-            {
-                hiddenf[0].style.display="none";
-                hiddendiv.querySelector("textarea").required=false;
-            }
-        else
-            {
-                hiddenf[0].querySelectorAll("label")[0].innerHTML=q1;
-                hiddenf[0].querySelectorAll("label")[1].innerHTML=q2;
-                hiddenf[0].style.display="";
-                hiddendiv.querySelectorAll("textarea")[0].required=true;
-                hiddendiv.querySelectorAll("textarea")[1].required=true;
-            }
-    }
-    function setB(pid,dept)
-    {
-        var link,dname,btn;
-        switch(dept)
-        {
-            case "d1": dname="Apply to Dep 1";link="https://docs.google.com/forms/d/e/1FAIpQLSfTwauTmxnCpZMBcJ_jp2WVA04QnA5G0y6ph1KzRnFxGU3-Ng/formResponse";break;
-            case "d2": dname="Apply to Dep 2";link="https://docs.google.com/forms/d/e/1FAIpQLScLXNzHmwLR66gTFe3ZMFSe-fTDlc8iDYILvJZZxnLQ3fRZ6w/formResponse";break;
-            case "d3": dname="Apply to Dep 3";link="https://docs.google.com/forms/d/e/1FAIpQLSebMRyPuFm7iYCMnRKXazFYk1Bmjjwl-Z67DliJJDmFQqjPlQ/formResponse";break;
-            default:break;
-        }
-        switch(pid)
-            {
-                case "p1":btn="b1";break;
-                case "p2":btn="b2";break;
-                case "p3":btn="b3";break;
-                default:break;
-            }
-        btn=document.getElementById(btn);
-        if(dept=="N")
-            {
-                btn.style.display="none";
-            }
-        else
-            {
-                btn.formaction=link;
-                btn.innerHTML=dname;
-                btn.style.display=""
-            }
-    }
-    function w3_open() {
-  var x = document.getElementById("mySidebar");
-  var y = document.getElementById("bod");
-  y.style.backgroundColor=("255,255,255,0");
-  x.style.opacity=("0,0,0,1");
-  x.style.width = "40%";
-  x.style.fontSize = "20px";
-  x.style.paddingTop = "10%";
-  x.style.display = "block";
-}
-function w3_close() {
-  var y = document.getElementById("bod");
-  y.style.opacity="initial";
-  document.getElementById("mySidebar").style.display = "none";
-}
-
-</script>
+<script src="js/formscript.js"></script>
+    <script> var submitted=false</script>
 <style>
     @font-face{
         font-family:"Caviar Dreams Boldimport";
@@ -246,20 +27,16 @@ function w3_close() {
     </head>
     <body style="background-image: url(images/2019bg.jpg); background-size: 100% 100%;" id="bod">
   <nav class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-center w3-mosaic-theme" style="display:none; background-image: url(images/2019longbg.jpg); background-size: cover" id="mySidebar">
-  <i onclick="w3_close()" class="w3-button w3-xlarge w3-text-teal-theme"><img src="images/2019logo.png" height="10%"; width=""></i>
+  <i onclick="w3_close()" class="fa fa-bars w3-xlarge w3-text-teal-theme"></i>
   <h1 class="w3-xxxlarge w3-text-teal-theme">Menu</h1>
     <br><br>
   <!--<button class="w3-bar-item w3-button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>-->
-    <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Schedule</h3></a><br><br>
-    <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Crews</h3></a><br><br>
-    <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Blog</h3></a><br><br>
-    <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Scoreboard</h3></a><br><br>
-    <a href="#" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Sponsors</h3></a><br>
+    <a href="Index.html" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>Home</h3></a><br><br>
+        <a href="applications.html" class="w3-text-dpurple-theme" style="text-decoration: none"><h3>क्रू Applications</h3></a><br><br>
     <img src="images/2019logo.png" style="height: 10%; width: 10%" class="wow animated fadeInUp" data-wow-duration="2s" data-wow-delay="0.5s"><br><br>
 </nav>
-
-    <header style="min-height: 200px"><div class="w3-center w3-text-white w3-display-container">
-      <i onclick="w3_open()" class="wow animated fadeIn w3-xlarge w3-button w3-display-topleft w3-text-purple-theme"><img src="images/2019blanklogo.png" style="height:20px; width:20px"></i> 
+    <header class="w3-padding" style="min-height: 200px"><div class="w3-center w3-text-white w3-display-container">
+        <i onclick="w3_open()" class="fa fa-bars wow animated fadeIn w3-xlarge w3-button w3-display-topleft w3-text-purple-theme" style="display: block"></i><br><br>
       <!--<div class="w3-display-top"><img src="images/2019logo.png" style="height:20%; width:20%" class="wow animated fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
       <h1 class="w3-display-bottom wow animated fadeIn" data-wow-duration="3s" data-wow-delay="0.5s">Mosaic 2019: Tell your Story</h1>
       </div>-->
@@ -275,43 +52,62 @@ function w3_close() {
   <h2 class="w3-text-white w3-center">क्रू Application Form</h2>
   <div class="w3-section">      
     <label>Name</label>  
-    <input class="w3-mosaic-input" type="text" id="" name="entry.782163840" required size="100" maxlength="50">
+    <input class="w3-mosaic-input gq" type="text" id="" name="entry.782163840" required size="100" maxlength="50">
   </div>
   <div class="w3-section">      
       <label>Stream</label>
-    <input class="w3-mosaic-input" type="text" id="" name="entry.808132352" required size="100" maxlength="50">
+    <input class="w3-mosaic-input gq" type="text" id="" name="entry.808132352" required size="100" maxlength="50">
   </div>
   <div class="w3-section">      
       <label>Year</label>
-    <input class="w3-mosaic-input" type="text" id="" name="entry.1574388685" required size="100" maxlength="50">  
+    <input class="w3-mosaic-input gq" type="text" id="" name="entry.1574388685" required size="100" maxlength="50">  
   </div>
   <div class="w3-section">      
       <label>Mobile No.</label>
-    <input class="w3-mosaic-input" type="text" id="" name="entry.1392524049" required size="100" maxlength="50">  
+    <input class="w3-mosaic-input gq" type="text" id="" name="entry.1392524049" required size="100" maxlength="50">  
   </div>
   <div class="w3-section">      
       <label>E-mail</label>
-    <input class="w3-mosaic-input" type="email" id="" name="entry.827504132" required size="100" maxlength="50">  
+    <input class="w3-mosaic-input gq" type="email" id="" name="entry.827504132" required size="100" maxlength="50">  
   </div>    
     
       <div class="w3-section">      
       <label>Why do you want to be a part of the Mosaic <label style="font-size:25px; font-weight:500">क्रू</label>?</label>
-    <textarea class="w3-mosaic-input" rows=4 cols=100 required maxlength="1000" name="entry.1234203705"></textarea><br>  
+    <textarea class="w3-mosaic-input gq" rows=4 cols=100 required maxlength="1000" name="entry.1234203705"></textarea><br>  
   </div>
           <div class="w3-section">      
       <label>What are your strengths and weaknesses?</label>
-    <textarea class="w3-mosaic-input" rows=4 cols=100 required maxlength="1000" name="entry.939545751"></textarea><br>  
+    <textarea class="w3-mosaic-input gq" rows=4 cols=100 required maxlength="1000" name="entry.939545751"></textarea><br>  
   </div>
     
   <div class="w3-section prefs" id="pdiv1">      
       <label>First Preference</label>
       <select class="preflist w3-mosaic-input" id="p1" name="entry.694952188" required>
-          <option value="N" autofocus>N/A</option>
-        <option value="d1">Department 1</option>
-        <option value="d2">Department 2</option>
-        <option value="d3">Department 3</option>
-    </select>
-      
+        <option value="N" autofocus>N/A</option>
+        <option value="Performing Arts">Performing Arts</option>
+        <option value="Contempory Arts and Live Arts">Contempory Arts and Live Arts</option>
+        <option value="Fine Arts and Digital Arts">Fine Arts and Digital Arts</option>
+        <option value="Speaking Arts and Literary Arts">Speaking Arts and Literary Arts</option>
+        <option value="Gaming and Sports">Gaming and Sports</option>
+        <option value="Chaos">Chaos</option>
+        <option value="Nukkad">Nukkad</option>
+        <option value="Registration">Registration</option>
+        <option value="Scoring">Scoring</option>
+        <option value="Security">Security</option>
+        <option value="Logistics">Logistics</option>
+        <option value="Tech">Tech</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Finance">Finance</option>
+        <option value="External Public Relations">External Public Relations</option>
+        <option value="Internal Public Relations">Internal Public Relations</option>
+        <option value="Celebrity Management">Celebrity Management</option>
+        <option value="Hospitality">Hospitality</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Digital Content">Digital Content</option>
+        <option value="Creatives">Creatives</option>
+        <option value="Souvenirs">Souvenirs</option>
+        <option value="Coverage">Coverage</option>
+    </select>            
   
   <div class="w3-section hide" id="hide1" style="display: none">
   <label>Hidden Q11</label><br>
@@ -326,10 +122,30 @@ function w3_close() {
       <div class="w3-section prefs" id="pdiv2">      
       <label>Second Preference</label>
           <select class="preflist w3-mosaic-input" id="p2" name="entry.855466028" required disabled>
-          <option value="N"  autofocus>N/A</option>
-        <option value="d1">Department 1</option>
-        <option value="d2">Department 2</option>
-        <option value="d3">Department 3</option>
+        <option value="N" autofocus>N/A</option>
+        <option value="Performing Arts">Performing Arts</option>
+        <option value="Contempory Arts and Live Arts">Contempory Arts and Live Arts</option>
+        <option value="Fine Arts and Digital Arts">Fine Arts and Digital Arts</option>
+        <option value="Speaking Arts and Literary Arts">Speaking Arts and Literary Arts</option>
+        <option value="Gaming and Sports">Gaming and Sports</option>
+        <option value="Chaos">Chaos</option>
+        <option value="Nukkad">Nukkad</option>
+        <option value="Registration">Registration</option>
+        <option value="Scoring">Scoring</option>
+        <option value="Security">Security</option>
+        <option value="Logistics">Logistics</option>
+        <option value="Tech">Tech</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Finance">Finance</option>
+        <option value="External Public Relations">External Public Relations</option>
+        <option value="Internal Public Relations">Internal Public Relations</option>
+        <option value="Celebrity Management">Celebrity Management</option>
+        <option value="Hospitality">Hospitality</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Digital Content">Digital Content</option>
+        <option value="Creatives">Creatives</option>
+        <option value="Souvenirs">Souvenirs</option>
+        <option value="Coverage">Coverage</option>
     </select>
   
   <div class="w3-section hide" id="hide2" style="display: none">
@@ -346,10 +162,30 @@ function w3_close() {
       <div class="w3-section prefs" id="pdiv3">      
       <label>Third Preference</label>
           <select class="preflist w3-mosaic-input" id="p3" name="entry.1284381445" required disabled>
-          <option value="N" autofocus>N/A</option>
-        <option value="d1">Department 1</option>
-        <option value="d2">Department 2</option>
-        <option value="d3">Department 3</option>
+        <option value="N" autofocus>N/A</option>
+        <option value="Performing Arts">Performing Arts</option>
+        <option value="Contempory Arts and Live Arts">Contempory Arts and Live Arts</option>
+        <option value="Fine Arts and Digital Arts">Fine Arts and Digital Arts</option>
+        <option value="Speaking Arts and Literary Arts">Speaking Arts and Literary Arts</option>
+        <option value="Gaming and Sports">Gaming and Sports</option>
+        <option value="Chaos">Chaos</option>
+        <option value="Nukkad">Nukkad</option>
+        <option value="Registration">Registration</option>
+        <option value="Scoring">Scoring</option>
+        <option value="Security">Security</option>
+        <option value="Logistics">Logistics</option>
+        <option value="Tech">Tech</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Finance">Finance</option>
+        <option value="External Public Relations">External Public Relations</option>
+        <option value="Internal Public Relations">Internal Public Relations</option>
+        <option value="Celebrity Management">Celebrity Management</option>
+        <option value="Hospitality">Hospitality</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Digital Content">Digital Content</option>
+        <option value="Creatives">Creatives</option>
+        <option value="Souvenirs">Souvenirs</option>
+        <option value="Coverage">Coverage</option>
     </select>
       
   <div class="w3-section hide" id="hide3" style="display: none">
@@ -367,17 +203,14 @@ function w3_close() {
 <div class="w3-section w3-container">
     <h3>Apply Now!</h3>
     <div class="w3-row w3-container w3-center">
-    <button class="subbtn w3-col l2 w3-mosaic-input w3-mosaic-button" id="b1" formaction="" value="" style="display:none; margin: 10px"></button>
-    <button class="subbtn w3-col l2 w3-mosaic-input w3-mosaic-button" id="b2" formaction="" value="" style="display:none; margin: 10px"></button>
-    <button class="subbtn w3-col l2 w3-mosaic-input w3-mosaic-button" id="b3" formaction="" value="" style="display:none; margin: 10px"></button>
+    <button class="subbtn w3-col l3 w3-mosaic-input w3-mosaic-button" id="b1" formaction="" value="" style="display:none; margin: 10px"></button>
+    <button class="subbtn w3-col l3 w3-mosaic-input w3-mosaic-button" id="b2" formaction="" value="" style="display:none; margin: 10px"></button>
+    <button class="subbtn w3-col l3 w3-mosaic-input w3-mosaic-button" id="b3" formaction="" value="" style="display:none; margin: 10px"></button>
     </div>
     </div>
 <br></form>
 <br><br>    
-    
-    
        </div></div>
-    
     
     
 </body></html>
