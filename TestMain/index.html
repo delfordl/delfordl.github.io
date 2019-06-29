@@ -127,12 +127,13 @@
 <!-- Header -->
 <header class="w3-container w3-padding section" id="myHeader" style="min-height: 500px" >
   <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-text-purple-theme"></i> 
-  <div class="w3-center w3-text-white">
-      <div class="w3-container w3-display-middle"><br><img src="images/2019logo.png" style="height:290px; width:290px" class="wow animated fadeInRight" data-wow-duration="2s" data-wow-delay="0.5s"><br>
+  <div class="w3-center w3-container w3-display-container w3-text-white">
+      <div class="w3-container w3-display-top"><br><img src="images/2019logo.png" style="height:290px; width:290px" class="wow animated fadeInRight" data-wow-duration="2s" data-wow-delay="0.5s"><br>
           <h2 class="wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s" style="margin: 10px">Tell your Story</h2><br>
-          <h6 style="margin: 5px; color:#ccc">September 16 - 19<sup>th</sup> September<br>Mosaic 2019</h6>
-          <br><div class="w3-card-4 w3-container w3-mosaic-theme"><a href="applications.html" style="text-decoration: none"><h3> क्रू Applications are now open! </h3></a></div>
-      </div></div>
+          <h6 class="wow animated fadeIn" data-wow-duration="2s" data-wow-delay="0.5s"style="margin: 5px; color:#ccc">September 16 - 19<sup>th</sup> September<br>Mosaic 2019</h6>
+      </div>
+    <div class="w3-card-4 w3-container w3-btn w3-mosaic-theme" style="width: inherit"><a href="applications.html" style="text-decoration: none"><h3> क्रू Applications are now open! </h3></a></div>
+    </div>
 </header>
 
 <div class="w3-container">
@@ -146,17 +147,12 @@
 // Side navigation
 function w3_open() {
   var x = document.getElementById("mySidebar");
-  var y = document.getElementById("bod");
-  y.style.backgroundColor=("255,255,255,0");
-  x.style.opacity=("0,0,0,1");
   x.style.width = "40%";
   x.style.fontSize = "20px";
   x.style.paddingTop = "10%";
   x.style.display = "block";
 }
 function w3_close() {
-  var y = document.getElementById("bod");
-  y.style.opacity="initial";
   document.getElementById("mySidebar").style.display = "none";
 }
 
