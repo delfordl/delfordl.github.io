@@ -2,15 +2,6 @@
     var ns=0,nb=0;
     window.addEventListener("load",needAName);
     new WOW().init();
-    window.onload=function wowoff()
-    {
-        var x=document.getElementsByClassName("wow");
-        for (var i=0;i<x.length;i++)
-            {
-                x[i].dataset.wowOffset=x[i].offsetHeight/10;
-            }
-    }
-    
 
     function needAName()
     {
@@ -29,78 +20,114 @@
                 sb[i].addEventListener("click",function(){beforesub(this.id);});
             }
     }
-    /*function beforesub(bid)
-    {
-        var hid,i,rank;
-        var sb=document.getElementsByClassName("subbtn");
-        switch(bid)
-            {
-                    case"b1":rank=1;hid="hide1"break;
-                    case"b2":rank=2;hid="hide2"break;
-                    case"b3":rank=3;hid="hide3"break;
-                default:break;
-            }
-        var hiddenf=document.getElementsByClassName("hide")
-        for(i=0;i<hiddenf.length;i++)
-            {
-                hiddenf[i].querySelectorAll("textarea").name="";
-                if(hiddenf[i].id==hid)
-                    {
-                        hiddenf[i].querySelectorAll("textarea")[0].name="entry.260531291";
-                        hiddenf[i].querySelectorAll("textarea")[1].name="entry.722795158";
-                    }
-            }
-        document.querySelector("form").action=document.getElementById(bid).formaction;
-        document.getElementById(bid).innerHTML=document.getElementById(bid).inner.replace("Apply","Applied");
-        document.getElementById(bid).disabled=true;
-        document.getElementById("prio").value=rank;
-        document.querySelector("form").submit();
-    }*/
     function beforesub(bid) //textarea
     {
         var hid,i,rank;
+        var b=document.getElementById(bid);
         var sb=document.getElementsByClassName("subbtn");
-        /*switch(bid)
-            {
-                    case"b1":rank=1;hid="hide1";break;
-                    case"b2":rank=2;hid="hide2";break;
-                    case"b3":rank=3;hid="hide3";break;
-                default:break;
-            }Removed Switch*/
-	rank=bid[1];
-	hid="hide"+bid[1];
-        var hiddenf=document.getElementsByClassName("hide")
-        for(i=0;i<hiddenf.length;i++)
-            {
-                hiddenf[i].querySelectorAll("textarea")[0].name="";
-		hiddenf[i].querySelectorAll("textarea")[1].name="";
-                if(hiddenf[i].id==hid)
-                    {
-                        hiddenf[i].querySelectorAll("textarea")[0].name="entry.260531291";
-                        hiddenf[i].querySelectorAll("textarea")[1].name="entry.722795158";
-                    }
-            }
-        var gq=document.getElementsByClassName("gq")
+        var hiddenf=document.getElementsByClassName("hide");
+        var gq=document.getElementsByClassName("gq");
+        var sel=document.querySelectorAll("select");
+        var pdiv=document.getElementById("pdiv"+bid[1]);
+        
+        /*Set Form Action*/
+        /*Set Hidden Field*/
+        /*Check for Unfilled fields*/
+        /*Set/unset name for dept specific Qs*/
+        /*Re-enable disabled fields*/
+        /*Submit*/
+        /*Disable Button, increment counter*/
+        /*Disable fields*/
+        /*Check for animation*/
+        
+	    hid="hide"+bid[1];
+        document.querySelector("form").action=b.formaction;//1
+        
+        rank=bid[1]; //2
+        document.getElementById("prio").value=rank;
+        
+        //3
         for(i=0;i<gq.length;i++)
             {
-                gq[i].disabled=true;
+                gq[i].style.borderColor="#ccc";
+                if(gq[i].value=="")
+                    {
+                        gq[i].style.borderColor="red";
+                        return false;
+                    }
             }
-        var pdiv=document.getElementById("pdiv"+bid[1]);
-        pdiv.querySelector("select").disabled=true;
-        pdiv.querySelectorAll("textarea")[0].disabled=true;
-        pdiv.querySelectorAll("textarea")[1].disabled=true;
         
-        document.querySelector("form").action=document.getElementById(bid).formaction;
-        document.getElementById(bid).innerHTML=document.getElementById(bid).innerHTML.replace("Apply","Applied")
-        document.getElementById(bid).disabled=true;
-        document.getElementById("prio").value=rank;
-	ns+=1;
-        document.querySelector("form").submit();
-	if(ns==nb)
-	{
-		window.location="thanks.html";
-	}
+        for(i=0;i<hiddenf.length;i++)//4+3
+            {
+                hiddenf[i].querySelectorAll("textarea")[0].name="";
+		        hiddenf[i].querySelectorAll("textarea")[1].name="";
+                if(hiddenf[i].id==hid)
+                    {
+                            hiddenf[i].querySelectorAll("textarea")[0].name="entry.260531291";
+                            hiddenf[i].querySelectorAll("textarea")[0].style.borderColor="#ccc";
+                            if(hiddenf[i].querySelectorAll("textarea")[0].value=="")
+                                {
+                                    hiddenf[i].querySelectorAll("textarea")[0].style.borderColor="red";
+                                    return false;
+                                }
+                        hiddenf[i].querySelectorAll("textarea")[1].name="entry.722795158";
+                        hiddenf[i].querySelectorAll("textarea")[1].style.borderColor="#ccc";
+                        if(hiddenf[i].querySelectorAll("textarea")[1].value=="")
+                                {
+                                    hiddenf[i].querySelectorAll("textarea")[1].style.borderColor="red";
+                                    return false;
+                                }
+                    }
+            }
+        
+        for(i=0;i<gq.length;i++) //5
+            {
+                gq[i].disabled=false;
+            }
+        for(i=0;i<sel.length;i++)
+        {
+            sel[i].disabled=false;
+        }
+        
+        document.querySelector("form").submit(); //6
+        
+        b.disabled=true;//7
+        b.innerHTML=b.innerHTML.replace("Apply","Applying");
+        setTimeout(function(){b.innerHTML=b.innerHTML.replace("Applying","Applied");},3500)
+
+        for(i=0;i<gq.length;i++)//8
+            {
+                gq[i].disabled=true;
+            }/*Disable Drop downs */
+        secondaryPrefs();
+        for(i=0;i<sb.length;i++)
+            {
+                if(sb[i].disabled==true)
+                    {
+                        document.getElementById("p"+sb[i].id[1]).disabled=true;
+                    }
+            }
+        
+        pdiv.querySelectorAll("textarea")[0].disabled=true;
+        pdiv.querySelectorAll("textarea")[1].disabled=true;/* Disable Specific*/
+        
+        ns+=1; //9
+        nb=0;
+         for(i=0;i<sb.length;i++)
+            {
+                if(sb[i].style.display=="")
+                    {
+                        nb++;
+                    }
+            }
+        if(ns==nb)
+	    {
+            setTimeout(function(){document.getElementById("animation").style.display="";window.location+="#animation"},2000);
+        
+	    }
+        
     }
+
     function secondaryPrefs()
     {
         var l1=document.getElementById("p1");
@@ -109,6 +136,7 @@
         var i;
         for(i=0;i<l1.options.length;i++)
             {
+                l1[i].disabled=false;
                 if((l1.options[i].value==l2.value)||(l1.options[i].value==l3.value)&&(l1.options[i].value!="N"))
                     {
                         l1.options[i].disabled=true;
@@ -146,14 +174,13 @@
         {
             l3.disabled=true;
         }
+        l1[0].disabled=true;
     }
     function setQ(pardivid,dept)
     {
         var q1,q2;
         switch(dept)
         {
-            case "d1": q1="Dep 1 Q";
-		       q2="Dep 1 Q2";break;
         case "Performing Arts": 
                 q1="PA1";
                 q2="PA2";
@@ -277,17 +304,79 @@
             case "d1": link="https://docs.google.com/forms/d/e/1FAIpQLSfTwauTmxnCpZMBcJ_jp2WVA04QnA5G0y6ph1KzRnFxGU3-Ng/formResponse";break;
             case "d2": link="https://docs.google.com/forms/d/e/1FAIpQLScLXNzHmwLR66gTFe3ZMFSe-fTDlc8iDYILvJZZxnLQ3fRZ6w/formResponse";break;
             case "d3": link="https://docs.google.com/forms/d/e/1FAIpQLSebMRyPuFm7iYCMnRKXazFYk1Bmjjwl-Z67DliJJDmFQqjPlQ/formResponse";break;
+        case "Performing Arts": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSc4ayK8a802bPMKmgue06pHBf3qp2SS-6IdrIce3QHUJIK69Q/formResponse";
+                break;
+        case "Contempory Arts and Live Arts": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSd2oxNPU93sIEYAxu35KZe4piy1Gp9GYm_QkZ34pFTggnPQAA/formResponse";
+                break;
+        case "Fine Arts and Digital Arts": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSc1-2aQucnnOxc0e6j1NV96AKGTpQZPGuA4K5vWL1WNBXVcBA/formResponse";
+                break;
+        case "Speaking Arts and Literary Arts": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSf9So65fi-D_qCPkeoKKyCQtPEYqmTnko2p-C1j1u7wbCqT6g/formResponse";
+                break;
+        case "Gaming and Sports": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLScFTukLk1VMfjAaVqLFTRtHb-TBjBgKDb9tvIsVKqVwdmoOpw/formResponse";
+                break;
+        case "Chaos": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSdFdx3m0SvZpM4-vQ4igELexHhcNkKO4KyKklinkDoTVRTFDcAg/formResponse";
+                break;
+        case "Nukkad": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSdZg9qIgdKZhDt8mIh7EO93AmD2IJJat3TiYT0CLZVepAi0Og/formResponse";
+                break;
+        case "Registration": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSfZR508r2lW5RAT0CDoIP1PrK4ePNr5UXQ7FRT_nC5roeQKYw/formResponse";
+                break;
+        case "Scoring": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLScbUWiVB08vj96Uuk_glKPiuQyhXp4B6V9VToyHxI9FICzq4A/formResponse";
+                break;
+        case "Security": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSeITrnT_qPrp5p-CS86xAyDrNaCKuGOhmojPpusSdX4PGQBaQ/formResponse";
+                break;
+        case "Logistics": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSfJHOzc5OTWp8YVCowKSXvgL4uVrW6obfoyYikWuWmUjPOOGA/formResponse";
+                break;
+        case "Tech": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSeC0LKRtY0Nr7t7_Z4rTJHDGpG2vkxWV3JOUuIizVwxwMN1ig/formResponse";
+                break;
+        case "Entertainment": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSfKRI_BCZVNxwIJu71wtiG6FNctc06VK9hETNVxG0Aoxl8ZkA/formResponse";
+                break;
+        case "Finance": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLScvuoeO3Pef0N_bfrib5BUgLEuOqjWFEf5NnFsN43cfQhq0xw/formResponse";
+                break;
+        case "External Public Relations": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLScCYBbo2uw9um_zD9vvZmBhpBBbwDPSKG316HWxFRENnJb3JQ/formResponse";
+                break;
+        case "Internal Public Relations": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLScJNexZe3KetVN_b2V_VmaNgJ8VQ6q53w8yCsEviTVyroS6HA/formResponse";
+                break;
+        case "Celebrity Management": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSe_92NTYBfq0lA0LmWO82QHpBFI9OM_FfogsQzm5Ye1SN5w8g/formResponse";
+                break;
+        case "Hospitality": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSd8zHL9rKB9HJgASEYpqndFGFtAbWHu1Fq1wG2VlsMM2su3Ag/formResponse";
+                break;
+        case "Marketing": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLScYFgbEx4GmnGUm64fxNWWiHL2ZwexUMqw_PZHadXb7qDW5nQ/formResponse";
+                break;
+        case "Digital Content": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSfYG-_w3zWAiTTfWfDE0AVogaU8d9z9FZVkEkeYAFfHc6I9Cg/formResponse";
+                break;
+        case "Creatives": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLScQkln2Xi7rMiobmsySU_LFkPhAmxejr_JVk-ed4HzF11mdQw/formResponse";
+                break;
+        case "Souvenirs": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSe6SMqD9TnRKlWs3OCAb5RN54GTzDttaZdiH20aJt5UKag_3w/formResponse";
+                break;
+        case "Coverage": 
+                link="https://docs.google.com/forms/d/e/1FAIpQLSeejim5yyxAVHh4v-cM0EWAkrUvF6Wu_2HnL28mndwlDWsWvg/formResponse";
+                break;
 		//23 cases
             default:break;
         }
 	dname="Apply to "+dept;
-        /*switch(pid)
-            {
-                case "p1":btn="b1";break;
-                case "p2":btn="b2";break;
-                case "p3":btn="b3";break;
-                default:break;
-            }Removed Switch*/
 	btn="b"+pid[1];
         btn=document.getElementById(btn);
         if(dept=="N")
@@ -295,14 +384,12 @@
                 btn.formaction="";
                 btn.innerHTML="";
 		btn.style.display="none";
-		nb.value-=1;
             }
         else
             {
                 btn.formaction=link;
                 btn.innerHTML=dname;
-                btn.style.display=""
-		nb+=1;
+                btn.style.display="";
             }
     }
     function w3_open() {
