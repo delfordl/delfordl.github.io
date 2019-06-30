@@ -175,6 +175,14 @@
             l3.disabled=true;
         }
         l1[0].disabled=true;
+        sel=document.querySelectorAll("select");/*Makes selected dropdowns mosaic-gradiented*/
+        for(i=0;i<sel.length;i++)
+            {
+                if((sel[i].value!="N")&&(!sel[i].className.includes("w3-mosaic-theme")))
+                    {
+                        sel[i].className+=" w3-mosaic-theme"
+                    }
+            }
     }
     function setQ(pardivid,dept)
     {
