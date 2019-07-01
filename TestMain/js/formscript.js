@@ -194,8 +194,8 @@
                 q2="Have you worked before for events? Share your experience";
                 break;
         case "Contempory Arts and Live Arts": 
-                q1="CALA1";
-                q2="CALA2";
+                q1="What's your go to pick-up line? What are effectivity ratings?";
+                q2="How will you maintain your calm and control in a tense conflicting situation with participant?";
                 break;
         case "Fine Arts and Digital Arts": 
                 q1="Can you help in managing  technical difficulties that occur during the event especially digital art event?";
@@ -223,7 +223,7 @@
                 break;
         case "Scoring": 
                 q1="Have you worked in a fest prior?";
-                q2="Were you a part of mosaic last year?";
+                q2="What do you understand by scoring?";
                 break;
         case "Security": 
                 q1="If you found someone smoking, drinking, etc in college during the fest, what would you do?";
