@@ -10,6 +10,7 @@
     <script src="js/formscript.js"></script>
     <script> window.onload=bg;
         window.onresize=bg;
+        document.querySelector("body").addEventListener("load",bg);
         function bg()
         {
           document.querySelector("body").style.height=window.innerHeight;
