@@ -190,96 +190,96 @@
         switch(dept)
         {
         case "Performing Arts": 
-                q1="PA1";
-                q2="PA2";
+                q1="What are your expectations for this volunteer position?";
+                q2="Have you worked before for events? Share your experience";
                 break;
         case "Contempory Arts and Live Arts": 
                 q1="CALA1";
                 q2="CALA2";
                 break;
         case "Fine Arts and Digital Arts": 
-                q1="FADA1";
-                q2="FADA2";
+                q1="Can you help in managing  technical difficulties that occur during the event especially digital art event?";
+                q2="Are you good with time management? Mention an instance.";
                 break;
         case "Speaking Arts and Literary Arts": 
-                q1="SALA1";
-                q2="SALA2";
+                q1="What would be the name of your biopic and what would it's highlights be?";
+                q2="If you could wake up and have gained any one quality or ability, what would it be and why?";
                 break;
         case "Gaming and Sports": 
-                q1="GASP1";
-                q2="GASP2";
+                q1="Can you help in managing technical difficulties that occur during the event especially with gaming?";
+                q2="How would you deal with aggressive impatient participants if the event is delayed?";
                 break;
         case "Chaos": 
-                q1="Chaos1";
-                q2="Chaos2";
+                q1="If there's a delay in a particular event and the participants get impatient, what will you do?";
+                q2="What is the recipe for disaster?";
                 break;
         case "Nukkad": 
-                q1="Nukkad1";
-                q2="Nukkad2";
+                q1="Have you ever managed multiple tasks assigned to you? Did you complete it successfully and if so, how?";
+                q2="How will you deal with an aggressively demanding participant?";
                 break;
         case "Registration": 
-                q1="Reg1";
-                q2="Reg2";
+                q1="What are the possible problems you think you could face before and during the fest?";
+                q2="What would be your ideal plan for the efficiency of the department to make this fest bigger and better this year?";
                 break;
         case "Scoring": 
-                q1="Sc1";
-                q2="Sc2";
+                q1="Have you worked in a fest prior?";
+                q2="Were you a part of mosaic last year?";
                 break;
         case "Security": 
-                q1="Sec1";
-                q2="Sec2";
+                q1="If you found someone smoking, drinking, etc in college during the fest, what would you do?";
+                q2="If a fight starts in an audience during a crowded event, what would you do to contain it?";
                 break;
         case "Logistics": 
-                q1="Log1";
-                q2="Log2";
+                q1="What made you choose logistics?";
+                q2="Are you okay with waiting back after lectures?";
                 break;
-        case "Tech": 
-                q1="Tech1";
-                q2="Tech2";
+        case "Technicals": 
+                q1="Why are you interested in joining this department?";
+                q2="What kind of experience do you have to be a part of this department?";
                 break;
         case "Entertainment": 
-                q1="E1";
-                q2="E2";
+                q1="Are you spontaneous enough to take a decision while your department HOD isn't present at that given point of time? ";
+                q2="Do you have knowledge about any performing art? (If yes, state which and your experience in that particular field)";
                 break;
         case "Finance": 
-                q1="F1";
-                q2="F2";
+                q1="How do you keep your budgets on track?";
+                q2="Name 2 things about finance that interest you.";
                 break;
         case "External Public Relations": 
-                q1="EPR1";
-                q2="EPR2";
+                q1="Do you find it particularly easy to approach new people and spark a conversation with them?";
+                q2="How would you deal with an aggressively demanding contingent?";
                 break;
         case "Internal Public Relations": 
-                q1="IPR1";
-                q2="IPR2";
+                q1="Suggest a creative idea for external Mosaic promotions.";
+                q2="How will you create a buzz in college about Mosaic?";
                 break;
         case "Celebrity Management": 
-                q1="CM1";
-                q2="CM2";
+                q1="Have you worked under celebrity management before? What kind of work and for whom?";
+                q2="How would you accomodate a last minute change with a judge running late?";
                 break;
         case "Hospitality": 
-                q1="Hosp1";
-                q2="Hosp2";
+                q1="How good are you with multitasking?";
+                q2="What do you think is expected of a hospitality volunteer?";
                 break;
         case "Marketing": 
-                q1="Mark1";
-                q2="Mark2";
+                q1="What do you think is the role of the marketing dept in a fest?";
+                q2="How would you negotiate with sponsors, vendors, and partners to make more room in the budget?";
                 break;
         case "Digital Content": 
-                q1="DC1";
-                q2="Dc2";
+                q1="Are you a frequent social media user? If yes, how often do you use social media?";
+                q2="On a scale of 1-10, (1 being the least and 10 being the most), how creative do you think you are?";
                 break;
         case "Creatives": 
-                q1="Crea1";
-                q2="Crea2";
+                q1=" In terms of the theme, i.e. 'Tell your Story', come up with an idea or ideas to bring out the essence of the theme revolving around youth/characters/stories, etc. in the decor or art installments or anything to liven the fest.";
+                q2="What would you define yourself as a colour and why?";
                 break;
         case "Souvenirs": 
-                q1="Souvi1";
-                q2="Souvi2";
+                q1="If you were ONLY given  icecream sticks, twine, a marker,  some cardboard, a few buttons, and a pair of scissors, What would you make, so that we could sell it?";
+                q2="If you were given a blank wall as a canvas, and were asked to promote Mosaic without writing the name of the fest down, what would you draw/paint?";
                 break;
         case "Coverage": 
-                q1="Cov1";
-                q2="Cov2";
+                q1="What do you prefer photography or videography?";
+                q2="How experienced are you in your field?";
                 break;
 		//23 cases
             default:break;
@@ -345,7 +345,7 @@
         case "Logistics": 
                 link="https://docs.google.com/forms/d/e/1FAIpQLSfJHOzc5OTWp8YVCowKSXvgL4uVrW6obfoyYikWuWmUjPOOGA/formResponse";
                 break;
-        case "Tech": 
+        case "Technicals": 
                 link="https://docs.google.com/forms/d/e/1FAIpQLSeC0LKRtY0Nr7t7_Z4rTJHDGpG2vkxWV3JOUuIizVwxwMN1ig/formResponse";
                 break;
         case "Entertainment": 
