@@ -1,5 +1,5 @@
     var submitted = false;
-    var ns=0,nb=0;
+    var ns=0,nb=0,temptext=[];
     window.addEventListener("load",needAName);
     new WOW().init();
 
@@ -29,6 +29,7 @@
         var gq=document.getElementsByClassName("gq");
         var sel=document.querySelectorAll("select");
         var pdiv=document.getElementById("pdiv"+bid[1]);
+        var plist=document.getElementsByClassName("preflist");
         
         /*Set Form Action*/
         /*Set Hidden Field*/
@@ -36,7 +37,7 @@
         /*Set/unset name for dept specific Qs*/
         /*Re-enable disabled fields*/
         /*Submit*/
-        /*Disable Button, increment counter*/
+        /*Disable Button, disable fields increment counter*/
         /*Disable fields*/
         /*Check for animation*/
         
@@ -92,15 +93,63 @@
         document.querySelector("form").submit(); //6
         
         b.disabled=true;//7
-        b.innerHTML=b.innerHTML.replace("Apply","Applying");
-        setTimeout(function(){b.innerHTML=b.innerHTML.replace("Applying","Applied");},3500)
-
-        for(i=0;i<gq.length;i++)//8
+        
+        for(i=0;i<gq.length;i++)//7.1
             {
                 gq[i].disabled=true;
             }/*Disable Drop downs */
         secondaryPrefs();
         for(i=0;i<sb.length;i++)
+            {
+                if(sb[i].disabled==true)
+                    {
+                        document.getElementById("p"+sb[i].id[1]).disabled=true;
+                    }
+            }
+        
+        pdiv.querySelectorAll("textarea")[0].disabled=true;
+        pdiv.querySelectorAll("textarea")[1].disabled=true;/* Disable Specific*/
+        
+        for(i=0;i<sb.length;i++)
+            {
+                if(plist[i].disabled==false)
+                {
+                    temptext[i]=sb[i].innerHTML;
+                    sb[i].innerHTML="Please Wait...";
+                    sb[i].style.color="#13a89e";
+                    sb[i].style.borderColor="#13a89e";
+                    sb[i].style.fontWeight="900";
+                    sb[i].disabled=true;
+                }
+            }
+        b.innerHTML=b.innerHTML.replace("Apply","Applying");
+        setTimeout(function()
+                   {
+            
+                    for(i=0;i<sb.length;i++)
+                    {
+                        if(plist[i].disabled==false)
+                        {
+                            sb[i].disabled=false;
+                            sb[i].innerHTML=temptext[i];
+                            sb[i].style.fontWeight="";
+                            sb[i].style.color="";
+                            sb[i].style.borderColor="";
+                        }
+                    }
+                    temptext.splice();
+                    b.innerHTML=b.innerHTML.replace("Applying","Applied");
+                   }
+                   ,
+                   5000)
+        
+
+        /*for(i=0;i<gq.length;i++)//8
+            {
+                gq[i].disabled=true;
+            }/*Disable Drop downs */
+        //secondaryPrefs();
+        /*for(i=0;i<sb.length;i++)
             {
                 if(sb[i].disabled==true)
                     {
@@ -122,7 +171,8 @@
             }
         if(ns==nb)
 	    {
-            setTimeout(function(){document.getElementById("animation").style.display="";window.location+="#animation"},2000);
+            setTimeout(function(){document.getElementById("animation").style.display="";window.location="#animation";},6000);
+            setTimeout(function(){window.open("Index.html","_blank");},6500);
         
 	    }
         
