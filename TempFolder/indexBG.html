@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>Mosaic 2019 | Tell Your Story</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://www.festmosaic.com/css/w3.css">
+<link rel="stylesheet" href="http://www.festmosaic.com/css/theme.css">
+<link rel="stylesheet" href="http://www.festmosaic.com/css/animate.css">    
+<link rel="icon" href="http://www.festmosaic.com/images/2019logo.png">
+<meta name="description" content="Mosaic 2019: Annual Cultural Fest of St. Andrew's College">
+<meta name="keywords" content="Fest,'College Fest','Annual Fest','St. Andrew's College','St. Andrew's College Fest','Mumbai Fest','Mumbai College','Mumbai College Fest'">
+<script src="http://www.festmosaic.com/js/wowmin.js"></script>
+<script>
+    new WOW().init();
+    onload=reswin;
+    onload=gifchange;
+    onresize=reswin;
+    function reswin()
+    {    
+        var s=document.getElementsByClassName("section");
+        var i=0;
+        for (i=0;i<s.length;i++)
+            {
+                s[i].style.height=window.innerHeight+"px";
+                s[i].style.minHeight=window.innerHeight+"px";
+                s[i].style.maxHeight=window.innerHeight+"px";
+                var shards=document.getElementsByClassName("shard");
+                for (var i=0;i<shards.length;i++)
+                    {
+                        shards[i].addEventListener("click", function(){inc(this.id);});
+                        shards[i].addEventListener("mouseout",function(){dec(this.id);});
+                    }
+            }
+    }
+    function inc(shardid)
+    {
+        var shard=document.getElementById(shardid);
+        shard.style.height="75px";
+        shard.style.width="75px";
+    }
+    function gifchange()
+    {
+        var l=document.getElementById("mainlogo");
+        var img=document.querySelectorAll("img");
+        var a=document.querySelectorAll("area");
+        var disp=document.getElementById("disp");
+        var dispt=document.getElementById("dispt");
+        var shardt=document.createElement("img");
+        var disdiv=document.createElement("div");
+        var divt=document.createElement("div");
+        var divb=document.createElement("div");
+        var divr=document.createElement("div");
+        var divl=document.createElement("div");
+        divt.className="w3-container w3-display-top";
+        divb.className="w3-container w3-display-bottom";
+        divr.className="w3-container w3-display-right";
+        divl.className="w3-container w3-display-left";
+        
+        l.addEventListener("click",function()
+                                                            {
+            
+        //l.src="plate.gif";
+        //l.className=l.className.replace("fadeInRight","fadeOut");
+        l.className+=" fadeOut";
+        l.style.zIndex="0";
+        setShards();
+            });
+        /*setTimeout(function()
+                   {*/
+        
+       /* disdiv.style.height="290px";
+        disdiv.style.width="290px";
+        disdiv.className="w3-center w3-container w3-display-container";
+        shardt.src="2019logo.png";
+        shardt.style.height="50px";
+        shardt.style.width="50px";
+        shardt.dataset.wowDuration="2s";
+        shardt.className="wow animated fadeIn";
+        shardb.src="2019logo.png";
+        shardb.style.height="50px";
+        shardb.style.width="50px";
+        shardb.dataset.wowDuration="2s";
+        shardb.className="wow animated fadeIn";
+        shardr.src="2019logo.png";
+        shardr.style.height="50px";
+        shardr.style.width="50px";
+        shardr.dataset.wowDuration="2s";
+        shardr.className="wow animated fadeIn";
+        shardl.src="2019logo.png";
+        shardl.style.height="50px";
+        shardl.style.width="50px";
+        shardl.dataset.wowDuration="2s";
+        shardl.className="wow animated fadeIn";
+        divt.appendChild(shardt);
+        divb.appendChild(shardb);
+        divr.appendChild(shardr);
+        divl.appendChild(shardl);
+        disdiv.appendChild(divt);
+        disdiv.appendChild(divb);
+        disdiv.appendChild(divr);
+        disdiv.appendChild(divl);
+        
+            
+            
+        dispt.replaceChild(disdiv,document.getElementById("mainlogo"));
+        };/*,2000);
+            
+        /*img.useMap="#mmap";
+            img.style.opacity="1";
+        for (var i=0;i<a.length;i++)
+            {
+                a[i].style.border="10px red solid"
+                a[i].focus();
+            }*/
+        
+    }
+function setShards()
+    {
+        var shardt=document.createElement("img");
+        var shardb=document.createElement("img");
+        var shardr=document.createElement("img");
+        var shardl=document.createElement("img");
+        var disdiv=document.createElement("div");
+        var divt=document.createElement("div");
+        var divb=document.createElement("div");
+        var divr=document.createElement("div");
+        var divl=document.createElement("div");
+        
+        disdiv.style.height="290px";
+        disdiv.style.width="100%";
+        disdiv.className="w3-center w3-container w3-display-container";
+        divt.className="w3-container w3-display-top";
+        divt.style.paddingLeft="5%";
+        divb.className="w3-container w3-display-bottommiddle";
+        divb.style.paddingLeft="5%";
+        divr.className="w3-container w3-display-right";
+        divr.style.paddingRight="30%";
+        divl.className="w3-container w3-display-left";
+        divl.style.paddingLeft="35%";
+        shardt.src="glass.png";
+        shardt.className="shard";
+        shardt.id="s1";
+        shardt.style.height="50px";
+        shardt.style.width="50px";
+        shardt.dataset.wowDuration="2s";
+        shardt.className="wow animated fadeIn";
+        shardb.src="glass.png";
+        shardb.className="shard";
+        shardb.id="s2";
+        shardb.style.height="50px";
+        shardb.style.width="50px";
+        shardb.dataset.wowDuration="2s";
+        shardb.className="wow animated fadeIn";
+        shardr.src="glass.png";
+        shardr.className="shard";
+        shardr.id="s3";
+        shardr.style.height="50px";
+        shardr.style.width="50px";
+        shardr.dataset.wowDuration="2s";
+        shardr.className="wow animated fadeIn";
+        shardl.src="glass.png";
+        shardl.className="shard";
+        shardl.id="s4";
+        shardl.style.height="50px";
+        shardl.style.width="50px";
+        shardl.dataset.wowDuration="2s";
+        shardl.className="wow animated fadeIn";
+        divt.appendChild(shardt);
+        divb.appendChild(shardb);
+        divr.appendChild(shardr);
+        divl.appendChild(shardl);
+        disdiv.appendChild(divt);
+        disdiv.appendChild(divb);
+        disdiv.appendChild(divr);
+        disdiv.appendChild(divl);
+        
+            
+            
+        dispt.replaceChild(disdiv,document.getElementById("mainlogo"));
+    }
+</script>
+<style>
+    /*area:hover{
+        border: 10px #fff solid;
+    }*/
+    @font-face{
+        font-family:"Caviar Dreams Boldimport";
+        src: url("http://www.festmosaic.com/font/Caviar%20Dreams%20Bold.ttf");
+    }    
+*{font-family: "Caviar Dreams Boldimport !important";}
+ html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        p,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video,
+        p {
+            font-family: "Caviar Dreams Boldimport !important";
+        }
+</style>
+</head>
+<body id="bod" class="section" style=" height: 100%; width: 100% background-size: 100% 100%;" >
+    <!--background-image: url(http://www.festmosaic.com/images/2019bg.jpg);-->
+    
+    <!--<img height="100%" width="100%" style="position: absolute; z-index: 0; opacity: 0.9" src="http://www.festmosaic.com/images/2019bg.jpg" class="wow animated" data-wow-duration="2s" data-wow-offset="-100">-->
+    <img style="position: absolute; z-index: 1; opacity: 0.35" src="2019mapbg2.jpg" class="wow animated" data-wow-duration="2s" data-wow-offset="-100" usemap="#bgmap"> 
+    <map name="#bgmap">
+    <area shape="rect" coords="0,0,100,100" href="asd">
+    <area shape="poly" coords="280,140,345,200,325,290,240,285,215,200" href="http://www.festmosaic.com">
+    </map>
+    <map name="#mmap">
+    <area shape="rect" coords="390,90,620,260" href="http://www.festmosaic.com">
+    </map>
+
+<!-- Side Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-center w3-mosaic-theme w3-text-white" style="display:none; background-image: url(http://www.festmosaic.com/images/2019longbg.jpg); background-size: cover" id="mySidebar">
+  <i onclick="w3_close()" style="cursor: pointer" class="fa fa-bars w3-xlarge w3-text-teal-theme"></i>
+    <a href="#" style="text-decoration: none"><h3>Home<hr style="width: 10%; margin-left:45%"></h3></a>
+        <a href="Applications" style="text-decoration: none"><h3>क्रू Applications<hr style="width: 10%; margin-left:45%"></h3></a><br><br>
+    <img src="http://www.festmosaic.com/images/2019logo.png" style="height: 50px; width: 50px" class="wow animated fadeInUp" data-wow-duration="2s" data-wow-delay="0.5s"><br><br>
+</nav><!-- Header -->
+<header class="w3-container w3-padding section" id="myHeader" style="min-height: 500px" >
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-text-purple-theme" style="position: relative"></i> 
+  <div class="w3-center w3-container w3-display-container w3-text-white" style="width: 100%; min-height: 290px" id="disp">
+      <div class="w3-container w3-display-top w3-center" id="dispt"><img id="mainlogo" src="http://www.festmosaic.com/images/2019logo.png" style="height:290px; width:290px" class="wow animated" animation-fill-mode= "forwards" data-wow-duration="2s">
+        <map name="mmap">
+            <area shape=circle coords="50,50,50" href="#">
+          </map>
+          <h2 class="wow animated fadeIn" data-wow-duration="2s" data-wow-offset="-100" style="margin: 10px">Tell Your Story</h2><br>
+          <h6 class="wow animated fadeIn" data-wow-duration="2s" data-wow-offset="-100"style="margin: 5px; color:#ccc">16<sup>th</sup> September - 19<sup>th</sup> September<br>Mosaic 2019</h6><br>
+      </div>
+    <div class="w3-container w3-display-bottom" style="width: 100%">
+        <div class="w3-card-4 w3-btn w3-mosaic-theme">
+        <a href="Applications" style="text-decoration: none; position: relative"><h3>Join the क्रू</h3></a></div><br><br>
+      <div class="w3-container" style="width: 100%">
+    <div class="w3-center" style="width: 100%">
+    <a href="https://www.instagram.com/festmosaic" class="w3-button w3-circle w3-large w3-card-4 w3-mosaic-theme wow animated fadeInRight" data-wow-duration="2s" data-wow-offset="-100" style="margin: 5px"><i class="fa fa-instagram"></i></a>
+    <a href="https://www.facebook.com/Mosaic-1801853020123422/"class="w3-button w3-circle w3-large w3-card-4 w3-mosaic-theme wow animated fadeInUp" data-wow-duration="2s" data-wow-offset="-100" data-wow-delay="0.5s" style="margin: 5px"><i class="fa fa-facebook-square"></i></a>
+  <a href="https://www.youtube.com/channel/UCQOIA99uT3SGCABbcUyNsqg/" class="w3-button w3-circle w3-large w3-card-4 w3-mosaic-theme wow animated fadeInUp" data-wow-duration="2s" data-wow-offset="-100" data-wow-delay="0.5s" style="margin: 5px"><i class="fa fa-youtube-play"></i></a>
+  <a href="https://www.snapchat.com/add/festmosaic" class="w3-button w3-circle w3-large w3-card-4 w3-mosaic-theme wow animated fadeInLeft" data-wow-duration="2s" data-wow-offset="-100" style="margin: 5px"><i class="fa fa-snapchat"></i></a>
+    </div>
+    </div>
+      </div></div>
+</header>
+    </body>
+    <script>
+// Side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "40%";
+  x.style.fontSize = "20px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+</script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/imageMapResizer.min.js"></script>
+	<script type="text/javascript">
+
+		$('map').imageMapResize();
+
+	</script>
+</html>
