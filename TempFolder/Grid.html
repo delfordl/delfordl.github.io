@@ -1,7 +1,11 @@
-<html>
+<html class="bg">
 <head><title>Mosaic 2019 | Tell Your Story</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://www.festmosaic.com/css/w3.css">
+<link rel="stylesheet" href="http://www.festmosaic.com/css/theme.css">
+<link rel="stylesheet" href="http://www.festmosaic.com/css/animate.css">
 <style>
     body, html {
   height: 100%;
@@ -20,15 +24,174 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.bg2 {
+  /* The image used */
+  background-image: url("2019bg.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .shard{
         position: absolute;
-        #opacity: 0.6;
+        background-color: #0f0f0f;
+        height: 25%;
+        width: 25%;
     }
+.ishard{
+        height: -webkit-calc(100% - 4px);
+        height: -moz-calc(100% - 4px);
+        height: calc(100% - 4px);
+        width: -webkit-calc(100% - 4px);
+        width: -moz-calc(100% - 4px);
+        width: calc(100% - 4px);
+        position: absolute;
+        margin: 2px;
+    }
+
+@-webkit-keyframes mtada {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale(0.9) rotate(-3deg);
+    transform: scale(0.9) rotate(-3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.3) rotate(-3deg);
+    transform: scale(1.3) rotate(-3deg);
+  }  
+  100% {
+    -webkit-transform: scale(1.5) ;
+    transform: scale(1.5) ;
+  }
+}
+
+@keyframes mtada {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+ 10%, 20% {
+    -webkit-transform: scale(0.9) rotate(-3deg);
+    -ms-transform: scale(0.9) rotate(-3deg);
+    transform: scale(0.9) rotate(-3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    -ms-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.3) rotate(-3deg);
+    -ms-transform: scale(1.3) rotate(-3deg);
+    transform: scale(1.3) rotate(-3deg);
+  }
+    
+100% {
+    -webkit-transform: scale(1.5) ;
+    -ms-transform: scale(1.5) ;
+    transform: scale(1.5) ;
+  }
+}
+
+.mtada {
+  -webkit-animation-name: mtada;
+  animation-name: mtada;
+}
+@-webkit-keyframes revtada {
+  0% {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale(1.4) rotate(-3deg);
+    transform: scale(1.4) rotate(-3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale(1.2) rotate(3deg);
+    transform: scale(1.2) rotate(3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.1) rotate(-3deg);
+  }  
+  100% {
+    -webkit-transform: scale(1) ;
+    transform: scale(1) ;
+  }
+}
+
+@keyframes revtada {
+  0% {
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+ 10%, 20% {
+    -webkit-transform: scale(1) rotate(-3deg);
+    -ms-transform: scale(1) rotate(-3deg);
+    transform: scale(1) rotate(-3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale(0.9) rotate(3deg);
+    -ms-transform: scale(0.9) rotate(3deg);
+    transform: scale(0.9) rotate(3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale(0.9) rotate(-3deg);
+    -ms-transform: scale(0.9) rotate(-3deg);
+    transform: scale(0.9) rotate(-3deg);
+  }
+    
+100% {
+    -webkit-transform: scale(1) ;
+    -ms-transform: scale(1) ;
+    transform: scale(1) ;
+  }
+}
+
+.revtada {
+  -webkit-animation-name: revtada;
+  animation-name: revtada;
+}
+
     </style>
 </head>
 <script>
-    //onload=loadfn;
+    onload=loadfnWait;
     function loadfn()
+    {
+        var animate=document.getElementsByClassName("ashard");
+        var shards=document.getElementsByClassName("shard");
+        for(i=0;i<shards.length;i++)
+            {
+                shards[i].className+=" mtada";
+            }
+        
+    }
+    //onload=loadfn;
+    /*function loadfn()
     {
         var map=document.createElement("map");
         map.name="#bgname" //Check the #
@@ -75,30 +238,97 @@
             y.setAttribute("alt","alt");
             y.setAttribute("title","title");
             document.getElementById("myMap").appendChild(y); 
-        }     
+        }*/     
     
 </script>
-    <body class="bg">
-        <div style="width:100%; height:10%;"> <!--Use rows as anchors-->
-            <div class="shard" style="width:10%;height: 32%;background-color: white;left:14%;"></div>
-            <div class="shard" style="width: 20%;height:20%;background-color: green;
-clip-path: polygon(100% 0, 0 0, 0 100%);"></div>
-        <div class="shard" style="width: 20%; height: 20%; background-color: yellow; 
-clip-path: polygon(100% 0, 70% 100%, 0 100%);"></div>
-            <div class="shard" style="width: 10%; height: 100%; background-image: url(2019bg.jpg); 
-clip-path: polygon(78% 0, 0 0, 48% 63%);left:20%"></div>
-            
+    <body class="bg w3-display-container">
+        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 100% 0, 0 100%); clip-path: polygon(0 0, 100% 0, 0 100%%);">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 100% 0, 0 100%);clip-path: polygon(0 0, 100% 0, 0 100%);background-image: url(2019bg.jpg);"></div>
+        </div>
+        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%); clip-path: polygon(100% 0, 100% 100%, 0 100%);">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);clip-path: polygon(100% 0, 100% 100%, 0 100%);background-image: url(2019bg.jpg);"></div>
+        </div>
+        <a href=#><div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 65% 100%, 100% 0); clip-path: polygon(0 0, 65% 100%, 100% 0); left:25%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 65% 100%, 100% 0);clip-path: polygon(0 0, 65% 100%, 100% 0);background-image: url(2019bg.jpg);"></div>
+        </div></a>
+        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 65% 50%, 50% 100%, 0 100%); clip-path: polygon(0 0, 65% 50%, 50% 100%, 0 100%); left:25%; height: 50%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 65% 50%, 50% 100%, 0 100%);clip-path: polygon(0 0, 65% 50%, 50% 100%, 0 100%);"></div>
+        </div>
+        <a href=#><div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 35% 100%, 100% 0); clip-path: polygon(0 0, 35% 100%, 100% 0); top:25%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 35% 100%, 100% 0);clip-path: polygon(0 0, 35% 100%, 100% 0);background-image: url(2019bg.jpg);"></div>
+        </div></a>
+        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 35% 50%, 0 100%); clip-path: polygon(0 0, 35% 50%, 0 100%); top:25%; height: 50%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 35% 50%, 0 100%);clip-path: polygon(0 0, 35% 50%, 0 100%);background-image: url(2019bg.jpg);"></div>
+        </div>
+        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 50%,65% 100%,0 100%,35% 50%); clip-path: polygon(100% 0, 100% 50%,65% 100%,0 100%,35% 50%); top:25%; height: 50%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 50%,65% 100%,0 100%,35% 50%);clip-path: polygon(100% 0, 100% 50%,65% 100%,0 100%,35% 50%);background-image: url(2019bg.jpg);"></div>
+        </div>
+        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 100%,0 100%,41% 0); clip-path: polygon(100% 0, 100% 100%,0 100%,41% 0); top:50%; left: 16.25%; width: 21.25%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 100%,0 100%,41% 0);clip-path: polygon(100% 0, 100% 100%,0 100%,41% 0);background-image: url(2019bg.jpg);"></div>
+        </div>
+        <a href="#"><div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 0 75%,100% 0); clip-path: polygon(0 0, 0 75%,100% 0); top:75%;width:16.25%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 0 75%,100% 0);clip-path: polygon(0 0, 0 75%,100% 0);background-image: url(2019bg.jpg);"></div>
+        </div></a>
+        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 35%, 0 75%,100% 0); clip-path: polygon(0 35%, 0 75%,100% 0); top:75%;width:16.25%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 35%, 0 75%,100% 0);clip-path: polygon(0 35%, 0 75%,100% 0);background-image: url(2019bg.jpg);"></div>
+        </div>
+        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 75%, 0 100%, 25% 100%,100% 0); clip-path: polygon(0 75%, 0 100%, 25% 100%,100% 0); top:75%;width:16.25%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 75%, 0 100%, 25% 100%,100% 0);clip-path: polygon(0 75%, 0 100%, 25% 100%,100% 0);background-image: url(2019bg.jpg);"></div>
+        </div>
+        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(25% 100%,60% 100%,100% 0); clip-path: polygon(25% 100%,60% 100%,100% 0); top:75%;width:16.25%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(25% 100%,60% 100%,100% 0);clip-path: polygon(25% 100%,60% 100%,100% 0);background-image: url(2019bg.jpg);"></div>
+        </div>
+        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(60% 100%,100% 100%,100% 0); clip-path: polygon(60% 100%,100% 100%,100% 0); top:75%;width:16.25%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(60% 100%,100% 100%,100% 0);clip-path: polygon(60% 100%,100% 100%,100% 0);background-image: url(2019bg.jpg);"></div>
+        </div>
+         <!--Use rows as anchors-->
+            <!--<a href="#"><div class="shard ashard wow animated mtada" data-wow-duration="2s" style="display: none; clip-path: polygon(60% 0, 0 63%, 46% 100%, 100% 100%)">
+                <div class="ishard" data-wow-duration="2s" style="clip-path: polygon(60% 0, 0 63%, 46% 100%, 100% 100%)"><img src="plate.gif" height="100%" width="100%"></div>
+            </div></a>
+        <div class="shard" style="-webkit-clip-path: polygon(0 21%, 18% 0, 0% 0%);
+clip-path: polygon(0 21%, 18% 0, 0% 0%);;">
+            <div class="ishard wow animated borderani" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 21%, 18% 0, 0% 0%);
+clip-path: polygon(0 21%, 18% 0, 0% 0%);height: 100%;width: 100%; background-color: green;"></div>
+        </div>
+        <div class="shard" style="width: 20%; height: 20%;clip-path: polygon(100% 0, 70% 100%, 0 100%);">
+            <div class="ishard" style="background-color: yellow; clip-path: polygon(100% 0, 70% 100%, 0 100%);"></div>
+        </div>
+        <div class="shard borderani" style="width: 10%; height: 20%;clip-path: polygon(78% 0, 0 0, 25% 100%);left:20%">
+            <div class="ishard" style="background-image: url(2019bg.jpg);clip-path: polygon(78% 0, 0 0, 25% 100%);"></div>
+        </div>
+        <div class="shard" style="width: 10%; height: 20%;clip-path: polygon(78% 0, 100% 100%, 25% 100%);left:20%">
+            <div class="ishard" style="background-image: url(2019bg.jpg);clip-path: polygon(78% 0, 100% 100%, 25% 100%);"></div>
+        </div>f
+        <div class="shard" style="-webkit-clip-path: polygon(0% 8%, 14% 8%, 19% 19%, 0% 19%);clip-path: polygon(0% 8%, 14% 8%, 19% 19%, 0% 19%);">
+            <div class="ishard" style=";background-color: orange; 
+-webkit-clip-path: polygon(0% 8%, 14% 8%, 19% 19%, 0% 19%);
+clip-path: polygon(0% 8%, 14% 8%, 19% 19%, 0% 19%);"></div>
+        </div>
+        <div class="shard" style="width: 20%;height: 12%; clip-path: polygon(0 100%, 93% 100%, 0 0);top:20%">
+            <div class="ishard" style=";background-color: orange; clip-path: polygon(0 100%, 93% 100%, 0 0);"></div>
+        </div>-->
+        <!--
+        <div style="width:100%; height:10%;"></div>
+        <div style="width:100%; height:10%;">
+        <div class="shard" style="width: 20%;height: 12%; clip-path: polygon(70% 0, 93% 100%, 0 0);">
+            <div class="shard ishard" style=";background-color: orange;
+                                             clip-path: polygon(70% 0, 93% 100%, 0 0);"></div></div>
         </div>
         <div style="width:100%; height:10%;"></div>
-        <div style="width:100%; height:10%; background-color: green">
-            <div class="shard" style="width: 20%;height: 12%;background-color: orange;
-clip-path: polygon(70% 0, 100% 100%, 0 0);"></div>
-        </div>
-        <div style="width:100%; height:10%; background-color: red"></div>
-        <div style="width:100%; height:10%; background-color: red"></div>
-        <div style="width:100%; height:10%; background-color: green"></div>
-        <div style="width:100%; height:10%; background-color: blue"></div>
-    
+        <div style="width:100%; height:10%;"></div>
+        <div style="width:100%; height:10%;"></div>
+        <div style="width:100%; height:10%;"></div>-->
+        <div class="w3-display-middle imgdiv"><img src="2019logo.png" class="wow animated tada" height="300px" width="300px" data-wow-duration="2s" data-wow-delay="2s" style="z-index: 1"></div>
+        <!---->
+        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="180">
+  <filter id="erode">
+    <feMorphology operator="erode" radius="1"/>
+  </filter>
+  <filter id="dilate">
+    <feMorphology operator="dilate" radius="1"/>
+  </filter>
+    </svg>
+        <!---->
     <!--<img style="position: absolute; z-index: 1; opacity: 0.35" height="100%" width="100%" src="asd.jpg" class="wow animated" data-wow-duration="2s" data-wow-offset="-100" usemap="#bgmap">-->
     <!--<map name="#bgmap">
     <area shape="rect" coords="0,0,100,100" href="asd">
