@@ -179,22 +179,38 @@
     </style>
 </head>
 <script>
-    //onload=loadfnWait;
-    onload=logors;
+    onload=loadfn;
     onresize=logors;
+    function loadfn()
+    {
+        logors();
+        document.getElementById("logo").addEventListener("click",function(){logoclick();})
+    }
     function logors()
     {
         var mlogo=document.getElementById("logo");
         mlogo.style.height=(window.innerWidth+window.innerHeight)/2*35/100;
         mlogo.style.width=(window.innerWidth+window.innerHeight)/2*35/100;
     }
-    function loadfn()
+    function logoclick()
     {
-        var animate=document.getElementsByClassName("ashard");
-        var shards=document.getElementsByClassName("shard");
-        for(i=0;i<shards.length;i++)
+        var ashards=document.getElementsByClassName("animable");
+        for(var i=0;i<ashards.length;i++)
             {
-                shards[i].className+=" mtada";
+                ashards[i].style.zIndex=0;
+                if(!ashards[i].className.includes("mtada"))
+                {
+                    ashards[i].className+=" mtada";
+                    ashards[i].style.zIndex=1;
+                    ashards[i].querySelector("p").style.className=ashards[i].querySelector("p").className.replace("fadeIn","fadeOut");
+                    switch(ashards[i].id)
+                        {
+                            case 's1': 
+                                ashards[i].querySelector("p").innerHTML="0";
+                                ashards[i].querySelector("p").style.className+=" fadeIn";
+                            default:break;
+                        }
+                }   
             }
         
     }
@@ -256,8 +272,8 @@
         <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%); clip-path: polygon(100% 0, 100% 100%, 0 100%);">
             <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);clip-path: polygon(100% 0, 100% 100%, 0 100%);background-image: url(2019bg.jpg);"></div>
         </div>
-        <a href=#><div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 65% 100%, 100% 0); clip-path: polygon(0 0, 65% 100%, 100% 0); left:25%">
-            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 65% 100%, 100% 0);clip-path: polygon(0 0, 65% 100%, 100% 0);background-image: url(2019bg.jpg);"></div>
+        <a href=#><div class="shard wow animated animable" id="s1" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 65% 100%, 100% 0); clip-path: polygon(0 0, 65% 100%, 100% 0); left:25%">
+            <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 65% 100%, 100% 0);clip-path: polygon(0 0, 65% 100%, 100% 0);background-image: url(2019bg.jpg);"><p class="w3-center wow animated" data-wow-duration="2s" style="padding-top: 10%"><p></div>
         </div></a>
         <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 65% 50%, 50% 100%, 0 100%); clip-path: polygon(0 0, 65% 50%, 50% 100%, 0 100%); left:25%; height: 50%">
             <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 65% 50%, 50% 100%, 0 100%);clip-path: polygon(0 0, 65% 50%, 50% 100%, 0 100%);"></div>
@@ -268,7 +284,7 @@
         <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 35% 50%, 0 100%); clip-path: polygon(0 0, 35% 50%, 0 100%); top:25%; height: 50%">
             <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(0 0, 35% 50%, 0 100%);clip-path: polygon(0 0, 35% 50%, 0 100%);background-image: url(2019bg.jpg);"></div>
         </div>
-        <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 50%,65% 100%,0 100%,35% 50%); clip-path: polygon(100% 0, 100% 50%,65% 100%,0 100%,35% 50%); top:25%; height: 50%">
+        <div class="shard wow animated animable" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 50%,65% 100%,0 100%,35% 50%); clip-path: polygon(100% 0, 100% 50%,65% 100%,0 100%,35% 50%); top:25%; height: 50%">
             <div class="ishard wow animated bg2" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 50%,65% 100%,0 100%,35% 50%);clip-path: polygon(100% 0, 100% 50%,65% 100%,0 100%,35% 50%);background-image: url(2019bg.jpg);"></div>
         </div>
         <div class="shard wow animated" data-wow-duration="2s" style="-webkit-clip-path: polygon(100% 0, 100% 100%,0 100%,41% 0); clip-path: polygon(100% 0, 100% 100%,0 100%,41% 0); top:50%; left: 16.25%; width: 21.25%">
