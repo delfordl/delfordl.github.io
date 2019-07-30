@@ -1,4 +1,32 @@
 onload=function(){loadFn();}
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    bmenu();
+  } else {
+    tmenu();
+  }
+}
+
+// Initial state
+/*var scrollPos = 0;
+var cSec
+// adding scroll event
+ window.addEventListener('scroll', function(){
+  // detects new state and compares it with the new one
+  if ((document.body.getBoundingClientRect()).top > scrollPos)
+		cSec--;
+        if(cSec<=0) cSec=0;
+	else
+		cSec++;
+        if(cSec>=localArray.length) cSec=localArray.length;
+	// saves the new position for iteration.
+    if(!window.location.href.includes(localArray[cSec])) window.location.href=localArray[cSec];
+    setTimeout(function(){document.write();},10000);
+	scrollPos = (document.body.getBoundingClientRect()).top;
+});
+var localArray=["#anch1","#anch2", "#fb", "#yt"];*/
 function loadFn()
 {
     var bms=document.getElementsByClassName("bm");

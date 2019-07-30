@@ -15,6 +15,23 @@
     display: grid;
     grid-template-columns: 50% auto;
     animation-fill-mode: forwards;
+    z-index: 1;
+}
+.nav1 ul li{
+    letter-spacing: .1em;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+}
+.nav1 .list-item:hover{
+    color: teal;
+    cursor: pointer;
+}
+.list-item{
+    margin: 5px;
+    text-transform: 10px;
+    padding: 5px;
+    text-decoration: none;
 }
 .nav2{
     position: absolute;
@@ -23,8 +40,8 @@
     display: grid;
     grid-template-columns: 70% auto;
     animation-fill-mode: forwards;
-    visibility: hidden; 
-    display: none;
+    opacity: 0;
+    z-index: -1;
 }
 .bookmarks
 {
@@ -54,7 +71,9 @@
     top:-10px;
     animation-fill-mode: forwards;
     clip-path: polygon(0% 0%, 0% 100%, 50% 70%, 100% 100%, 100% 0%);
-    
+}
+.bm:hover{
+    cursor: pointer;
 }
     
 #bm1{
@@ -114,13 +133,17 @@ body{
 .titleSpace
 {
     grid-area: titleArea;
-    min-height: 500px;
+    min-height: 600px;
     padding: 20px 10px 10px 20px;
 }
 .titleSpace h1{
+    position: absolute;
+    top: 500px;
     font-size: 64px;
 }
 .titleSpace h2{
+    position: absolute;
+    top:600px;
     font-size: 36px;
 }
 .titleSpace img{
@@ -139,7 +162,7 @@ body{
         'sub2'
         'sub3';
     position: sticky;
-    z-index: -1;
+    z-index: 1;
     top: 100px;
     max-height: 500px;
 }
@@ -151,6 +174,21 @@ body{
 }
 .sub1 {
     padding: 10px;
+}
+.button{
+    background-color: purple;
+    font-size: 32px;
+    font-weight: bold;
+    border: solid 2px aqua;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 20px 25px 20px 25px;
+}
+.button:hover{
+    background-color: aliceblue;
+    cursor: pointer;
 }
 /*.McallToAction{
     display: none;
@@ -238,11 +276,32 @@ body{
             'Facebook'
             'Youtube'
     }
+.nav1{
+    top: 20px;
+    display: grid;
+    grid-template-columns: 20% auto;
+    animation-fill-mode: forwards;
+    z-index: 1;
+}
+.nav2{
+    position: absolute;
+    top:0px;
+    right: 0px;
+    display: grid;
+    grid-template-columns: 20% auto;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    z-index: -1;
+    }
 .titleSpace h1{
+    position: absolute;
+    top:350px;
     font-size: 48px;
     margin: 0 auto;
     }
 .titleSpace h2{
+    position: absolute;
+    top: 400px;
     font-size: 24px;
     margin: 0 auto;
     }
@@ -326,6 +385,7 @@ body{
     -webkit-transform: translateY(-270px) translateX(-140px) scale(0.15);
     transform: translateX(-270px) translateX(-140px) scale(0.15);
     z-index: 2;
+    position: sticky;
   }
 }
 
@@ -335,6 +395,7 @@ body{
     -ms-transform: translateY(-270px) translateX(-140px) scale(0.15);
     transform: translateY(-270px) translateX(-140px) scale(0.15);
     z-index: 2;
+    position: sticky;
   }
 }
 
@@ -353,6 +414,7 @@ body{
   }
     100%{
         z-index: auto;
+        position: relative;
     }
 }
 
@@ -365,6 +427,7 @@ body{
   }
     100%{
         z-index: auto;
+        position: relative;
     }
 }
 
@@ -376,19 +439,27 @@ body{
 }
 /***/
 @-webkit-keyframes mUp {
+    0%{
+        opacity: 1;
+    }
   100% {
     -webkit-transform: translateY(-270px);
     transform: translateX(-270px);
-    visibility: hidden
+    opacity: 1;
+    z-index: -1;
   }
 }
 
 @keyframes mUp {
+    0%{
+        opacity: 1;
+    }
   100% {
     -webkit-transform: translateY(-270px);
     -ms-transform: translateY(-270px);
     transform: translateY(-270px);
-    visibility: hidden;
+    opacity: 1;
+    z-index: -1;
   }
 }
 
@@ -405,11 +476,15 @@ body{
   0% {
     -webkit-transform: translateY(-270px);
     transform: translateX(-270px);
+    opacity: 1;
+    z-index: 1;
   }
     100%{
     visibility: visible;
     -webkit-transform: translateY(0px);
     transform: translateX(0px);
+    opacity: 1;
+    z-index: 1;
     }
 }
 
@@ -418,12 +493,15 @@ body{
     -webkit-transform: translateY(-270px);
     -ms-transform: translateY(-270px);
     transform: translateY(-270px);
+    opacity: 1;
+    z-index: 1;
   }
   100%{
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
     transform: translateY(0px);
-    visibility: visible
+    opacity: 1;
+    z-index: 1;
   }
 }
 
