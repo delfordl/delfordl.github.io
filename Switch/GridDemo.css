@@ -23,7 +23,8 @@
     display: grid;
     grid-template-columns: 70% auto;
     animation-fill-mode: forwards;
-    visibility: hidden;
+    visibility: hidden; 
+    display: none;
 }
 .bookmarks
 {
@@ -95,13 +96,20 @@ body{
     max-width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(10,1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
     grid-template-areas: 
-        'titleArea titleArea titleArea titleArea titleArea titleArea titleArea callArea callArea callArea'
-        'newsFeedArea newsFeedArea newsFeedArea newsFeedArea newsFeedArea newsFeedArea newsFeedArea callArea callArea callArea'
-        'Instagram Instagram Instagram Instagram Instagram Facebook Facebook Facebook Facebook Facebook'
-        'Youtube Youtube Youtube Youtube Youtube Youtube Youtube Youtube Youtube Youtube'
+        'cArea cArea'
+        'Instagram Facebook'
+        'Youtube Youtube'
+}
+.content-area{
+    grid-area: cArea;
+    display: grid;
+    grid-template-columns: repeat (5, 1fr);
+    grid-template-areas: 
+        'titleArea titleArea titleArea callArea callArea callArea'
+        'newsFeedArea newsFeedArea newsFeedArea callArea callArea callArea'
 }
 .titleSpace
 {
@@ -122,6 +130,19 @@ body{
     animation-fill-mode: forwards;
 }
 
+.callToAction{
+    grid-area: callArea;
+    display: grid;
+    grid-template-rows: repeat(3,minmax(content,content));
+    grid-template-areas: 
+        'sub1'
+        'sub2'
+        'sub3';
+    position: sticky;
+    z-index: -1;
+    top: 100px;
+    max-height: 500px;
+}
 .sub3 {
     padding: 10px;
 }
@@ -131,21 +152,12 @@ body{
 .sub1 {
     padding: 10px;
 }
-.callToActionWrapper{
-    grid-area: callArea;
-    min-height: 1100px;
-}
-.callToAction{
-    display: grid;
-    grid-template-rows: 3fr 1fr 1fr;
-    grid-template-areas: 
-        'sub1'
-        'sub2'
-        'sub3';
+/*.McallToAction{
+    display: none;
     position: sticky;
     z-index: -1;
     top: 100px;
-}
+}*/
 .newsFeed{
     grid-area: newsFeedArea;
     padding: 20px;
@@ -183,6 +195,10 @@ body{
     margin: 10px;
     padding: 10px;
 }
+.main-sidebar3 iframe{
+        height: 400px;
+        width: 100%;
+    }
 .footer{
     display: grid;
     margin: auto;
@@ -207,6 +223,7 @@ body{
 .foot4{
     grid-area: copyright;
 }
+/**********Mobile Query********/
 @media screen and (max-width:700px)
 {
     .wrapper{
@@ -216,46 +233,54 @@ body{
         grid-template-columns: auto;
         grid-gap: 10px;
         grid-template-areas: 
-            'titleArea'
-            'callArea'
-            'newsFeedArea'
+            'cArea'
             'Instagram'
             'Facebook'
             'Youtube'
     }
-    .callToAction{
+.titleSpace h1{
+    font-size: 48px;
+    margin: 0 auto;
+    }
+.titleSpace h2{
+    font-size: 24px;
+    margin: 0 auto;
+    }
+.titleSpace img{
+    max-height: 250px;
+    max-width: 250px;
+    margin: 0 auto;
+    }
+.content-area{
+    grid-area: cArea;
+    display: grid;
+    margin: auto;
+    grid-template-columns: auto;
+    grid-template-areas: 
+        'titleArea'
+        'newsFeedArea'
+        'callArea'
+}
+.callToAction{
+    grid-area: callArea
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
         'sub2 sub3';
-    max-height: 100px;
-    }
-    .callToActionWrapper{
-    background: url(background_ek1.png);
-    background-color: aqua;
-    border-radius: 35px 35px 0 0;
-    width: 100%;
-    grid-area: callArea;
     position: sticky;
+    z-index: 1;
     bottom: 0px;
-    min-height: 100px;
-    max-height: 150px;
+    background: url(background_ek1.png);
+    max-height: 200px;
+    border-radius: 25px 25px 25px 25px;
+    border-top: 20px;
+}
+.sub1{
+     display: none;
     }
-    .sub1{
-        display: none;
-    }
-    .titleSpace h1{
-    font-size: 48px;
-    margin: 0 auto;
-    }
-    .titleSpace h2{
-    font-size: 24px;
-    margin: 0 auto;
-    }
-    .titleSpace img{
-    max-height: 250px;
-    max-width: 250px;
-    margin: 0 auto;
+.main-sidebar3 iframe{
+        height: 300px;
+        width: 100%;
     }
 }
 /***Mobile Query End***/
