@@ -91,6 +91,9 @@
 #bm5{
     background-color: blue;   
 }
+#bm6{
+    background-color: blue;   
+}
 body{
     background: url(background_ek1.png),  url(Brochure_Cover_03_A2_Rectangle_3_pattern.png), linear-gradient(#ddd,#444);
     background-size: 100% 100%, cover, 100% 100%;
@@ -385,7 +388,7 @@ body{
     -webkit-transform: translateY(-270px) translateX(-140px) scale(0.15);
     transform: translateX(-270px) translateX(-140px) scale(0.15);
     z-index: 2;
-    position: sticky;
+    position: fixed;
   }
 }
 
@@ -395,7 +398,7 @@ body{
     -ms-transform: translateY(-270px) translateX(-140px) scale(0.15);
     transform: translateY(-270px) translateX(-140px) scale(0.15);
     z-index: 2;
-    position: sticky;
+    position: fixed;
   }
 }
 
