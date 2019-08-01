@@ -226,7 +226,6 @@ body{
 }
 .main-sidebar3{
     grid-area: Youtube;
-    min-height: 400px;
     margin: 10px;
     padding: 10px;
     width: 90%
@@ -249,16 +248,31 @@ body{
 }
 .foot1{
     grid-area: foot1;
+    text-align: center;
 }
 .foot2{
     grid-area: foot2;
+    text-align: center;
 }
 .foot3{
     grid-area: foot3;
+    text-align: center;
 }
 /**********Mobile Query********/
 @media screen and (max-width:1000px)
 {
+.wrapper{
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-template-areas: 
+        'cArea'
+        'Instagram'
+        'Facebook'
+        'Youtube'
+}
 .titleSpace
 {
     position: relative;
@@ -269,7 +283,7 @@ body{
     padding: 20px 10px 10px 20px;
 }
 .main-wrapper{
-    max-width: 250px;
+    max-width: 350px;
     margin: auto;
 }
 .content-area{
@@ -284,7 +298,7 @@ body{
 }
 .nav-wrapper
 {
-    max-width: 250px;
+    max-width: 350px;
     left: 0;
     position: -webkit-sticky;
     position: sticky;
@@ -301,21 +315,27 @@ body{
     min-height: 350px;
     max-height: 350px;
     min-width: 500px;
-    padding: 20px 10px 10px 20px;
+    padding: 10px 10px 10px 10px;
 }
 .titleSpace h1{
     font-size: 28px;
+    text-align: center;
 }
 .titleSpace h2{
+    text-align: center;
     font-size: 14px;
 }
 .titleText{
     position: absolute;
     bottom: 0px;
+    width: 350px;
 }
 .titleSpace img{
     height: 250px;
     width: 250px;
+    margin: auto;
+    position: relative;
+    margin:auto;
     padding: 10px;
     animation-fill-mode: both;
 }
@@ -326,7 +346,7 @@ body{
     padding: 20px;
     background-color: #f0f0f0;
     border-radius: 4px 25px 25px 4px;
-    max-width: 250px;
+    max-width: 350px;
 }   
     
 .callToAction{
@@ -334,11 +354,12 @@ body{
     grid-area: callArea;
     display: grid;
     position: sticky;
-    grid-template-rows: auto;
+    grid-template-columns: 3fr 2fr;
     grid-template-areas: 
-        'sub2 sub3';
+        'sub2'
+        'sub3';
     bottom: 0px;
-    max-width:250px;
+    max-width:350px;
     justify-content: center;
     z-index: 1;
     border-radius: 25px;
@@ -352,6 +373,7 @@ body{
     .sub3{
         margin: auto;
     }
+
 .button{
     background-color: purple;
     font-size: 14px;
@@ -360,15 +382,34 @@ body{
     color: white;
     padding: 8px 12px 8px 12px;
 }
-    .main-sidebar3 iframe{
+.main-sidebar{
+    max-width: 350px;
+    }
+.main-sidebar2{
+        max-width: 350px;
+    }
+.main-sidebar3{
+        max-width: 350px;
         margin: auto;
-        max-width: 250px;
-        height: 100px;
+    }
+.main-sidebar3 iframe{
+        margin: auto;
+        max-width: 350px;
+        height: 150px;
+    }
+.footer{
+        display: grid;
+        grid-template-rows: minmax(50px, content);
+        grid-template-areas: 
+            'foot1'
+            'foot2'
+            'foot3';
+        justify-content: space-around;
     }
 }
 /*{
 .wrapper{
-        max-width: 250px;
+        max-width: 350px;
         margin: 10px;
         display: grid;
         grid-template-columns: 1fr;
@@ -380,7 +421,7 @@ body{
             'Youtube'
     }
 .main-wrapper{
-    max-width: 250px;
+    max-width: 350px;
     margin: 0 auto;
     }
 .content-area{
@@ -396,13 +437,13 @@ body{
 .titleSpace
 {
     grid-area: titleArea;
-    min-width: 250px;
+    min-width: 350px;
     padding: 20px 10px 10px 20px;
     min-height: 400px;
 }
 .nav-wrapper
 {
-    width: 250px;
+    width: 350px;
     left: 0;
     position: -webkit-sticky;
     position: sticky;
@@ -464,8 +505,8 @@ body{
     font-size: 20px;
     }
 .titleSpace img{
-    max-height: 250px;
-    max-width: 250px;
+    max-height: 350px;
+    max-width: 350px;
     margin: 0 auto;
     }
 .newsFeed{
@@ -473,7 +514,7 @@ body{
     padding: 10px;
     background-color: #f0f0f0;
     border-radius: 4px 25px 25px 4px;
-    max-width: 250px;
+    max-width: 350px;
     margin-left: 0px;
 }
 
