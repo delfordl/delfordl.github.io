@@ -5,11 +5,13 @@
 .content-area{
     max-width: 1200px;
     grid-area: cArea;
+    margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat (5, 1fr);
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: 
-        'titleArea titleArea titleArea callArea callArea callArea'
-        'newsFeedArea newsFeedArea newsFeedArea callArea callArea callArea'
+        'newsFeedArea callArea'
+        'newsFeedArea2 callArea2'
 }
 body{
     background: url(background_ek1.png),  url(Brochure_Cover_03_A2_Rectangle_3_pattern.png), linear-gradient(#ddd,#444);
@@ -32,6 +34,7 @@ p,h1, h2, h3, h4 ,h5, h6{
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
     grid-gap: 10px;
     grid-template-areas: 
         'cArea cArea'
@@ -147,8 +150,16 @@ p,h1, h2, h3, h4 ,h5, h6{
 {
     position: relative;
     grid-area: titleArea;
-    min-height: 600px;
-    max-height: 600px;
+    min-height: 100px;
+    max-height: 100px;
+    padding: 20px 10px 10px 20px;
+}
+.titleSpace2
+{
+    position: relative;
+    grid-area: titleArea2;
+    min-height: 100px;
+    max-height: 100px;
     padding: 20px 10px 10px 20px;
 }
 .titleSpace h1{
@@ -177,13 +188,31 @@ p,h1, h2, h3, h4 ,h5, h6{
     grid-area: newsFeedArea;
     max-width: inherit;
     position: relative;
-    padding: 20px;
-    background-color: #f0f0f0;
     border-radius: 4px 25px 25px 4px;
     max-width: 700px;
-    min-width: 700px;
-    min-height: 700px;
+    min-height: 500px;
+    border: 10px;
 }
+.newsFeed img{
+    position: absolute
+    top:0px;
+    height: 700px;
+    width: 500px;
+    border-radius: 25px;
+    }
+.newsFeed2{
+    grid-area: newsFeedArea2;
+    max-width: inherit;
+    position: relative;
+    border-radius: 4px 25px 25px 4px;
+    max-width: 700px;
+    min-height: 500px;
+}
+.newsFeed2 img{
+    height: 400px;
+    width: 325px;
+    border-radius: 25px;
+    }
 .news{
     position: absolute;
     display: none;
@@ -201,7 +230,6 @@ p,h1, h2, h3, h4 ,h5, h6{
 .callToAction{
     grid-area: callArea;
     display: grid;
-    position: sticky;
     grid-template-rows: repeat(3,minmax(content,content));
     grid-template-areas: 
         'sub1'
@@ -210,14 +238,25 @@ p,h1, h2, h3, h4 ,h5, h6{
     top: 100px;
     right: 0px;
     max-height: 500px;
-    max-width: 400px;
+}
+.callToAction2{
+    grid-area: callArea2;
+    display: grid;
+    grid-template-rows: repeat(3,minmax(content,content));
+    grid-template-areas: 
+        'sub1'
+        'sub2'
+        'sub3';
+    top: 100px;
+    right: 0px;
+    max-height: 500px;
 }
 .sub3 {
     padding: 10px;
-    margin-left: 150px;
+    margin-left: 300px;
 }
 .sub2 {
-    margin-left: 100px;
+    margin-left: 300px;
     padding: 10px;
 }
 .sub3 a{
@@ -232,9 +271,6 @@ a:hover{
 }
 .sub1 {
     padding: 10px;
-}
-.sub1 h4{
-    font-family: "Prompt !important";
 }
 .button{
     background-color: #662d91;
@@ -492,9 +528,10 @@ a:hover{
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-template-areas: 
-        "titleArea"
         "newsFeedArea"
-        "callArea";
+        "callArea"
+        "newsFeedArea2"
+        "callArea2";
 }
 .nav-wrapper
 {
@@ -507,7 +544,7 @@ a:hover{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 .nav1 ul li{
-   font-size: 14px;
+   font-size: 10px;
     font-weight: 900;
 }
 .list-item{
@@ -586,29 +623,41 @@ a:hover{
     grid-area: newsFeedArea;
     max-width: inherit;
     padding: 20px;
-    background-color: #f0f0f0;
     border-radius: 4px 25px 25px 4px;
     min-width: 350px;
     max-width: 350px;
 }   
-    
+.newsFeed img{
+    height: 500px;
+    width: 325px;
+    border-radius: 25px;
+    }    
 .callToAction{
     background-color: #19a49e;
     grid-area: callArea;
     display: grid;
-    position: sticky;
     grid-template-columns: 2fr 3fr;
     grid-template-areas: 
         'sub2'
-        'sub3';
+        'sub2';
     bottom: 0px;
     max-width:350px;
     justify-content: center;
     border-radius: 25px;
 }
-    .sub1 h4{
-        font-family: "Prompt !important";
-    }
+.callToAction2{
+    background-color: #19a49e;
+    grid-area: callArea2;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas: 
+        'sub2'
+        'sub2';
+    bottom: 0px;
+    max-width:350px;
+    justify-content: center;
+    border-radius: 25px;
+}
 .sub1{
     display: none;
     }

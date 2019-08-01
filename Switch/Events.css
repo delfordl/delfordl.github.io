@@ -2,15 +2,6 @@
     max-width: 1200px;
     margin: auto;
 }
-.content-area{
-    max-width: 1200px;
-    grid-area: cArea;
-    display: grid;
-    grid-template-columns: repeat (5, 1fr);
-    grid-template-areas: 
-        'titleArea titleArea titleArea callArea callArea callArea'
-        'newsFeedArea newsFeedArea newsFeedArea callArea callArea callArea'
-}
 body{
     background: url(background_ek1.png),  url(Brochure_Cover_03_A2_Rectangle_3_pattern.png), linear-gradient(#ddd,#444);
     background-size: 100% 100%, cover, 100% 100%;
@@ -31,12 +22,26 @@ p,h1, h2, h3, h4 ,h5, h6{
     max-width: 1200px
     margin: 0 auto;
     display: grid;
+    min-height: 80vh;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows:100px 200px 200px;
     grid-gap: 10px;
     grid-template-areas: 
-        'cArea cArea'
-        'Instagram Facebook'
-        'Youtube Youtube'
+        'title title'
+        'n1 n2'
+        'n3 n4'
+}
+.title{
+    margin: auto;
+    padding: auto;
+    text-align: center;
+}
+.title h1{
+    margin: auto;
+}
+.title img{
+    height: 50px;
+    width: 50px;
 }
 /******Navbar Stuff****/
 .nav-wrapper
@@ -142,101 +147,41 @@ p,h1, h2, h3, h4 ,h5, h6{
 .burger-icon{
     display: none;
 }
-/*****Content:Title****/
-.titleSpace
-{
-    position: relative;
-    grid-area: titleArea;
-    min-height: 600px;
-    max-height: 600px;
-    padding: 20px 10px 10px 20px;
-}
-.titleSpace h1{
-    font-size: 64px;
-    font-family: "Prompt !important";
-    z-index: 0
-}
-.titleSpace h2{
-    font-size: 36px;
-    font-family: "Prompt !important";
-    z-index: 0
-}
-.titleText{
-    position: absolute;
-    bottom: 0px;
-    z-index: 0;
-}
-.titleSpace img{
-    height: 400px;
-    width: 400px;
-    padding: 20px;
-    animation-fill-mode: both;
-}
+
 /*****Newsfeed***/
-.newsFeed{
-    grid-area: newsFeedArea;
-    max-width: inherit;
-    position: relative;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 4px 25px 25px 4px;
-    max-width: 700px;
-    min-width: 700px;
-    min-height: 700px;
-}
-.news{
-    position: absolute;
+.BelowText{
+    background-color: red;
     display: none;
+    height: 200px;
+    width: 500px;
     padding: 10px;
-    top:0px;
-    animation-fill-mode: forwards;
-}
-.news img{
-    margin: auto;
-    height: 300px;
-    width: 600px;
-    padding: 10px;
-}
-/*****Call to Action*****/
-.callToAction{
-    grid-area: callArea;
-    display: grid;
-    position: sticky;
-    grid-template-rows: repeat(3,minmax(content,content));
-    grid-template-areas: 
-        'sub1'
-        'sub2'
-        'sub3';
-    top: 100px;
-    right: 0px;
+    border-radius: 25px;
+    max-width: 500px;
     max-height: 500px;
-    max-width: 400px;
 }
-.sub3 {
-    padding: 10px;
-    margin-left: 150px;
+.card{
+    max-width: 300px;
+    max-height: 500px;
 }
-.sub2 {
-    margin-left: 100px;
-    padding: 10px;
+.newsFeed1{
+    margin: auto;
+    grid-area: n1;
 }
-.sub3 a{
-    background-color: #662d91;
-    color: #19a49e;
-    padding: 15px;
-    border: 5px;
+.newsFeed2{
+    margin: auto;
+    grid-area: n2;
 }
-a:hover{
-    background-color: #19a49e;
-    color: #662d91;
+.newsFeed3{
+    margin: auto;
+    grid-area: n3;
+    
 }
-.sub1 {
-    padding: 10px;
-}
-.sub1 h4{
-    font-family: "Prompt !important";
+.newsFeed4{
+    margin: auto;
+    grid-area: n4;
 }
 .button{
+    margin: auto;
     background-color: #662d91;
     font-size: 32px;
     font-weight: bold;
@@ -251,33 +196,20 @@ a:hover{
     color: #662d91;
     cursor: pointer;
 }
-/***Social Media****/
-.main-sidebar{
-    grid-area: Facebook;
-    min-height: 500px;
-    max-height: 600px;
-    margin: 10px;
+.news{
+    position: absolute;
+    display: none;
     padding: 10px;
+    top:0px;
+    animation-fill-mode: forwards;
 }
-.main-sidebar2{
-    grid-area: Instagram;
-    min-height: 500px;
-    max-height: 600px;
-    margin: 10px;
-    padding: 10px;
-}
-.main-sidebar3{
-    grid-area: Youtube;
+.news img{
     margin: auto;
+    height: 300px;
+    width: 600px;
     padding: 10px;
-    width: 900px;
 }
-.main-sidebar3 iframe{
-        margin: auto;
-        height: 400px;
-        width: 900px;
-    }
-/****Footer***/
+x/****Footer***/
 .footer{
     display: grid;
     margin: auto;
@@ -474,27 +406,33 @@ a:hover{
     max-width: 350px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: content, 1fr, 1fr, 1fr, 1fr;
     grid-gap: 10px;
     grid-template-areas: 
-        'cArea'
-        'Instagram'
-        'Facebook'
-        'Youtube'
+        'title'
+        'n1'
+        'n2'
+        'n3'
+        'n4'
+}
+.BelowText{
+    margin: 0 auto;
+    background-color: red;
+    height: 200px;
+    width: 500px;
+    padding: 10px;
+    border-radius: 25px;
+    max-width: 300px;
+    max-height: 500px;
+}
+.card{
+    max-width: 300px;
+    max-height: 500px;
 }
 .main-wrapper{
     max-width: 350px;
     margin: auto;
-}
-.content-area{
-    grid-area: cArea;
-    max-width: 350px;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: 
-        "titleArea"
-        "newsFeedArea"
-        "callArea";
 }
 .nav-wrapper
 {
@@ -606,9 +544,6 @@ a:hover{
     justify-content: center;
     border-radius: 25px;
 }
-    .sub1 h4{
-        font-family: "Prompt !important";
-    }
 .sub1{
     display: none;
     }
