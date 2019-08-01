@@ -44,18 +44,31 @@ function pull(puller)
     for (var i=0;i<bms.length;i++)
         {
             bms[i].classList.remove("pullDown");
-            bms[i].style.backgroundColor="blue";
+            bms[i].style.backgroundColor="teal";
         }   
     var pull=document.getElementById(puller);
     pull.classList.add("pullDown");
-    pull.style.backgroundColor="red";
-    window.location.href="#footer";
+    pull.style.backgroundColor="#662d91";
+    var href="#"
+    switch(puller.charAt(2))
+        {
+            case '1':href="#";break;
+            case '2':href="#";break;
+            case '3':href="#";break;
+            case '4':href="#";break;
+            case '5':href="#";break;
+            case '6':href="#";break;    
+                
+            default:href="#";break;
+        }
+    window.location.href="#"
 }
 function bmenu()
 {
     var log=document.getElementById("mlogo");
     var m1=document.getElementsByClassName("nav1")[0];
     var m2=document.getElementsByClassName("nav2")[0];
+    document.getElementById("mlogo").addEventListener("click",function(){window.location.href="#";});
     
     log.classList.remove("logoswitch");
     log.classList.remove("logounswitch");
@@ -73,6 +86,7 @@ function tmenu()
     var log=document.getElementById("mlogo");
     var m1=document.getElementsByClassName("nav1")[0];
     var m2=document.getElementsByClassName("nav2")[0];
+    document.getElementById("mlogo").removeEventListener("click",function(){window.location.href="#";});
     
     log.classList.remove("logoswitch");
     log.classList.remove("logounswitch");
