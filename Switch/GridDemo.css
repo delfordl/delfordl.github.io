@@ -94,6 +94,8 @@ p,h1, h2, h3, h4 ,h5, h6{
     height: 100px;
     width: 50px;
     display: inline-grid;
+    border: 2px solid #444;
+    box-shadow: 5px;
     border-radius: 3px 3px 15px 15px;
     top:-10px;
     animation-fill-mode: forwards;
@@ -105,22 +107,22 @@ p,h1, h2, h3, h4 ,h5, h6{
 }
     
 #bm1{
-    background-color: red;
+    background-color: #662d91;
 }
 #bm2{
-    background-color: blue;
+    background-color: teal;
 }
 #bm3{
-    background-color: blue;    
+    background-color: teal;    
 }
 #bm4{
-    background-color: blue;    
+    background-color: teal;    
 }
 #bm5{
-    background-color: blue;   
+    background-color: teal;   
 }
 #bm6{
-    background-color: blue;   
+    background-color: teal;   
 }
 
 .list-item
@@ -329,12 +331,8 @@ p,h1, h2, h3, h4 ,h5, h6{
 .bm{
     height: 90px;
     width: 35px;
-    display: inline-grid;
     border-radius: 3px 3px 15px 15px;
     top:-10px;
-    animation-fill-mode: forwards;
-    -webkit-clip-path: polygon(0% 0%, 0% 100%, 50% 70%, 100% 100%, 100% 0%);
-    clip-path: polygon(0% 0%, 0% 100%, 50% 70%, 100% 100%, 100% 0%);
 }
 .bm:hover{
     cursor: pointer;
