@@ -17,6 +17,9 @@ body{
     background-attachment: scroll, fixed, scroll;
     
 }
+a{
+    text-decoration: none;
+}
 *{
         font-family: "Prompt !important";
         scroll-behavior: smooth;
@@ -63,7 +66,6 @@ p,h1, h2, h3, h4 ,h5, h6{
     font-size: 18px;
 }
 .nav1 .list-item:hover{
-    color: teal;
     cursor: pointer;
 }
 .list-item{
@@ -91,8 +93,8 @@ p,h1, h2, h3, h4 ,h5, h6{
     z-index: 2;
 }
 .bm{
-    height: 100px;
-    width: 50px;
+    height: 120px;
+    width: 60px;
     display: inline-grid;
     border: 2px solid #444;
     box-shadow: 5px;
@@ -267,14 +269,17 @@ a:hover{
         'foot1 foot2 foot3';
 }
 .foot1{
+    font-family: "Prompt !important";
     grid-area: foot1;
     text-align: center;
 }
 .foot2{
+    font-family: "Prompt !important";
     grid-area: foot2;
     text-align: center;
 }
 .foot3{
+    font-family: "Prompt !important";
     grid-area: foot3;
     text-align: center;
 }
@@ -486,7 +491,8 @@ a:hover{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 .nav1 ul li{
-   font-size: 9px;
+   font-size: 14px;
+    font-weight: 900;
 }
 .list-item{
     text-transform: 10px;
@@ -511,8 +517,8 @@ a:hover{
     z-index: 2;
 }
 .bm{
-    height: 90px;
-    width: 35px;
+    height: 100px;
+    width: 45px;
     border-radius: 3px 3px 15px 15px;
     top:-10px;
 }
