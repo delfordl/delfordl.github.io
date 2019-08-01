@@ -3,6 +3,7 @@
     margin: auto;
 }
 .content-area{
+    max-width: 1200px;
     grid-area: cArea;
     display: grid;
     grid-template-columns: repeat (5, 1fr);
@@ -20,8 +21,11 @@ body{
         font-family: "Prompt !important";
         scroll-behavior: smooth;
 }
+p,h1, h2, h3, h4 ,h5, h6{
+        font-family: "Prompt !important";
+}
 .wrapper{
-    max-width: 100%;
+    max-width: 1200px
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -39,10 +43,11 @@ body{
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    background: url(background_ek1.png);
+    background-color: #19a49e;
     background-attachment: scroll;
     border-radius: 0 0 35px 35px;
     margin: auto;
+    z-index: 1;
 }
 .nav1{
     top: 20px;
@@ -139,13 +144,18 @@ body{
 }
 .titleSpace h1{
     font-size: 64px;
+    font-family: "Prompt !important";
+    z-index: 0
 }
 .titleSpace h2{
     font-size: 36px;
+    font-family: "Prompt !important";
+    z-index: 0
 }
 .titleText{
     position: absolute;
     bottom: 0px;
+    z-index: 0;
 }
 .titleSpace img{
     height: 400px;
@@ -177,27 +187,22 @@ body{
     right: 0px;
     max-height: 500px;
     max-width: 400px;
-    z-index: -1;
 }
 .sub3 {
     padding: 10px;
     margin-left: 150px;
-    z-index: -1;
 }
 .sub2 {
     margin-left: 100px;
     padding: 10px;
-    z-index: -1;
 }
 .sub1 {
     padding: 10px;
-    z-index: -1
 }
 .button{
-    background-color: purple;
+    background-color: #662d91;
     font-size: 32px;
     font-weight: bold;
-    border: solid 2px aqua;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -205,13 +210,9 @@ body{
     padding: 20px 25px 20px 25px;
 }
 .button:hover{
-    background-color: aliceblue;
     cursor: pointer;
 }
 /***Social Media****/
-.fb-page{
-    z-index: -1;
-}
 .main-sidebar{
     grid-area: Facebook;
     min-height: 500px;
@@ -326,7 +327,7 @@ body{
     z-index: 2;
 }
 .bm{
-    height: 75px;
+    height: 90px;
     width: 35px;
     display: inline-grid;
     border-radius: 3px 3px 15px 15px;
@@ -384,7 +385,7 @@ body{
 }   
     
 .callToAction{
-    background: url(background_ek1.png);
+    background-color: #19a49e;
     grid-area: callArea;
     display: grid;
     position: sticky;
@@ -395,7 +396,6 @@ body{
     bottom: 0px;
     max-width:350px;
     justify-content: center;
-    z-index: 1;
     border-radius: 25px;
 }
 .sub1{
@@ -409,11 +409,8 @@ body{
     }
 
 .button{
-    background-color: purple;
+    background-color: #662d91;
     font-size: 14px;
-    font-weight: bold;
-    border: solid 2px aqua;
-    color: white;
     padding: 8px 12px 8px 12px;
 }
 .main-sidebar{
@@ -451,6 +448,64 @@ body{
     .foot3{
         margin: auto;
     }
+@-webkit-keyframes logoswicth {
+  100% {
+    -webkit-transform: translateY(-120px) translateX(-60px) scale(0.15);
+    transform: translateX(-120px) translateX(-60px) scale(0.15);
+    z-index: 2;
+    position: fixed;
+  }
+}
+
+@keyframes logoswitch {
+  100% {
+    -webkit-transform: translateY(-120px) translateX(-60px) scale(0.15);
+    -ms-transform: translateY(-120px) translateX(-60px) scale(0.15);
+    transform: translateY(-120px) translateX(-60px) scale(0.15);
+    z-index: 2;
+    position: fixed;
+  }
+}
+
+.logoswitch {
+  -webkit-animation-name: logoswitch;
+  animation-name: logoswitch;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+/***/
+@-webkit-keyframes logounswicth {
+  0% {
+    -webkit-transform: translateY(-270px) translateX(-140px) scale(0.15);
+    transform: translateX(-270px) translateX(-140px) scale(0.15);
+    z-index: 2;
+  }
+    100%{
+        z-index: 0;
+        position: relative;
+    }
+}
+
+@keyframes logounswitch {
+  0% {
+    -webkit-transform: translateY(-270px) translateX(-140px) scale(0.15);
+    -ms-transform: translateY(-270px) translateX(-140px) scale(0.15);
+    transform: translateY(-270px) translateX(-140px) scale(0.15);
+    z-index: 2;
+  }
+    100%{
+        z-index: auto;
+        position: relative;
+    }
+}
+
+.logounswitch {
+  -webkit-animation-name: logounswitch;
+  animation-name: logounswitch;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
 }
 /*{
 .wrapper{
