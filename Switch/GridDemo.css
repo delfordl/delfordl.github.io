@@ -89,7 +89,7 @@ body{
     height: 100px;
     width: 50px;
     display: inline-grid;
-    border-radius: 3px 3px 0px 15px;
+    border-radius: 3px 3px 15px 15px;
     top:-10px;
     animation-fill-mode: forwards;
     -webkit-clip-path: polygon(0% 0%, 0% 100%, 50% 70%, 100% 100%, 100% 0%);
@@ -135,7 +135,6 @@ body{
     grid-area: titleArea;
     min-height: 600px;
     max-height: 600px;
-    min-width: 500px;
     padding: 20px 10px 10px 20px;
 }
 .titleSpace h1{
@@ -162,6 +161,7 @@ body{
     background-color: #f0f0f0;
     border-radius: 4px 25px 25px 4px;
     max-width: 100%;
+    min-width: 100%;
 }
 /*****Call to Action*****/
 .callToAction{
@@ -174,16 +174,18 @@ body{
         'sub2'
         'sub3';
     top: 100px;
+    right: 0px;
     max-height: 500px;
-    min-width:  300px;
+    max-width: 400px;
     z-index: -1;
-    justify-content: right;
 }
 .sub3 {
     padding: 10px;
+    margin-left: 150px;
     z-index: -1;
 }
 .sub2 {
+    margin-left: 100px;
     padding: 10px;
     z-index: -1;
 }
@@ -226,13 +228,14 @@ body{
 }
 .main-sidebar3{
     grid-area: Youtube;
-    margin: 10px;
+    margin: auto;
     padding: 10px;
-    width: 90%
+    width: 900px;
 }
 .main-sidebar3 iframe{
+        margin: auto;
         height: 400px;
-        width: 100%;
+        width: 900px;
     }
 /****Footer***/
 .footer{
@@ -262,7 +265,7 @@ body{
 @media screen and (max-width:1000px)
 {
 .wrapper{
-    max-width: 100%;
+    max-width: 350px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -273,22 +276,13 @@ body{
         'Facebook'
         'Youtube'
 }
-.titleSpace
-{
-    position: relative;
-    grid-area: titleArea;
-    min-height: 600px;
-    max-height: 600px;
-    min-width: 500px;
-    padding: 20px 10px 10px 20px;
-}
 .main-wrapper{
     max-width: 350px;
     margin: auto;
 }
 .content-area{
     grid-area: cArea;
-    display: grid;
+    max-width: 350px;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-template-areas: 
@@ -299,22 +293,57 @@ body{
 .nav-wrapper
 {
     max-width: 350px;
-    left: 0;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    background: url(background_ek1.png);
-    background-attachment: scroll;
-    border-radius: 0 0 35px 35px;
-    margin: auto;
+}
+.nav1 ul{
+    align-items: left;
+    right: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.nav1 ul li{
+   font-size: 9px;
+}
+.list-item{
+    text-transform: 10px;
+    text-decoration: none;
+}
+.nav2{
+    position: absolute;
+    right: 10px;
+    top:0px;
+    display: grid;
+    grid-template-columns: 10% auto;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    z-index: -1;
+}
+.bookmarks
+{
+    display: grid;
+    grid-template-columns: repeat(6,auto);
+    padding-bottom: 10px;
+    grid-gap: 5px;
+    z-index: 2;
+}
+.bm{
+    height: 75px;
+    width: 35px;
+    display: inline-grid;
+    border-radius: 3px 3px 15px 15px;
+    top:-10px;
+    animation-fill-mode: forwards;
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 50% 70%, 100% 100%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 50% 70%, 100% 100%, 100% 0%);
+}
+.bm:hover{
+    cursor: pointer;
 }
 .titleSpace
 {
     position: relative;
     grid-area: titleArea;
     min-height: 350px;
-    max-height: 350px;
-    min-width: 500px;
+    max-width: 350px;
     padding: 10px 10px 10px 10px;
 }
 .titleSpace h1{
@@ -328,6 +357,7 @@ body{
 .titleText{
     position: absolute;
     bottom: 0px;
+    right: 0px;
     width: 350px;
 }
 .titleSpace img{
@@ -339,6 +369,10 @@ body{
     padding: 10px;
     animation-fill-mode: both;
 }
+.logoWrapper{
+    margin: auto;
+    width: 260px;
+    }
 /*****Newsfeed***/
 .newsFeed{
     grid-area: newsFeedArea;
@@ -395,16 +429,27 @@ body{
 .main-sidebar3 iframe{
         margin: auto;
         max-width: 350px;
-        height: 150px;
+        height: 200px;
     }
 .footer{
         display: grid;
+        width: 100%;
         grid-template-rows: minmax(50px, content);
         grid-template-areas: 
             'foot1'
             'foot2'
             'foot3';
         justify-content: space-around;
+        margin: auto;
+    }
+    .foot1{
+        margin: auto;
+    }
+    .foot2{
+        margin: auto;
+    }
+    .foot3{
+        margin: auto;
     }
 }
 /*{
