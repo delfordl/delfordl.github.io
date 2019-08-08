@@ -1,5 +1,18 @@
 onload=function(){loadFn();}
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {myFunction();}
+
+function RegCL(){
+    var con=document.getElementById("Cname").value;
+    var cl=document.getElementById("CL").value;
+    var a1=document.getElementById("ACL1").value;
+    var a2=document.getElementById("ACL2").value;
+    var cinfo=con+"|"+cl+"|"+a1+"|"+a2;    
+    var date = new Date();
+    date.setTime(date.getTime() + (24*60*60/2));
+    expires = "; expires=" + date.toUTCString();
+    
+    document.cookie=cinfo+expires+"; path=/;"
+}
 
 function myFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -29,34 +42,87 @@ var cSec
 var localArray=["#anch1","#anch2", "#fb", "#yt"];*/
 function loadFn()
 {
+    if(document.cookie.length!=0)
+        {
+            var ck=document.cookie.split("|");
+            document.getElementById("Cname").value=ck[0];
+            document.getElementById("CL").value=ck[1];
+            document.getElementById("ACL1").value=ck[2];
+            document.getElementById("ACL2").value=ck[3];
+        }
+    else{
+            document.getElementById("Cname").value="Please Register your Contingent";
+            document.getElementById("CL").value="Please Register your Contingent";
+            document.getElementById("ACL1").value="Please Register your Contingent";
+            document.getElementById("ACL2").value="Please Register your Contingent";
+    }
     var bms=document.getElementsByClassName("bm");
-    var log=document.getElementsByClassName("logo")[0];
+    var btns=document.getElementsByClassName("smb")
     for (var i=0;i<bms.length;i++)
         {
             bms[i].addEventListener("click",function(){pull(this.id);});
+            bms[i].addEventListener("mouseover",function(){bmHover(this.id);});
+            bms[i].addEventListener("mouseout",function(){bmReset();});
         }
-    log.addEventListener("click",function(){menuswitch();});
-    
+    for (var i=0;i<btns.length;i++)
+        {
+            btns[i].addEventListener("mouseenter",function(){btnHover(this.id);});
+            btns[i].addEventListener("mouseleave",function(){btnReset();});
+        }    
+}
+function btnHover(hov)
+{
+    var hoverer=document.getElementById(hov);
+    if(!hoverer.src.includes("2.png"))
+    hoverer.src=hoverer.src.replace(".png","2.png");
+}
+function btnReset()
+{
+    var btns=document.getElementsByClassName("smb");
+    for (var i=0;i<btns.length;i++)
+        {
+                {
+                    btns[i].src=btns[i].src.replace("2.png",".png");
+                }
+        }       
 }
 function imgswitch(i)
 {
-    document.getElementById(i).classList.remove("fadeOut");
-    document.getElementById(i).classList.remove("fadeIn");
-    document.getElementById(i).classList.add("fadeOut");
-    if(document.getElementById(i).src.includes("Cover.jpeg"))
+    if(document.getElementById(i).src.includes("BroCover.png"))
     {
-        document.getElementById(i).src="Pg1.jpeg";
+        document.getElementById(i).src="Pg1.png";
     }
     else
-    document.getElementById(i).src="Cover.jpeg";
-    document.getElementById(i).classList.remove("fadeOut");
-    document.getElementById(i).classList.add("fadeIn");
+    document.getElementById(i).src="BroCover.png";
+}
+function imgswitchNews(i)
+{
+    if(document.getElementById(i).src.includes("CLBro"))
+    {
+        document.getElementById(i).src="CLCP.JPG";
+    }
+    else if(document.getElementById(i).src.includes("CLCP"))
+        {
+        document.getElementById(i).src="CLSetup1.JPG";
+        }
+        else if(document.getElementById(i).src.includes("CLSetup1"))
+        {
+        document.getElementById(i).src="CLHost.JPG";
+        }
+        else if(document.getElementById(i).src.includes("CLHost"))
+        {
+        document.getElementById(i).src="CLSetup2.JPG";
+        }
+        else if(document.getElementById(i).src.includes("CLSetup2"))
+        {
+        document.getElementById(i).src="CLBro.JPG";
+        }
 }
 function pull(puller)
 {
     var bms=document.getElementsByClassName("bm");
     var pull=document.getElementById(puller);
-    var nItems=document.getElementsByClassName("news");
+    //var nItems=document.getElementsByClassName("news");
     
     for (var i=0;i<bms.length;i++)
         {
@@ -65,17 +131,18 @@ function pull(puller)
         }   
     pull.classList.add("pullDown");
     pull.style.backgroundColor="#662d91";
-    /*var href="#"
+    var href;
     switch(puller.charAt(2))
         {
-            case '1':href="Events";break;
-            case '2':href="Registration";break;
-            case '3':href="Blog";break;
-            case '4':href="Crew";break;  
+            case '0':href="https://festmosaic.com";break;
+            case '1':href="https://festmosaic.com/Events";break;
+            case '2':href="https://festmosaic.com/ComingSoon";break;
+            case '3':href="https://festmosaic.com/ComingSoon";break;
+            case '4':href="https://festmosaic.com/ComingSoon";break;  
                 
             default:href="#";break;
         }
-    for(var i=0;i<nItems.length;i++)
+    /*for(var i=0;i<nItems.length;i++)
         {
             if(nItems[i].style.display!="none")
                 {
@@ -102,9 +169,26 @@ function pull(puller)
                     nItems[i].classList.add("fadeInRight");
                 }
             },3000)
-        }
+        }*/
     
-    window.location.href="#"+href;*/
+    window.location=href;
+}
+function bmHover(hov)
+{
+    var hoverer=document.getElementById(hov);
+    if(!hoverer.querySelector("img").src.includes("2.png"))
+    hoverer.querySelector("img").src=hoverer.querySelector("img").src.replace(".png","2.png");
+}
+function bmReset()
+{
+    var bms=document.getElementsByClassName("bm");
+    for (var i=0;i<bms.length;i++)
+        {
+            if(!bms[i].className.includes("selected"))
+                {
+                    bms[i].querySelector("img").src=bms[i].querySelector("img").src.replace("2.png",".png");
+                }
+        }       
 }
 function bmenu()
 {
@@ -115,6 +199,7 @@ function bmenu()
     
     log.classList.remove("logoswitch");
     log.classList.remove("logounswitch");
+    log.style.cursor="pointer";
     m1.classList.remove("mDown");
     m2.classList.remove("mUp");
     m2.classList.remove("mDown");
@@ -133,6 +218,7 @@ function tmenu()
     
     log.classList.remove("logoswitch");
     log.classList.remove("logounswitch");
+    log.style.cursor="default";
     m1.classList.remove("mUp");
     m2.classList.remove("mDown");
     m1.classList.remove("mDown");
