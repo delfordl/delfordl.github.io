@@ -10,10 +10,10 @@ function RegCL(){
     var email=document.getElementById("E-mail").value;
     var cinfo=con+"|"+cl+"|"+a1+"|"+a2+"|"+num+"|"+email;    
     var date = new Date();
-    date.setTime(date.getTime() + (90*24*60*60));
+    date.setTime(date.getTime() + (180*24*60*60*1000));
     expires = "; expires=" + date.toUTCString();
-    
     document.cookie=cinfo+expires+"; path=/;";
+    window.location="https://festmosaic.com/Registration/C_EventList";     
 }
 
 function myFunction() {
