@@ -13,7 +13,7 @@ function RegCL(){
     date.setTime(date.getTime() + (90*24*60*60));
     expires = "; expires=" + date.toUTCString();
     
-    document.cookie=cinfo+expires+"; path=/;"
+    document.cookie=cinfo+expires+"; path=/;";
     window.location="https://festmosaic.com/Registration/C_EventList";
 }
 
