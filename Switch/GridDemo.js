@@ -8,7 +8,7 @@ function RegCL(){
     var a2=document.getElementById("ACL2").value;
     var cinfo=con+"|"+cl+"|"+a1+"|"+a2;    
     var date = new Date();
-    date.setTime(date.getTime() + (24*60*60/2));
+    date.setTime(date.getTime() + (90*24*60*60));
     expires = "; expires=" + date.toUTCString();
     
     document.cookie=cinfo+expires+"; path=/;"
