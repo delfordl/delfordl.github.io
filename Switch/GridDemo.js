@@ -6,12 +6,15 @@ function RegCL(){
     var cl=document.getElementById("CL").value;
     var a1=document.getElementById("ACL1").value;
     var a2=document.getElementById("ACL2").value;
-    var cinfo=con+"|"+cl+"|"+a1+"|"+a2;    
+    var num=document.getElementById("Contact").value;
+    var email=document.getElementById("E-mail").value;
+    var cinfo=con+"|"+cl+"|"+a1+"|"+a2+"|"+num+"|"+email;    
     var date = new Date();
     date.setTime(date.getTime() + (90*24*60*60));
     expires = "; expires=" + date.toUTCString();
     
     document.cookie=cinfo+expires+"; path=/;"
+    window.location="https://festmosaic.com/Registration/C_EventList
 }
 
 function myFunction() {
@@ -49,12 +52,16 @@ function loadFn()
             document.getElementById("CL").value=ck[1];
             document.getElementById("ACL1").value=ck[2];
             document.getElementById("ACL2").value=ck[3];
+            document.getElementById("Contact").value=ck[4];
+            document.getElementById("E-mail").value=ck[5];
         }
     else{
             document.getElementById("Cname").value="Please Register your Contingent";
             document.getElementById("CL").value="Please Register your Contingent";
             document.getElementById("ACL1").value="Please Register your Contingent";
             document.getElementById("ACL2").value="Please Register your Contingent";
+            document.getElementById("Contact").value="Please Register your Contingent";
+            document.getElementById("E-mail").value="Please Register your Contingent";    
     }
     var bms=document.getElementsByClassName("bm");
     var btns=document.getElementsByClassName("smb")
