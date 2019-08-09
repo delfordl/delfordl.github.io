@@ -1,5 +1,6 @@
 onload=function(){loadFn();}
 window.onscroll = function() {myFunction();}
+var submitted=false;
 
 function RegCL(){
     var con=document.getElementById("Cname").value;
@@ -15,7 +16,11 @@ function RegCL(){
     document.cookie=cinfo+expires+"; path=/;";
     window.location="https://festmosaic.com/Registration/C_EventList";     
 }
-
+function sub()
+{
+    document.querySelector("form").submit();
+    window.location=document.getElementById("next").href;
+}
 function myFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     bmenu();

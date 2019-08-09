@@ -141,6 +141,9 @@ li a:hover{
     height: 40px;
     width: 40px;
 }
+.selected{
+    background-color: #6629d1;
+}
 .list-item
 {
     display: inline;
@@ -208,6 +211,11 @@ li a:hover{
     width: 60%;
     padding: 10px;
     border-radius: 15px;
+}
+.RegImgIcon{
+    height: 60px;
+    width: 60px;
+    padding: 10px;
 }
 /*****Call to Action*****/
 .callToAction{
@@ -597,6 +605,12 @@ li a:hover{
     text-align: center;
     font-size: 14px;
 }
+    h1{
+        font-size: 28px;
+    }
+    h2{
+        font-size: 24px;
+    }
     .sup{
         font-family: 'Oswald';
     }
@@ -652,6 +666,11 @@ li a:hover{
     .sub1 h4{
         font-family: "'Google Sans' !important";
     }
+.RegImgIcon{
+    height: 30px;
+    width: 30px;
+    padding: 10px;
+}
 .sub1{
     display: none;
     }
